@@ -1198,7 +1198,7 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             try {
                 ps=koneksi.prepareStatement(
                     "select date_format(surat_pemesanan_medis.tanggal,'%d/%m/%Y') as tanggal,surat_pemesanan_medis.no_pemesanan, "+
-                    "surat_pemesanan_medis.kode_suplier,datasuplier.nama_suplier, "+
+                    "surat_pemesanan_medis.kode_suplier,datasuplier.nama_suplier,datasuplier.alamat, "+
                     "surat_pemesanan_medis.nip,pegawai.nama,"+
                     "surat_pemesanan_medis.status,surat_pemesanan_medis.total2,"+
                     "surat_pemesanan_medis.ppn,surat_pemesanan_medis.meterai,"+
@@ -1226,12 +1226,14 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                         param.put("kontakrs",akses.getkontakrs());
                         param.put("emailrs",akses.getemailrs());
                         param.put("suplier",rs.getString("nama_suplier"));
+                        param.put("almtsuplier",rs.getString("alamat"));        //KMM tambahan untuk jasper
                         param.put("nomorpesan",rs.getString("no_pemesanan"));
                         param.put("total",Valid.SetAngka(rs.getDouble("total2")));
                         param.put("ppn",Valid.SetAngka(rs.getDouble("ppn")));
                         param.put("meterai",Valid.SetAngka(rs.getDouble("meterai")));
                         param.put("tagihan",Valid.SetAngka(rs.getDouble("tagihan")));
-                        param.put("tanggal",akses.getkabupatenrs()+", "+rs.getString("tanggal"));
+//                        param.put("tanggal",akses.getkabupatenrs()+", "+rs.getString("tanggal"));                        
+                        param.put("tanggal",rs.getString("tanggal"));           //KMM EDIT tanggal untuk jasper
                         param.put("apoteker",Apoteker.getText());
                         param.put("petugas",rs.getString("nama"));
                         param.put("kabidkeu",KabidKeu.getText());
