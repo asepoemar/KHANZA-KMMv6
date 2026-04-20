@@ -217,6 +217,7 @@
                   <Image iconType="3" name="/picture/accept.png"/>
                 </Property>
                 <Property name="mnemonic" type="int" value="49"/>
+                <Property name="text" type="java.lang.String" value="Cari"/>
                 <Property name="toolTipText" type="java.lang.String" value="Alt+1"/>
                 <Property name="name" type="java.lang.String" value="BtnCari1" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -234,13 +235,14 @@
                   <Image iconType="3" name="/picture/Search-16x16.png"/>
                 </Property>
                 <Property name="mnemonic" type="int" value="50"/>
+                <Property name="text" type="java.lang.String" value="Refresh"/>
                 <Property name="toolTipText" type="java.lang.String" value="2Alt+2"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="1"/>
                 </Property>
                 <Property name="name" type="java.lang.String" value="BtnAll" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[28, 23]"/>
+                  <Dimension value="[100, 23]"/>
                 </Property>
               </Properties>
               <Events>
@@ -270,11 +272,11 @@
                   <Image iconType="3" name="/picture/Search-16x16.png"/>
                 </Property>
                 <Property name="mnemonic" type="int" value="67"/>
-                <Property name="text" type="java.lang.String" value="Cari"/>
+                <Property name="text" type="java.lang.String" value="Data Permintaan"/>
                 <Property name="toolTipText" type="java.lang.String" value="Alt+C"/>
                 <Property name="name" type="java.lang.String" value="BtnCari" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[100, 30]"/>
+                  <Dimension value="[140, 30]"/>
                 </Property>
               </Properties>
               <Events>
@@ -304,6 +306,12 @@
         </Container>
         <Container class="widget.panelisi" name="panelisi3">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
             <Property name="name" type="java.lang.String" value="panelisi3" noResource="true"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[100, 73]"/>
@@ -321,7 +329,10 @@
           <SubComponents>
             <Component class="widget.Label" name="label15">
               <Properties>
-                <Property name="text" type="java.lang.String" value="No.Permintaan :"/>
+                <Property name="text" type="java.lang.String" value="No.(otomatis) :"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="11" style="1"/>
+                </Property>
                 <Property name="name" type="java.lang.String" value="label15" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[80, 23]"/>
@@ -335,6 +346,7 @@
             </Component>
             <Component class="widget.TextBox" name="NoPermintaan">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="name" type="java.lang.String" value="NoPermintaan" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[207, 23]"/>
@@ -411,6 +423,9 @@
             <Component class="widget.Label" name="label16">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ditujukan Ke :"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="11" style="1"/>
+                </Property>
                 <Property name="name" type="java.lang.String" value="label16" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[60, 23]"/>
@@ -511,6 +526,9 @@
             <Component class="widget.Label" name="label14">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Asal Permintaan :"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="11" style="1"/>
+                </Property>
                 <Property name="name" type="java.lang.String" value="label14" noResource="true"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[70, 23]"/>
@@ -570,6 +588,44 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="489" y="40" width="70" height="23"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JTextArea" name="jTextArea2">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="0" red="cc" type="rgb"/>
+                </Property>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="text" type="java.lang.String" value="1. Isi depo dengan benar&#xa;2. klik  &#x25cb; REFRESH agar muncul stok depo&#xa;3. Perhatikan stok depo tujuan,&#xa;    jangan isi jumlah melebihi stok tujuan"/>
+                <Property name="name" type="java.lang.String" value="jTextArea2" noResource="true"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="850" y="0" width="240" height="70"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JTextArea" name="jTextArea3">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="12" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="0" red="99" type="rgb"/>
+                </Property>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="text" type="java.lang.String" value="PERHATIAN :"/>
+                <Property name="name" type="java.lang.String" value="jTextArea3" noResource="true"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="770" y="0" width="80" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>

@@ -173,6 +173,8 @@ public class DlgPermintaan extends javax.swing.JDialog {
         btnSuplier1 = new widget.Button();
         nmgudangasal = new widget.TextBox();
         kdgudangasal = new widget.TextBox();
+        jTextArea2 = new javax.swing.JTextArea();
+        jTextArea3 = new javax.swing.JTextArea();
 
         Popup.setName("Popup"); // NOI18N
 
@@ -290,6 +292,7 @@ public class DlgPermintaan extends javax.swing.JDialog {
 
         BtnCari1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari1.setMnemonic('1');
+        BtnCari1.setText("Cari");
         BtnCari1.setToolTipText("Alt+1");
         BtnCari1.setName("BtnCari1"); // NOI18N
         BtnCari1.setPreferredSize(new java.awt.Dimension(28, 23));
@@ -307,10 +310,11 @@ public class DlgPermintaan extends javax.swing.JDialog {
 
         BtnAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
         BtnAll.setMnemonic('2');
+        BtnAll.setText("Refresh");
         BtnAll.setToolTipText("2Alt+2");
         BtnAll.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         BtnAll.setName("BtnAll"); // NOI18N
-        BtnAll.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnAll.setPreferredSize(new java.awt.Dimension(100, 23));
         BtnAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAllActionPerformed(evt);
@@ -337,10 +341,10 @@ public class DlgPermintaan extends javax.swing.JDialog {
 
         BtnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
         BtnCari.setMnemonic('C');
-        BtnCari.setText("Cari");
+        BtnCari.setText("Data Permintaan");
         BtnCari.setToolTipText("Alt+C");
         BtnCari.setName("BtnCari"); // NOI18N
-        BtnCari.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnCari.setPreferredSize(new java.awt.Dimension(140, 30));
         BtnCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCariActionPerformed(evt);
@@ -373,16 +377,20 @@ public class DlgPermintaan extends javax.swing.JDialog {
 
         internalFrame1.add(panelisi1, java.awt.BorderLayout.PAGE_END);
 
+        panelisi3.setForeground(new java.awt.Color(255, 0, 0));
+        panelisi3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         panelisi3.setName("panelisi3"); // NOI18N
         panelisi3.setPreferredSize(new java.awt.Dimension(100, 73));
         panelisi3.setLayout(null);
 
-        label15.setText("No.Permintaan :");
+        label15.setText("No.(otomatis) :");
+        label15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label15.setName("label15"); // NOI18N
         label15.setPreferredSize(new java.awt.Dimension(80, 23));
         panelisi3.add(label15);
         label15.setBounds(0, 10, 92, 23);
 
+        NoPermintaan.setEditable(false);
         NoPermintaan.setName("NoPermintaan"); // NOI18N
         NoPermintaan.setPreferredSize(new java.awt.Dimension(207, 23));
         NoPermintaan.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -431,6 +439,7 @@ public class DlgPermintaan extends javax.swing.JDialog {
         kdgudangTujuan.setBounds(95, 40, 70, 23);
 
         label16.setText("Ditujukan Ke :");
+        label16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label16.setName("label16"); // NOI18N
         label16.setPreferredSize(new java.awt.Dimension(60, 23));
         panelisi3.add(label16);
@@ -485,6 +494,7 @@ public class DlgPermintaan extends javax.swing.JDialog {
         btnPetugas.setBounds(734, 10, 28, 23);
 
         label14.setText("Asal Permintaan :");
+        label14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label14.setName("label14"); // NOI18N
         label14.setPreferredSize(new java.awt.Dimension(70, 23));
         panelisi3.add(label14);
@@ -518,6 +528,24 @@ public class DlgPermintaan extends javax.swing.JDialog {
         });
         panelisi3.add(kdgudangasal);
         kdgudangasal.setBounds(489, 40, 70, 23);
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(204, 0, 51));
+        jTextArea2.setRows(5);
+        jTextArea2.setText("1. Isi depo dengan benar\n2. klik  ○ REFRESH agar muncul stok depo\n3. Perhatikan stok depo tujuan,\n    jangan isi jumlah melebihi stok tujuan");
+        jTextArea2.setName("jTextArea2"); // NOI18N
+        panelisi3.add(jTextArea2);
+        jTextArea2.setBounds(850, 0, 240, 70);
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextArea3.setForeground(new java.awt.Color(153, 0, 51));
+        jTextArea3.setRows(5);
+        jTextArea3.setText("PERHATIAN :");
+        jTextArea3.setName("jTextArea3"); // NOI18N
+        panelisi3.add(jTextArea3);
+        jTextArea3.setBounds(770, 0, 80, 30);
 
         internalFrame1.add(panelisi3, java.awt.BorderLayout.PAGE_START);
 
@@ -954,6 +982,8 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.Button btnSuplier;
     private widget.Button btnSuplier1;
     private widget.InternalFrame internalFrame1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private widget.TextBox kdgudangTujuan;
     private widget.TextBox kdgudangasal;
     private widget.TextBox kdptg;
@@ -1178,9 +1208,18 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     }
     
     private void autoNomor() {
-        Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(permintaan_medis.no_permintaan,3),signed)),0) from permintaan_medis where permintaan_medis.tanggal='"+Valid.SetTgl(Tanggal.getSelectedItem()+"")+"' ",
-                "PM"+Tanggal.getSelectedItem().toString().substring(6,10)+Tanggal.getSelectedItem().toString().substring(3,5)+Tanggal.getSelectedItem().toString().substring(0,2),3,NoPermintaan); 
+        Valid.autoNomer3(
+            "SELECT IFNULL(MAX(CONVERT(RIGHT(permintaan_medis.no_permintaan,3),SIGNED)),0) " +
+            "FROM permintaan_medis " +
+            "WHERE DATE(permintaan_medis.tanggal)='" + Valid.SetTgl(Tanggal.getSelectedItem()+"") + "'",
+            "PM" + Tanggal.getSelectedItem().toString().substring(6,10) +
+                   Tanggal.getSelectedItem().toString().substring(3,5) +
+                   Tanggal.getSelectedItem().toString().substring(0,2),
+            3,
+            NoPermintaan
+        ); 
     }
+
 
     private void runBackground(Runnable task) {
         if (ceksukses) return;
