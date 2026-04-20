@@ -51,7 +51,7 @@ public class DlgCariPermintaan extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
 
-        Object[] row={"Tanggal","No.Permintaan","Asal Permintaan","Pegawai","Ditujukan Ke"};
+        Object[] row={"Tanggal & Jam","No.Permintaan","Asal Permintaan","Pegawai","Ditujukan Ke"};
         tabMode=new DefaultTableModel(null,row){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -63,13 +63,13 @@ public class DlgCariPermintaan extends javax.swing.JDialog {
         for (int i = 0; i < 5; i++) {
             TableColumn column = tbDokter.getColumnModel().getColumn(i);
             if(i==0){
-                column.setPreferredWidth(70);
+                column.setPreferredWidth(120);
             }else if(i==1){
                 column.setPreferredWidth(400);
             }else if(i==2){
-                column.setPreferredWidth(100);
+                column.setPreferredWidth(140);
             }else if(i==3){
-                column.setPreferredWidth(200);
+                column.setPreferredWidth(240);
             }else if(i==4){
                 column.setPreferredWidth(150);
             }
@@ -1263,11 +1263,11 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                 if(NoPermintaan.getText().equals("")&&NmBangsal.getText().equals("")&&NmPeg.getText().equals("")&&nmjenis.getText().equals("")&&
                     nmkategori.getText().equals("")&&nmgolongan.getText().equals("")&&nmbar.getText().equals("")&&TCari.getText().equals("")&&
                         Status.getSelectedItem().toString().equals("Semua")){
-                    ps.setString(1,Valid.SetTgl(Tanggal1.getSelectedItem()+""));
-                    ps.setString(2,Valid.SetTgl(Tanggal2.getSelectedItem()+""));
+                    ps.setString(1, Valid.SetTglJam(Tanggal1.getSelectedItem()+" 00:00:00"));
+                    ps.setString(2, Valid.SetTglJam(Tanggal2.getSelectedItem()+" 23:59:59"));
                 }else{
-                    ps.setString(1,Valid.SetTgl(Tanggal1.getSelectedItem()+""));
-                    ps.setString(2,Valid.SetTgl(Tanggal2.getSelectedItem()+""));
+                    ps.setString(1, Valid.SetTglJam(Tanggal1.getSelectedItem()+" 00:00:00"));
+                    ps.setString(2, Valid.SetTglJam(Tanggal2.getSelectedItem()+" 23:59:59"));
                     ps.setString(3,"%"+Status.getSelectedItem().toString().replaceAll("Semua","")+"%");
                     ps.setString(4,"%"+NoPermintaan.getText()+"%");
                     ps.setString(5,"%"+NmBangsal.getText()+"%");
