@@ -21,6 +21,7 @@ import java.io.FileWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -170,6 +171,8 @@ public class InventorySuratPemesanan extends javax.swing.JDialog {
         btnPetugas = new widget.Button();
         label14 = new widget.Label();
         Departemen = new widget.TextBox();
+        label18 = new widget.Label();
+        AlamatSuplier = new widget.TextBox();
         panelisi1 = new widget.panelisi();
         label10 = new widget.Label();
         TCari = new widget.TextBox();
@@ -376,11 +379,13 @@ public class InventorySuratPemesanan extends javax.swing.JDialog {
         panelisi3.setLayout(null);
 
         label15.setText("No.Pemesanan :");
+        label15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label15.setName("label15"); // NOI18N
         label15.setPreferredSize(new java.awt.Dimension(80, 23));
         panelisi3.add(label15);
         label15.setBounds(0, 10, 92, 23);
 
+        NoPemesanan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         NoPemesanan.setName("NoPemesanan"); // NOI18N
         NoPemesanan.setPreferredSize(new java.awt.Dimension(207, 23));
         NoPemesanan.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -389,13 +394,14 @@ public class InventorySuratPemesanan extends javax.swing.JDialog {
             }
         });
         panelisi3.add(NoPemesanan);
-        NoPemesanan.setBounds(95, 10, 120, 23);
+        NoPemesanan.setBounds(95, 10, 160, 23);
 
         label11.setText("Tanggal :");
+        label11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label11.setName("label11"); // NOI18N
         label11.setPreferredSize(new java.awt.Dimension(80, 23));
         panelisi3.add(label11);
-        label11.setBounds(220, 10, 55, 23);
+        label11.setBounds(40, 40, 55, 23);
 
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
@@ -410,13 +416,14 @@ public class InventorySuratPemesanan extends javax.swing.JDialog {
             }
         });
         panelisi3.add(Tanggal);
-        Tanggal.setBounds(279, 10, 90, 23);
+        Tanggal.setBounds(100, 40, 90, 23);
 
         label13.setText("Pegawai :");
+        label13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label13.setName("label13"); // NOI18N
         label13.setPreferredSize(new java.awt.Dimension(70, 23));
         panelisi3.add(label13);
-        label13.setBounds(385, 10, 75, 23);
+        label13.setBounds(260, 10, 75, 23);
 
         kdsup.setName("kdsup"); // NOI18N
         kdsup.setPreferredSize(new java.awt.Dimension(80, 23));
@@ -426,13 +433,14 @@ public class InventorySuratPemesanan extends javax.swing.JDialog {
             }
         });
         panelisi3.add(kdsup);
-        kdsup.setBounds(95, 40, 70, 23);
+        kdsup.setBounds(740, 10, 60, 23);
 
         label16.setText("Suplier :");
+        label16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label16.setName("label16"); // NOI18N
         label16.setPreferredSize(new java.awt.Dimension(60, 23));
         panelisi3.add(label16);
-        label16.setBounds(0, 40, 92, 23);
+        label16.setBounds(650, 10, 80, 23);
 
         kdptg.setName("kdptg"); // NOI18N
         kdptg.setPreferredSize(new java.awt.Dimension(80, 23));
@@ -442,19 +450,19 @@ public class InventorySuratPemesanan extends javax.swing.JDialog {
             }
         });
         panelisi3.add(kdptg);
-        kdptg.setBounds(463, 10, 76, 23);
+        kdptg.setBounds(340, 10, 70, 23);
 
         nmsup.setEditable(false);
         nmsup.setName("nmsup"); // NOI18N
         nmsup.setPreferredSize(new java.awt.Dimension(207, 23));
         panelisi3.add(nmsup);
-        nmsup.setBounds(167, 40, 170, 23);
+        nmsup.setBounds(800, 10, 220, 23);
 
         nmptg.setEditable(false);
         nmptg.setName("nmptg"); // NOI18N
         nmptg.setPreferredSize(new java.awt.Dimension(207, 23));
         panelisi3.add(nmptg);
-        nmptg.setBounds(541, 10, 190, 23);
+        nmptg.setBounds(410, 10, 220, 23);
 
         btnSuplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         btnSuplier.setMnemonic('1');
@@ -467,7 +475,7 @@ public class InventorySuratPemesanan extends javax.swing.JDialog {
             }
         });
         panelisi3.add(btnSuplier);
-        btnSuplier.setBounds(340, 40, 28, 23);
+        btnSuplier.setBounds(1020, 10, 28, 23);
 
         btnPetugas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         btnPetugas.setMnemonic('2');
@@ -480,19 +488,33 @@ public class InventorySuratPemesanan extends javax.swing.JDialog {
             }
         });
         panelisi3.add(btnPetugas);
-        btnPetugas.setBounds(734, 10, 28, 23);
+        btnPetugas.setBounds(630, 10, 28, 23);
 
         label14.setText("Departemen :");
+        label14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label14.setName("label14"); // NOI18N
         label14.setPreferredSize(new java.awt.Dimension(70, 23));
         panelisi3.add(label14);
-        label14.setBounds(385, 40, 75, 23);
+        label14.setBounds(250, 40, 80, 23);
 
         Departemen.setEditable(false);
         Departemen.setName("Departemen"); // NOI18N
         Departemen.setPreferredSize(new java.awt.Dimension(207, 23));
         panelisi3.add(Departemen);
-        Departemen.setBounds(463, 40, 299, 23);
+        Departemen.setBounds(340, 40, 210, 23);
+
+        label18.setText("Alamat Suplier :");
+        label18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        label18.setName("label18"); // NOI18N
+        label18.setPreferredSize(new java.awt.Dimension(60, 23));
+        panelisi3.add(label18);
+        label18.setBounds(570, 40, 100, 23);
+
+        AlamatSuplier.setEditable(false);
+        AlamatSuplier.setName("AlamatSuplier"); // NOI18N
+        AlamatSuplier.setPreferredSize(new java.awt.Dimension(207, 23));
+        panelisi3.add(AlamatSuplier);
+        AlamatSuplier.setBounds(680, 40, 340, 23);
 
         internalFrame1.add(panelisi3, java.awt.BorderLayout.PAGE_START);
 
@@ -816,6 +838,7 @@ private void btnSuplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 if(suplier.getTable().getSelectedRow()!= -1){                   
                     kdsup.setText(suplier.getTable().getValueAt(suplier.getTable().getSelectedRow(),0).toString());                    
                     nmsup.setText(suplier.getTable().getValueAt(suplier.getTable().getSelectedRow(),1).toString());
+                    AlamatSuplier.setText(suplier.getTable().getValueAt(suplier.getTable().getSelectedRow(),2).toString());
                 }  
                 kdsup.requestFocus();
             }
@@ -861,6 +884,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
                 if(pegawai.getTable().getSelectedRow()!= -1){   
                     kdptg.setText(pegawai.tbKamar.getValueAt(pegawai.tbKamar.getSelectedRow(),0).toString());
                     nmptg.setText(pegawai.tbKamar.getValueAt(pegawai.tbKamar.getSelectedRow(),1).toString());
+                    Departemen.setText(pegawai.tbKamar.getValueAt(pegawai.tbKamar.getSelectedRow(),5).toString());
                 }
             }
             @Override
@@ -1301,13 +1325,15 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             param.put("propinsirs",akses.getpropinsirs());
             param.put("kontakrs",akses.getkontakrs());
             param.put("emailrs",akses.getemailrs());  
-            param.put("suplier",nmsup.getText());  
+            param.put("suplier",nmsup.getText());
+            param.put("almtsuplier",AlamatSuplier.getText());  //KMM tambahan
             param.put("nomorpesan",NoPemesanan.getText());  
             param.put("total",LTotal2.getText());  
             param.put("ppn",LPpn.getText());  
             param.put("meterai",Valid.SetAngka(meterai));  
             param.put("tagihan",LTagiha.getText());  
-            param.put("tanggal",akses.getkabupatenrs()+", "+Tanggal.getSelectedItem());  
+//            param.put("tanggal",akses.getkabupatenrs()+", "+Tanggal.getSelectedItem());
+            param.put("tanggal", new SimpleDateFormat("dd/MM/yyyy").format(Tanggal.getDate())); //KMM edit tanggal
             param.put("apoteker",Apoteker.getText()); 
             param.put("petugas",nmptg.getText()); 
             param.put("kabidkeu",KabidKeu.getText()); 
@@ -1442,6 +1468,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private widget.TextBox AlamatSuplier;
     private widget.TextBox Apoteker;
     private widget.Button BtnAll;
     private widget.Button BtnCari;
@@ -1483,6 +1510,7 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private widget.Label label15;
     private widget.Label label16;
     private widget.Label label17;
+    private widget.Label label18;
     private widget.Label label19;
     private widget.Label label20;
     private widget.Label label24;
@@ -1718,9 +1746,36 @@ private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         }        
     }
     
+    private String bulanRomawi(int bulan) {
+        String[] romawi = {"I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"};
+        return romawi[bulan-1];
+    }
+
     private void autoNomor() {
-        Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(surat_pemesanan_medis.no_pemesanan,3),signed)),0) from surat_pemesanan_medis where surat_pemesanan_medis.tanggal='"+Valid.SetTgl(Tanggal.getSelectedItem()+"")+"' ",
-                "SPM"+Tanggal.getSelectedItem().toString().substring(8,10)+Tanggal.getSelectedItem().toString().substring(3,5)+Tanggal.getSelectedItem().toString().substring(0,2),3,NoPemesanan); 
+        // Ambil tanggal dari komponen (format dd-MM-yyyy)
+        String tgl = Tanggal.getSelectedItem().toString();
+        int bulan = Integer.parseInt(tgl.substring(3,5));
+        String tahun = tgl.substring(6,10);
+
+        // Nomor unit hardcode
+        String nomorUnit = "54";
+
+        // Query untuk nomor surat terakhir di tahun berjalan
+        String sql = "SELECT IFNULL(MAX(CONVERT(SUBSTRING_INDEX(no_pemesanan,'/',-4),SIGNED)),0) "
+                   + "FROM surat_pemesanan_medis "
+                   + "WHERE YEAR(tanggal)='" + tahun + "'";
+
+        // Gunakan autoNomer3 untuk menghasilkan nomor urut (misalnya "001")
+        Valid.autoNomer3(sql, "", 3, NoPemesanan);
+
+        // Ambil hasil nomor urut
+        String nomorSurat = NoPemesanan.getText();
+
+        // Gabungkan sesuai format
+        String hasil = nomorUnit + "/" + nomorSurat + "/KMM/" + bulanRomawi(bulan) + "/" + tahun;
+
+        // Set ke field
+        NoPemesanan.setText(hasil);
     }
 
     public DefaultTableModel tabMode(){
