@@ -23,6 +23,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -79,7 +80,7 @@ public class DlgDaftarPermintaanResep extends javax.swing.JDialog {
         tabMode=new DefaultTableModel(null,new Object[]{
                 "No.Resep","Tgl.Peresepan","Jam Peresepan","No.Rawat","No.RM","Pasien","Dokter Peresep",
                 "Status","Kode Dokter","Poli/Unit","Kode Poli","Jenis Bayar","Tgl.Validasi","Jam Validasi",
-                "Tgl.Penyerahan","Jam Penyerahan"
+                "Tgl.Penyerahan","Jam Penyerahan","ALERGI (hasil kajian)"
             }){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -89,10 +90,10 @@ public class DlgDaftarPermintaanResep extends javax.swing.JDialog {
         tbResepRalan.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbResepRalan.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (int i = 0; i <16; i++) {
+        for (int i = 0; i <17; i++) {
             TableColumn column = tbResepRalan.getColumnModel().getColumn(i);
             if(i==0){
-                column.setPreferredWidth(75);
+                column.setPreferredWidth(80);
             }else if(i==1){
                 column.setPreferredWidth(80);
             }else if(i==2){
@@ -125,6 +126,8 @@ public class DlgDaftarPermintaanResep extends javax.swing.JDialog {
                 column.setPreferredWidth(85);
             }else if(i==15){
                 column.setPreferredWidth(90);
+            }else if(i==16){
+                column.setPreferredWidth(280);
             }
         }
         tbResepRalan.setDefaultRenderer(Object.class, new WarnaTable());
@@ -3913,40 +3916,52 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     try{  
                         semua=CrDokter.getText().trim().equals("")&&CrPoli.getText().trim().equals("")&&TCari.getText().trim().equals("");
                         if(DEPOAKTIFOBAT.equals("")){
-                            ps=koneksi.prepareStatement("select resep_obat.no_resep,resep_obat.tgl_peresepan,resep_obat.jam_peresepan,"+
-                                    " resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter,"+
-                                    " if(resep_obat.tgl_perawatan='0000-00-00','Belum Terlayani','Sudah Terlayani') as status,poliklinik.nm_poli, "+
-                                    " reg_periksa.kd_poli,penjab.png_jawab,if(resep_obat.tgl_perawatan='0000-00-00','',resep_obat.tgl_perawatan) as tgl_perawatan,"+
-                                    " if(resep_obat.jam='00:00:00','',resep_obat.jam) as jam,"+
-                                    " if(resep_obat.tgl_penyerahan='0000-00-00','',resep_obat.tgl_penyerahan) as tgl_penyerahan,"+
-                                    " if(resep_obat.jam_penyerahan='00:00:00','',resep_obat.jam_penyerahan) as jam_penyerahan from resep_obat "+
-                                    " inner join reg_periksa on resep_obat.no_rawat=reg_periksa.no_rawat "+
-                                    " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                    " inner join dokter on resep_obat.kd_dokter=dokter.kd_dokter "+
-                                    " inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
-                                    " inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
-                                    " where resep_obat.tgl_peresepan<>'0000-00-00' and resep_obat.status='ralan' and resep_obat.tgl_peresepan between ? and ? "+
-                                    (semua?"":"and dokter.nm_dokter like ? and poliklinik.nm_poli like ? and "+
-                                    "(resep_obat.no_resep like ? or resep_obat.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
-                                    "penjab.png_jawab like ?)")+" order by resep_obat.tgl_peresepan desc,resep_obat.jam_peresepan desc");
+                            ps=koneksi.prepareStatement(
+                                "select resep_obat.no_resep,resep_obat.tgl_peresepan,resep_obat.jam_peresepan,"+
+                                " resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter,"+
+                                " if(resep_obat.tgl_perawatan='0000-00-00','Belum Terlayani','Sudah Terlayani') as status,poliklinik.nm_poli,"+
+                                " reg_periksa.kd_poli,penjab.png_jawab,if(resep_obat.tgl_perawatan='0000-00-00','',resep_obat.tgl_perawatan) as tgl_perawatan,"+
+                                " if(resep_obat.jam='00:00:00','',resep_obat.jam) as jam,"+
+                                " if(resep_obat.tgl_penyerahan='0000-00-00','',resep_obat.tgl_penyerahan) as tgl_penyerahan,"+
+                                " if(resep_obat.jam_penyerahan='00:00:00','',resep_obat.jam_penyerahan) as jam_penyerahan,"+
+                                " pr.alergi "+
+                                " from resep_obat "+
+                                " inner join reg_periksa on resep_obat.no_rawat=reg_periksa.no_rawat "+
+                                " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                                " inner join dokter on resep_obat.kd_dokter=dokter.kd_dokter "+
+                                " inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
+                                " inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
+                                " left join (select no_rawat,max(tgl_perawatan) as tgl_perawatan,alergi from pemeriksaan_ralan group by no_rawat) pr "+
+                                " on pr.no_rawat=resep_obat.no_rawat "+
+                                " where resep_obat.tgl_peresepan<>'0000-00-00' and resep_obat.status='ralan' and resep_obat.tgl_peresepan between ? and ? "+
+                                (semua?"":"and dokter.nm_dokter like ? and poliklinik.nm_poli like ? and "+
+                                "(resep_obat.no_resep like ? or resep_obat.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
+                                "penjab.png_jawab like ?)")+" order by resep_obat.tgl_peresepan desc,resep_obat.jam_peresepan desc"
+                            );
                         }else{
-                            ps=koneksi.prepareStatement("select resep_obat.no_resep,resep_obat.tgl_peresepan,resep_obat.jam_peresepan,"+
-                                    " resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter,"+
-                                    " if(resep_obat.tgl_perawatan='0000-00-00','Belum Terlayani','Sudah Terlayani') as status,poliklinik.nm_poli, "+
-                                    " reg_periksa.kd_poli,penjab.png_jawab,if(resep_obat.tgl_perawatan='0000-00-00','',resep_obat.tgl_perawatan) as tgl_perawatan,"+
-                                    " if(resep_obat.jam='00:00:00','',resep_obat.jam) as jam,"+
-                                    " if(resep_obat.tgl_penyerahan='0000-00-00','',resep_obat.tgl_penyerahan) as tgl_penyerahan,"+
-                                    " if(resep_obat.jam_penyerahan='00:00:00','',resep_obat.jam_penyerahan) as jam_penyerahan from resep_obat "+
-                                    " inner join reg_periksa on resep_obat.no_rawat=reg_periksa.no_rawat "+
-                                    " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                    " inner join dokter on resep_obat.kd_dokter=dokter.kd_dokter "+
-                                    " inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
-                                    " inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
-                                    " inner join set_depo_ralan on set_depo_ralan.kd_poli=reg_periksa.kd_poli "+
-                                    " where set_depo_ralan.kd_bangsal='"+DEPOAKTIFOBAT+"' and resep_obat.tgl_peresepan<>'0000-00-00' and resep_obat.status='ralan' and resep_obat.tgl_peresepan between ? and ? "+
-                                    (semua?"":"and dokter.nm_dokter like ? and poliklinik.nm_poli like ? and "+
-                                    "(resep_obat.no_resep like ? or resep_obat.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
-                                    "penjab.png_jawab like ?)")+" order by resep_obat.tgl_peresepan desc,resep_obat.jam_peresepan desc");
+                            ps=koneksi.prepareStatement(
+                                "select resep_obat.no_resep,resep_obat.tgl_peresepan,resep_obat.jam_peresepan,"+
+                                " resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter,"+
+                                " if(resep_obat.tgl_perawatan='0000-00-00','Belum Terlayani','Sudah Terlayani') as status,poliklinik.nm_poli,"+
+                                " reg_periksa.kd_poli,penjab.png_jawab,if(resep_obat.tgl_perawatan='0000-00-00','',resep_obat.tgl_perawatan) as tgl_perawatan,"+
+                                " if(resep_obat.jam='00:00:00','',resep_obat.jam) as jam,"+
+                                " if(resep_obat.tgl_penyerahan='0000-00-00','',resep_obat.tgl_penyerahan) as tgl_penyerahan,"+
+                                " if(resep_obat.jam_penyerahan='00:00:00','',resep_obat.jam_penyerahan) as jam_penyerahan,"+
+                                " pr.alergi "+
+                                " from resep_obat "+
+                                " inner join reg_periksa on resep_obat.no_rawat=reg_periksa.no_rawat "+
+                                " inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                                " inner join dokter on resep_obat.kd_dokter=dokter.kd_dokter "+
+                                " inner join poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli "+
+                                " inner join penjab on reg_periksa.kd_pj=penjab.kd_pj "+
+                                " inner join set_depo_ralan on set_depo_ralan.kd_poli=reg_periksa.kd_poli "+
+                                " left join (select no_rawat,max(tgl_perawatan) as tgl_perawatan,alergi from pemeriksaan_ralan group by no_rawat) pr "+
+                                " on pr.no_rawat=resep_obat.no_rawat "+
+                                " where set_depo_ralan.kd_bangsal='"+DEPOAKTIFOBAT+"' and resep_obat.tgl_peresepan<>'0000-00-00' and resep_obat.status='ralan' and resep_obat.tgl_peresepan between ? and ? "+
+                                (semua?"":"and dokter.nm_dokter like ? and poliklinik.nm_poli like ? and "+
+                                "(resep_obat.no_resep like ? or resep_obat.no_rawat like ? or pasien.no_rkm_medis like ? or pasien.nm_pasien like ? or "+
+                                "penjab.png_jawab like ?)")+" order by resep_obat.tgl_peresepan desc,resep_obat.jam_peresepan desc"
+                            );
                         }
 
                         try{
@@ -3970,7 +3985,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                         rs.getString("no_resep"),rs.getString("tgl_peresepan"),rs.getString("jam_peresepan"),rs.getString("no_rawat"),
                                         rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("nm_dokter"),rs.getString("status"),
                                         rs.getString("kd_dokter"),rs.getString("nm_poli"),rs.getString("kd_poli"),rs.getString("png_jawab"),
-                                        rs.getString("tgl_perawatan"),rs.getString("jam"),rs.getString("tgl_penyerahan"),rs.getString("jam_penyerahan")
+                                        rs.getString("tgl_perawatan"),rs.getString("jam"),rs.getString("tgl_penyerahan"),rs.getString("jam_penyerahan"),
+                                        rs.getString("alergi")
                                     });
                                 }  
                             }else{
@@ -3981,7 +3997,8 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                             rs.getString("no_resep"),rs.getString("tgl_peresepan"),rs.getString("jam_peresepan"),rs.getString("no_rawat"),
                                             rs.getString("no_rkm_medis"),rs.getString("nm_pasien"),rs.getString("nm_dokter"),rs.getString("status"),
                                             rs.getString("kd_dokter"),rs.getString("nm_poli"),rs.getString("kd_poli"),rs.getString("png_jawab"),
-                                            rs.getString("tgl_perawatan"),rs.getString("jam"),rs.getString("tgl_penyerahan"),rs.getString("jam_penyerahan")
+                                            rs.getString("tgl_perawatan"),rs.getString("jam"),rs.getString("tgl_penyerahan"),rs.getString("jam_penyerahan"),
+                                            rs.getString("alergi")
                                         });
                                     }                    
                                 }  
@@ -6302,73 +6319,114 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         }  
     }
     
-    private void jam(){
+    private void jam() {
         ActionListener taskPerformer = (ActionEvent e) -> {
-            if(aktif==true){
-                nol_detik = "";
-                Date now = Calendar.getInstance().getTime();
-                nilai_detik = now.getSeconds();
-                if (nilai_detik <= 9) {
-                    nol_detik = "0";
+            if (aktif) {
+                LocalTime now = LocalTime.now();
+                int detik = now.getSecond();
+
+                // Daftar detik pemicu
+                int[] triggerSeconds = {5, 15, 25, 35, 45};
+
+                for (int trigger : triggerSeconds) {
+                    if (detik == trigger) {
+                        if (trigger == 5 && formalarm.contains("ralan")) {
+                            new SwingWorker<Void, Void>() {
+                                @Override
+                                protected Void doInBackground() {
+                                    tampil();
+                                    return null;
+                                }
+                            }.execute();
+                        } else if (trigger == 15 && formalarm.contains("ranap")) {
+                            new SwingWorker<Void, Void>() {
+                                @Override
+                                protected Void doInBackground() {
+                                    tampil3();
+                                    return null;
+                                }
+                            }.execute();
+                        } else if (trigger == 25 && formalarm.contains("ranap")) {
+                            new SwingWorker<Void, Void>() {
+                                @Override
+                                protected Void doInBackground() {
+                                    tampil5();
+                                    return null;
+                                }
+                            }.execute();
+                        } else if (trigger == 35 && formalarm.contains("ranap")) {
+                            new SwingWorker<Void, Void>() {
+                                @Override
+                                protected Void doInBackground() {
+                                    tampil7();
+                                    return null;
+                                }
+                            }.execute();
+                        } else if (trigger == 45) {
+                            new SwingWorker<Void, Void>() {
+                                @Override
+                                protected Void doInBackground() {
+                                    int resepRalanBaru = 0;
+                                    int resepRanapBaru = 0;
+
+                                    // Cek resep ralan
+                                    if (formalarm.contains("ralan")) {
+                                        for (int i = 0; i < tbResepRalan.getRowCount(); i++) {
+                                            if (tbResepRalan.getValueAt(i, 7).toString().equals("Belum Terlayani")) {
+                                                resepRalanBaru++;
+                                            }
+                                        }
+                                    }
+
+                                    // Cek resep ranap
+                                    if (formalarm.contains("ranap")) {
+                                        for (int i = 0; i < tbResepRanap.getRowCount(); i++) {
+                                            if (tbResepRanap.getValueAt(i, 7).toString().equals("Belum Terlayani")) {
+                                                resepRanapBaru++;
+                                            }
+                                        }
+                                        for (int i = 0; i < tbPermintaanStok.getRowCount(); i++) {
+                                            if (tbPermintaanStok.getValueAt(i, 7).toString().equals("Belum Terlayani")) {
+                                                resepRanapBaru++;
+                                            }
+                                        }
+                                        for (int i = 0; i < tbPermintaanResepPulang.getRowCount(); i++) {
+                                            if (tbPermintaanResepPulang.getValueAt(i, 7).toString().equals("Belum Terlayani")) {
+                                                resepRanapBaru++;
+                                            }
+                                        }
+                                    }
+
+                                    // Tentukan alarm berdasarkan kondisi
+                                    try {
+                                        if (resepRalanBaru > 0 && resepRanapBaru > 0) {
+                                            // Alarm kombinasi
+                                            music = new BackgroundMusic("./suara/alarm_kombinasi.mp3");
+                                        } else if (resepRalanBaru > 0) {
+                                            // Alarm rajal
+                                            music = new BackgroundMusic("./suara/alarm_ralan.mp3");
+                                        } else if (resepRanapBaru > 0) {
+                                            // Alarm ranap
+                                            music = new BackgroundMusic("./suara/alarm_ranap.mp3");
+                                        }
+
+                                        if (music != null) {
+                                            music.start();
+                                        }
+                                    } catch (Exception ex) {
+                                        System.out.println(ex);
+                                    }
+
+                                    return null;
+                                }
+                            }.execute();
+                        }
+                    }
                 }
-
-                detik = nol_detik + Integer.toString(nilai_detik);
-                if(detik.equals("05")){
-                    if(formalarm.contains("ralan")){
-                        tampil();
-                    }
-                }else if(detik.equals("15")){
-                    if(formalarm.contains("ranap")){
-                        tampil3();
-                    }
-                }else if(detik.equals("25")){
-                    if(formalarm.contains("ranap")){
-                        tampil5();
-                    }
-                }else if(detik.equals("35")){
-                    if(formalarm.contains("ranap")){
-                        tampil7();
-                    }
-                }else if(detik.equals("45")){
-                    resepbaru=0;
-                    if(formalarm.contains("ralan")){
-                        for(i=0;i<tbResepRalan.getRowCount();i++){
-                            if(tbResepRalan.getValueAt(i,7).toString().equals("Belum Terlayani")){
-                                resepbaru++;
-                            }
-                        }
-                    }
-
-                    if(formalarm.contains("ranap")){
-                        for(i=0;i<tbResepRanap.getRowCount();i++){
-                            if(tbResepRanap.getValueAt(i,7).toString().equals("Belum Terlayani")){
-                                resepbaru++;
-                            }
-                        }
-                        for(i=0;i<tbPermintaanStok.getRowCount();i++){
-                            if(tbPermintaanStok.getValueAt(i,7).toString().equals("Belum Terlayani")){
-                                resepbaru++;
-                            }
-                        }
-                        for(i=0;i<tbPermintaanResepPulang.getRowCount();i++){
-                            if(tbPermintaanResepPulang.getValueAt(i,7).toString().equals("Belum Terlayani")){
-                                resepbaru++;
-                            }
-                        }
-                    }
-
-                    if(resepbaru>0){
-                        try {
-                            music = new BackgroundMusic("./suara/alarm.mp3");
-                            music.start();
-                        } catch (Exception ex) {
-                            System.out.println(ex);
-                        }
-                    }
-                }
-            }                
+            }
         };
-        // Timer
+
+        // Timer interval 1 detik agar tetap responsif
         new Timer(1000, taskPerformer).start();
     }
     
