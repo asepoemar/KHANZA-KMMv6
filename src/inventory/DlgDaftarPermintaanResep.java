@@ -3922,7 +3922,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                                 " resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,resep_obat.kd_dokter,dokter.nm_dokter,"+
                                 " if(resep_obat.tgl_perawatan='0000-00-00','Belum Terlayani','Sudah Terlayani') as status,poliklinik.nm_poli,"+
                                 " reg_periksa.kd_poli,penjab.png_jawab,if(resep_obat.tgl_perawatan='0000-00-00','',resep_obat.tgl_perawatan) as tgl_perawatan,"+
-                                " concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur) as umurdaftar,"+
+                                " concat('(',reg_periksa.umurdaftar,' ',reg_periksa.sttsumur,') ',pasien.jk) as umurdaftar,"+
                                 " if(resep_obat.jam='00:00:00','',resep_obat.jam) as jam,"+
                                 " if(resep_obat.tgl_penyerahan='0000-00-00','',resep_obat.tgl_penyerahan) as tgl_penyerahan,"+
                                 " if(resep_obat.jam_penyerahan='00:00:00','',resep_obat.jam_penyerahan) as jam_penyerahan,"+
