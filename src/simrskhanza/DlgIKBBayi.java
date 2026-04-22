@@ -495,6 +495,10 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         N10 = new widget.TextBox2();
         N5 = new widget.TextBox2();
         N1 = new widget.TextBox2();
+        label73 = new widget.Label();
+        label74 = new widget.Label();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         scrollPane1 = new widget.ScrollPane();
         tbDokter = new widget.Table();
 
@@ -1715,10 +1719,11 @@ public class DlgIKBBayi extends javax.swing.JDialog {
 
         FormInput.setBorder(null);
         FormInput.setName("FormInput"); // NOI18N
-        FormInput.setPreferredSize(new java.awt.Dimension(880, 490));
+        FormInput.setPreferredSize(new java.awt.Dimension(880, 600));
         FormInput.setLayout(null);
 
         label12.setText("No.RM Bayi :");
+        label12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label12.setName("label12"); // NOI18N
         label12.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label12);
@@ -1760,7 +1765,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(Proses);
-        Proses.setBounds(130, 422, 335, 23);
+        Proses.setBounds(130, 450, 335, 23);
 
         Anakke.setName("Anakke"); // NOI18N
         Anakke.setPreferredSize(new java.awt.Dimension(207, 23));
@@ -1770,13 +1775,13 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(Anakke);
-        Anakke.setBounds(130, 452, 50, 23);
+        Anakke.setBounds(130, 480, 50, 23);
 
         label25.setText("Kelahiran Ke :");
         label25.setName("label25"); // NOI18N
         label25.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label25);
-        label25.setBounds(0, 450, 126, 23);
+        label25.setBounds(0, 480, 126, 23);
 
         LingkarKepala.setName("LingkarKepala"); // NOI18N
         LingkarKepala.setPreferredSize(new java.awt.Dimension(207, 23));
@@ -1792,7 +1797,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         label27.setName("label27"); // NOI18N
         label27.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label27);
-        label27.setBounds(0, 302, 126, 23);
+        label27.setBounds(0, 330, 126, 23);
 
         label28.setText("Daftar :");
         label28.setName("label28"); // NOI18N
@@ -1819,12 +1824,14 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         label23.setBounds(321, 132, 90, 23);
 
         label30.setText("Tgl. Lahir :");
+        label30.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label30.setName("label30"); // NOI18N
         label30.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label30);
         label30.setBounds(0, 192, 85, 23);
 
         Lahir.setDisplayFormat("dd-MM-yyyy");
+        Lahir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Lahir.setName("Lahir"); // NOI18N
         Lahir.setVerifyInputWhenFocusTarget(false);
         Lahir.addItemListener(new java.awt.event.ItemListener() {
@@ -1844,7 +1851,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         label31.setName("label31"); // NOI18N
         label31.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label31);
-        label31.setBounds(0, 362, 126, 23);
+        label31.setBounds(0, 390, 126, 23);
 
         Diagnosa.setName("Diagnosa"); // NOI18N
         Diagnosa.setPreferredSize(new java.awt.Dimension(207, 23));
@@ -1854,7 +1861,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(Diagnosa);
-        Diagnosa.setBounds(130, 362, 135, 23);
+        Diagnosa.setBounds(130, 390, 135, 23);
 
         Nmibu.setName("Nmibu"); // NOI18N
         Nmibu.setPreferredSize(new java.awt.Dimension(207, 23));
@@ -1963,7 +1970,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         label34.setName("label34"); // NOI18N
         label34.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label34);
-        label34.setBounds(0, 422, 126, 23);
+        label34.setBounds(0, 450, 126, 23);
 
         Berat.setName("Berat"); // NOI18N
         Berat.setPreferredSize(new java.awt.Dimension(207, 23));
@@ -2009,7 +2016,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         scrollPane2.setViewportView(Keterangan);
 
         FormInput.add(scrollPane2);
-        scrollPane2.setBounds(130, 302, 335, 52);
+        scrollPane2.setBounds(130, 330, 335, 52);
 
         NmBayi.setName("NmBayi"); // NOI18N
         NmBayi.setPreferredSize(new java.awt.Dimension(207, 23));
@@ -2038,11 +2045,13 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         UmurAyah.setBounds(395, 72, 70, 23);
 
         label36.setText("Umur Bayi :");
+        label36.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label36.setName("label36"); // NOI18N
         label36.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label36);
         label36.setBounds(0, 222, 85, 23);
 
+        UmurBayi.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         UmurBayi.setName("UmurBayi"); // NOI18N
         UmurBayi.setPreferredSize(new java.awt.Dimension(207, 23));
         UmurBayi.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2051,13 +2060,13 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(UmurBayi);
-        UmurBayi.setBounds(89, 222, 45, 23);
+        UmurBayi.setBounds(89, 222, 130, 23);
 
         label37.setText("Penyulit Kehamilan :");
         label37.setName("label37"); // NOI18N
         label37.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label37);
-        label37.setBounds(0, 392, 126, 23);
+        label37.setBounds(0, 420, 126, 23);
 
         PenyulitKehamilan.setName("PenyulitKehamilan"); // NOI18N
         PenyulitKehamilan.setPreferredSize(new java.awt.Dimension(207, 23));
@@ -2067,13 +2076,13 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(PenyulitKehamilan);
-        PenyulitKehamilan.setBounds(130, 392, 335, 23);
+        PenyulitKehamilan.setBounds(130, 420, 335, 23);
 
         label38.setText("Ketuban :");
         label38.setName("label38"); // NOI18N
         label38.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label38);
-        label38.setBounds(279, 362, 57, 23);
+        label38.setBounds(280, 390, 57, 23);
 
         Ketuban.setName("Ketuban"); // NOI18N
         Ketuban.setPreferredSize(new java.awt.Dimension(207, 23));
@@ -2083,7 +2092,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(Ketuban);
-        Ketuban.setBounds(340, 362, 125, 23);
+        Ketuban.setBounds(340, 390, 125, 23);
 
         label39.setText("Lingkar Dada :");
         label39.setName("label39"); // NOI18N
@@ -2118,11 +2127,13 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         label40.setBounds(321, 162, 90, 23);
 
         label41.setText("No.SKL :");
+        label41.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         label41.setName("label41"); // NOI18N
         label41.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label41);
-        label41.setBounds(135, 222, 50, 23);
+        label41.setBounds(0, 250, 85, 23);
 
+        NoSKL.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         NoSKL.setName("NoSKL"); // NOI18N
         NoSKL.setPreferredSize(new java.awt.Dimension(207, 23));
         NoSKL.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2131,23 +2142,23 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(NoSKL);
-        NoSKL.setBounds(189, 222, 130, 23);
+        NoSKL.setBounds(90, 250, 180, 23);
 
         jLabel24.setText("Penolong :");
         jLabel24.setName("jLabel24"); // NOI18N
         FormInput.add(jLabel24);
-        jLabel24.setBounds(0, 272, 126, 23);
+        jLabel24.setBounds(0, 300, 126, 23);
 
         KdPenolong.setEditable(false);
         KdPenolong.setHighlighter(null);
         KdPenolong.setName("KdPenolong"); // NOI18N
         FormInput.add(KdPenolong);
-        KdPenolong.setBounds(130, 272, 100, 23);
+        KdPenolong.setBounds(130, 300, 100, 23);
 
         NmPenolong.setEditable(false);
         NmPenolong.setName("NmPenolong"); // NOI18N
         FormInput.add(NmPenolong);
-        NmPenolong.setBounds(232, 272, 201, 23);
+        NmPenolong.setBounds(230, 300, 201, 23);
 
         BtnPenjab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         BtnPenjab.setMnemonic('1');
@@ -2164,7 +2175,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(BtnPenjab);
-        BtnPenjab.setBounds(437, 272, 28, 23);
+        BtnPenjab.setBounds(440, 300, 28, 23);
 
         BtnKelurahan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/011.png"))); // NOI18N
         BtnKelurahan1.setMnemonic('2');
@@ -2182,12 +2193,12 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         label66.setName("label66"); // NOI18N
         label66.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label66);
-        label66.setBounds(0, 252, 117, 23);
+        label66.setBounds(0, 280, 117, 23);
 
         jLabel101.setText("G :");
         jLabel101.setName("jLabel101"); // NOI18N
         FormInput.add(jLabel101);
-        jLabel101.setBounds(201, 452, 40, 23);
+        jLabel101.setBounds(200, 480, 40, 23);
 
         G.setFocusTraversalPolicyProvider(true);
         G.setName("G"); // NOI18N
@@ -2197,12 +2208,12 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(G);
-        G.setBounds(245, 452, 50, 23);
+        G.setBounds(240, 480, 50, 23);
 
         jLabel102.setText("P :");
         jLabel102.setName("jLabel102"); // NOI18N
         FormInput.add(jLabel102);
-        jLabel102.setBounds(296, 452, 30, 23);
+        jLabel102.setBounds(300, 480, 30, 23);
 
         P.setFocusTraversalPolicyProvider(true);
         P.setName("P"); // NOI18N
@@ -2212,12 +2223,12 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(P);
-        P.setBounds(330, 452, 50, 23);
+        P.setBounds(330, 480, 50, 23);
 
         jLabel103.setText("A :");
         jLabel103.setName("jLabel103"); // NOI18N
         FormInput.add(jLabel103);
-        jLabel103.setBounds(381, 452, 30, 23);
+        jLabel103.setBounds(380, 480, 30, 23);
 
         A.setFocusTraversalPolicyProvider(true);
         A.setName("A"); // NOI18N
@@ -2227,7 +2238,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(A);
-        A.setBounds(415, 452, 50, 23);
+        A.setBounds(410, 480, 50, 23);
 
         Scroll2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(150, 150, 150)));
         Scroll2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -2263,7 +2274,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         label67.setName("label67"); // NOI18N
         label67.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label67);
-        label67.setBounds(486, 252, 65, 23);
+        label67.setBounds(490, 280, 65, 23);
 
         Resusitas.setName("Resusitas"); // NOI18N
         Resusitas.setPreferredSize(new java.awt.Dimension(207, 23));
@@ -2273,14 +2284,14 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(Resusitas);
-        Resusitas.setBounds(486, 272, 389, 23);
+        Resusitas.setBounds(490, 300, 389, 23);
 
         label68.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label68.setText("Obat Yang Diberikan :");
         label68.setName("label68"); // NOI18N
         label68.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label68);
-        label68.setBounds(486, 302, 280, 23);
+        label68.setBounds(490, 330, 280, 23);
 
         scrollPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         scrollPane4.setName("scrollPane4"); // NOI18N
@@ -2296,14 +2307,14 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         scrollPane4.setViewportView(ObatDiberikan);
 
         FormInput.add(scrollPane4);
-        scrollPane4.setBounds(486, 322, 389, 52);
+        scrollPane4.setBounds(490, 350, 389, 52);
 
         label69.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label69.setText("Mikasi :");
         label69.setName("label69"); // NOI18N
         label69.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label69);
-        label69.setBounds(486, 382, 280, 23);
+        label69.setBounds(490, 410, 280, 23);
 
         Mikasi.setName("Mikasi"); // NOI18N
         Mikasi.setPreferredSize(new java.awt.Dimension(207, 23));
@@ -2313,14 +2324,14 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(Mikasi);
-        Mikasi.setBounds(486, 402, 389, 23);
+        Mikasi.setBounds(490, 430, 389, 23);
 
         label70.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         label70.setText("Mikonium :");
         label70.setName("label70"); // NOI18N
         label70.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(label70);
-        label70.setBounds(486, 432, 280, 23);
+        label70.setBounds(490, 460, 280, 23);
 
         Mikonium.setName("Mikonium"); // NOI18N
         Mikonium.setPreferredSize(new java.awt.Dimension(207, 23));
@@ -2330,7 +2341,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             }
         });
         FormInput.add(Mikonium);
-        Mikonium.setBounds(486, 452, 389, 23);
+        Mikonium.setBounds(490, 480, 389, 23);
 
         label71.setText("Jumlah Nilai :");
         label71.setName("label71"); // NOI18N
@@ -2358,6 +2369,37 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         N1.setName("N1"); // NOI18N
         FormInput.add(N1);
         N1.setBounds(785, 218, 29, 27);
+
+        label73.setForeground(new java.awt.Color(153, 0, 0));
+        label73.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        label73.setText("Perhatian :");
+        label73.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        label73.setName("label73"); // NOI18N
+        label73.setPreferredSize(new java.awt.Dimension(65, 23));
+        FormInput.add(label73);
+        label73.setBounds(890, 10, 670, 30);
+
+        label74.setForeground(new java.awt.Color(153, 0, 0));
+        label74.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        label74.setText("*");
+        label74.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        label74.setName("label74"); // NOI18N
+        label74.setPreferredSize(new java.awt.Dimension(65, 23));
+        FormInput.add(label74);
+        label74.setBounds(20, 170, 20, 50);
+
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(153, 0, 0));
+        jTextArea1.setRows(5);
+        jTextArea1.setText("1. Disarankan untuk membuat No RM bayi terlebih dahulu\n     sebelum input diform ini.\n\n2. kolom UMUR BAYI akan terisi otomatis dengan cara:\n     pilih TGL LAHIR yang berbeda lalu plih tanggal yang benar.\n\n3.  No SKL sesuaikan dengan penomoran KMM.\n      00000 / KLINIK-MM / ROMAWI BULAN / TAHUN");
+        jTextArea1.setName("jTextArea1"); // NOI18N
+        jScrollPane1.setViewportView(jTextArea1);
+
+        FormInput.add(jScrollPane1);
+        jScrollPane1.setBounds(890, 40, 350, 140);
 
         Scroll1.setViewportView(FormInput);
 
@@ -3968,6 +4010,8 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private widget.ComboBox jam;
     private widget.Label label10;
     private widget.Label label12;
@@ -4027,6 +4071,8 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     private widget.Label label69;
     private widget.Label label70;
     private widget.Label label71;
+    private widget.Label label73;
+    private widget.Label label74;
     private widget.Label label9;
     private widget.ComboBox menit;
     private widget.PanelBiasa panelBiasa2;
@@ -4345,9 +4391,39 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     }
 
     private void autoSKL() {
-        Valid.autoNomer6("select ifnull(MAX(CONVERT(LEFT(pasien_bayi.no_skl,4),signed)),0) from pasien inner join pasien_bayi on pasien.no_rkm_medis=pasien_bayi.no_rkm_medis where "+
-                       "pasien.tgl_lahir like '%"+Valid.SetTgl(Lahir.getSelectedItem()+"").substring(0,7)+"%' ","/RM-SKL/"+Valid.SetTgl(Lahir.getSelectedItem()+"").substring(5,7)+
-                        "/"+Valid.SetTgl(Lahir.getSelectedItem()+"").substring(0,4),4,NoSKL);         
+        int nomorTerakhir = 0;
+        try {
+            // Query ambil nomor terakhir
+            String sql = "SELECT IFNULL(MAX(CONVERT(LEFT(pasien_bayi.no_skl,5),SIGNED)),0) " +
+                         "FROM pasien INNER JOIN pasien_bayi ON pasien.no_rkm_medis=pasien_bayi.no_rkm_medis " +
+                         "WHERE pasien.tgl_lahir LIKE '%" + Valid.SetTgl(Lahir.getSelectedItem()+"").substring(0,7) + "%'";
+            PreparedStatement ps = koneksi.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                nomorTerakhir = rs.getInt(1);
+            }
+            rs.close();
+            ps.close();
+        } catch (Exception e) {
+            System.out.println("Error ambil nomor terakhir: " + e);
+        }
+
+        // Nomor baru = nomor terakhir + 1
+        int nomorSurat = nomorTerakhir + 1;
+
+        // Ambil bulan dan tahun dari tanggal lahir
+        String bulan = Valid.SetTgl(Lahir.getSelectedItem()+"").substring(5,7);
+        String tahun = Valid.SetTgl(Lahir.getSelectedItem()+"").substring(0,4);
+
+        // Konversi bulan ke Romawi
+        String[] romawi = {"I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"};
+        String bulanRomawi = romawi[Integer.parseInt(bulan)-1];
+
+        // Format akhir: nomorSurat/KLINIK-MM/bulanRomawi/tahun
+        String noSKL = nomorSurat + "/KLINIK-MM/" + bulanRomawi + "/" + tahun;
+
+        // Set hasil ke komponen NoSKL
+        NoSKL.setText(noSKL);
     }
 
     private void getDataApgar() {
