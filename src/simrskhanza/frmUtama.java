@@ -487,7 +487,6 @@ import bridging.SatuSehatKirimDiagnosticReportLabPK;
 import bridging.SatuSehatKirimDiagnosticReportRadiologi;
 import bridging.SatuSehatKirimDiet;
 import bridging.SatuSehatKirimEncounter;
-import bridging.SatuSehatKirimEpisodeOfCare;
 import bridging.SatuSehatKirimMedication;
 import bridging.SatuSehatKirimMedicationDispense;
 import bridging.SatuSehatKirimMedicationRequest;
@@ -665,6 +664,10 @@ import dapur.DapurSirkulasiBarang2;
 import dapur.DapurStokKeluarBarangPerTanggal;
 import dapur.DapurSuratPemesanan;
 import dapur.DapurVerifikasiPenerimaan;
+import fungsi.cacheigd;
+import fungsi.cacherawatinap;
+import fungsi.cacherawatjalan;
+import fungsi.cacheregistrasi;
 import grafikanalisa.GrafikKeslingLimbahB3CairBulan;
 import grafikanalisa.GrafikKeslingLimbahB3CairPertanggal;
 import inventaris.InventarisSirkulasiCSSD;
@@ -8323,7 +8326,6 @@ public class frmUtama extends javax.swing.JFrame {
 
     private void BtnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLogActionPerformed
         FlayMenu.setVisible(false);
-        
         switch (BtnLog.getText().trim()) {
             case "Log Out":
                 BtnToolReg.setEnabled(false);
@@ -8367,7 +8369,11 @@ public class frmUtama extends javax.swing.JFrame {
         }else if(edPwd.getText().trim().equals("")){
             Valid.textKosong(edPwd,"Password");
         }else {
-            try {                               
+            try {   
+                cacheigd.reset();
+                cacherawatjalan.reset();
+                cacherawatinap.reset();
+                cacheregistrasi.reset();
                 akses.setData(edAdmin.getText(),edPwd.getText());        
                 if(akses.getjml1()>=1){    
                     BtnMenu.setEnabled(true);
@@ -23319,7 +23325,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));        
         isTutup();
         PCRAICRAPengkajianRisikoPraKonstruksi form=new PCRAICRAPengkajianRisikoPraKonstruksi(this,false);
-        form.emptTeks();
+        form.setTampil();
         form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
         form.setLocationRelativeTo(PanelUtama);
         form.setVisible(true);
@@ -23356,18 +23362,6 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         DlgHome.dispose();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         SatuSehatKirimAllergyIntolerance aplikasi=new SatuSehatKirimAllergyIntolerance(this,false);
-        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
-        aplikasi.setLocationRelativeTo(PanelUtama);
-        aplikasi.setVisible(true);
-        aplikasi.isCek();
-        this.setCursor(Cursor.getDefaultCursor());
-    }
-    
-    private void btnKirimEpisodeOfCareSatuSehatActionPerformed(java.awt.event.ActionEvent evt) {
-        isTutup();
-        DlgHome.dispose();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        SatuSehatKirimEpisodeOfCare aplikasi=new SatuSehatKirimEpisodeOfCare(this,false);
         aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
         aplikasi.setLocationRelativeTo(PanelUtama);
         aplikasi.setVisible(true);
@@ -23971,7 +23965,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private widget.ScrollPane scrollPane2;
     private widget.Tanggal tanggal;
     // End of variables declaration//GEN-END:variables
-    private widget.ButtonBig btnKirimEpisodeOfCareSatuSehat,btnKategoriPerpustakaan,btnRuangPerpustakaan,btnJenisPerpustakaan,btnPengarangPerpustakaan,btnPenerbitPerpustakaan,
+    private widget.ButtonBig btnKategoriPerpustakaan,btnRuangPerpustakaan,btnJenisPerpustakaan,btnPengarangPerpustakaan,btnPenerbitPerpustakaan,
             btnKoleksiPerpustakaan,btnInventarisPerpustakaan,btnPengaturanPeminjamanPerpustakaan,btnDendaPerpustakaan,btnAnggotaPerpustakaan,
             btnPeminjamanPerpustakaan,btnBayarDendaPerpustakaan,btnPenelitianPerpustakaan,btnEbookPerpustakaan,btnCariEbook,btnPestControl,
             btnMutuAirLimbah,btnCariInventarisPerpustakaan,btnJenisCideraK3,btnPenyebabKecelakaanK3,btnJenisLukaK3,btnLokasiKejadianK3,btnDampakCideraK3,
@@ -27643,11 +27637,6 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getsatu_sehat_kirim_careplan()==true){
                 Panelmenu.add(btnKirimCarePlanSatuSehat);
-                jmlmenu++;
-            }
-            
-            if(akses.getsatu_sehat_kirim_careplan()==true){
-                Panelmenu.add(btnKirimEpisodeOfCareSatuSehat);
                 jmlmenu++;
             }
             
@@ -33562,11 +33551,6 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getsatu_sehat_kirim_careplan()==true){
             Panelmenu.add(btnKirimCarePlanSatuSehat);
-            jmlmenu++;
-        }
-        
-        if(akses.getsatu_sehat_kirim_careplan()==true){
-            Panelmenu.add(btnKirimEpisodeOfCareSatuSehat);
             jmlmenu++;
         }
         
@@ -40832,13 +40816,6 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getsatu_sehat_kirim_careplan()==true){
             if(btnKirimCarePlanSatuSehat.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnKirimCarePlanSatuSehat);
-                jmlmenu++;
-            }                
-        }
-        
-        if(akses.getsatu_sehat_kirim_careplan()==true){
-            if(btnKirimEpisodeOfCareSatuSehat.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
-                Panelmenu.add(btnKirimEpisodeOfCareSatuSehat);
                 jmlmenu++;
             }                
         }
@@ -50152,14 +50129,6 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnKirimAllergiSatuSehat.setName("btnKirimAllergiSatuSehat"); 
         btnKirimAllergiSatuSehat.setPreferredSize(new java.awt.Dimension(200, 90));
         btnKirimAllergiSatuSehat.addActionListener(this::btnKirimAllergiSatuSehatActionPerformed);
-        
-        btnKirimEpisodeOfCareSatuSehat = new widget.ButtonBig();
-        btnKirimEpisodeOfCareSatuSehat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/satusehat.png")));
-        btnKirimEpisodeOfCareSatuSehat.setText("Kirim Episode Of Care Satu Sehat");
-        btnKirimEpisodeOfCareSatuSehat.setIconTextGap(0);
-        btnKirimEpisodeOfCareSatuSehat.setName("btnKirimEpisodeOfCareSatuSehat"); 
-        btnKirimEpisodeOfCareSatuSehat.setPreferredSize(new java.awt.Dimension(200, 90));
-        btnKirimEpisodeOfCareSatuSehat.addActionListener(this::btnKirimEpisodeOfCareSatuSehatActionPerformed);
         
         btnKonsultasiPerawat = new widget.ButtonBig();
         btnKonsultasiPerawat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/discuss_12922995.png"))); 
