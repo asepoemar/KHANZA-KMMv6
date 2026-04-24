@@ -106,7 +106,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
             if(i==0){
                 column.setPreferredWidth(20);
             }else if(i==1){
-                column.setPreferredWidth(356);
+                column.setPreferredWidth(200);
             }else if(i==2){
                 column.setPreferredWidth(50);
             }else if(i==3){
@@ -149,9 +149,9 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
             if(i==0){
                 column.setPreferredWidth(20);
             }else if(i==1){
-                column.setPreferredWidth(100);
+                column.setPreferredWidth(80);
             }else if(i==2){
-                column.setPreferredWidth(520);
+                column.setPreferredWidth(320);
             }
         }
         tbTarifPK.setDefaultRenderer(Object.class, new WarnaTable());
@@ -340,8 +340,6 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         jLabel7 = new widget.Label();
         TabRawat = new javax.swing.JTabbedPane();
         PanelCariUtama = new javax.swing.JPanel();
-        Scroll = new widget.ScrollPane();
-        tbDetailPK = new widget.Table();
         panelGlass11 = new widget.panelisi();
         jLabel6 = new widget.Label();
         TCari = new widget.TextBox();
@@ -353,6 +351,8 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         BtnCari1 = new widget.Button();
         jLabel4 = new widget.Label();
         TNoPermintaanPK = new widget.TextBox();
+        Scroll = new widget.ScrollPane();
+        tbDetailPK = new widget.Table();
         PanelCariUtama1 = new javax.swing.JPanel();
         panelGlass12 = new widget.panelisi();
         jLabel8 = new widget.Label();
@@ -697,27 +697,18 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         PanelCariUtama.setPreferredSize(new java.awt.Dimension(100, 143));
         PanelCariUtama.setLayout(new java.awt.BorderLayout());
 
-        Scroll.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        Scroll.setComponentPopupMenu(Popup);
-        Scroll.setName("Scroll"); // NOI18N
-        Scroll.setOpaque(true);
-
-        tbDetailPK.setComponentPopupMenu(Popup);
-        tbDetailPK.setName("tbDetailPK"); // NOI18N
-        Scroll.setViewportView(tbDetailPK);
-
-        PanelCariUtama.add(Scroll, java.awt.BorderLayout.CENTER);
-
         panelGlass11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        panelGlass11.setAutoscrolls(true);
         panelGlass11.setName("panelGlass11"); // NOI18N
-        panelGlass11.setPreferredSize(new java.awt.Dimension(44, 157));
+        panelGlass11.setPreferredSize(new java.awt.Dimension(44, 500));
         panelGlass11.setLayout(null);
 
         jLabel6.setText("Detail Pemeriksaan :");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setName("jLabel6"); // NOI18N
         jLabel6.setPreferredSize(new java.awt.Dimension(110, 23));
         panelGlass11.add(jLabel6);
-        jLabel6.setBounds(4, 130, 110, 23);
+        jLabel6.setBounds(500, 35, 120, 23);
 
         TCari.setName("TCari"); // NOI18N
         TCari.setPreferredSize(new java.awt.Dimension(625, 23));
@@ -727,7 +718,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
             }
         });
         panelGlass11.add(TCari);
-        TCari.setBounds(117, 130, 623, 23);
+        TCari.setBounds(630, 35, 440, 23);
 
         BtnCari2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari2.setMnemonic('4');
@@ -745,12 +736,13 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
             }
         });
         panelGlass11.add(BtnCari2);
-        BtnCari2.setBounds(744, 130, 28, 23);
+        BtnCari2.setBounds(1070, 35, 28, 23);
 
         jLabel11.setText("Pemeriksaan :");
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setName("jLabel11"); // NOI18N
         panelGlass11.add(jLabel11);
-        jLabel11.setBounds(0, 10, 82, 23);
+        jLabel11.setBounds(0, 35, 90, 23);
 
         Pemeriksaan.setHighlighter(null);
         Pemeriksaan.setName("Pemeriksaan"); // NOI18N
@@ -760,7 +752,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
             }
         });
         panelGlass11.add(Pemeriksaan);
-        Pemeriksaan.setBounds(85, 10, 420, 23);
+        Pemeriksaan.setBounds(95, 35, 300, 23);
 
         Scroll1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)));
         Scroll1.setName("Scroll1"); // NOI18N
@@ -774,10 +766,11 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         Scroll1.setViewportView(tbTarifPK);
 
         panelGlass11.add(Scroll1);
-        Scroll1.setBounds(85, 35, 687, 90);
+        Scroll1.setBounds(30, 60, 420, 400);
 
         BtnCari1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari1.setMnemonic('1');
+        BtnCari1.setText("Cari");
         BtnCari1.setToolTipText("Alt+1");
         BtnCari1.setName("BtnCari1"); // NOI18N
         BtnCari1.setPreferredSize(new java.awt.Dimension(28, 23));
@@ -787,12 +780,12 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
             }
         });
         panelGlass11.add(BtnCari1);
-        BtnCari1.setBounds(507, 10, 28, 23);
+        BtnCari1.setBounds(390, 35, 70, 23);
 
         jLabel4.setText("No.Permintaan :");
         jLabel4.setName("jLabel4"); // NOI18N
         panelGlass11.add(jLabel4);
-        jLabel4.setBounds(541, 10, 98, 23);
+        jLabel4.setBounds(0, 8, 98, 23);
 
         TNoPermintaanPK.setHighlighter(null);
         TNoPermintaanPK.setName("TNoPermintaanPK"); // NOI18N
@@ -802,7 +795,19 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
             }
         });
         panelGlass11.add(TNoPermintaanPK);
-        TNoPermintaanPK.setBounds(642, 10, 130, 23);
+        TNoPermintaanPK.setBounds(100, 8, 130, 23);
+
+        Scroll.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)));
+        Scroll.setComponentPopupMenu(Popup);
+        Scroll.setName("Scroll"); // NOI18N
+        Scroll.setOpaque(true);
+
+        tbDetailPK.setComponentPopupMenu(Popup);
+        tbDetailPK.setName("tbDetailPK"); // NOI18N
+        Scroll.setViewportView(tbDetailPK);
+
+        panelGlass11.add(Scroll);
+        Scroll.setBounds(520, 60, 590, 400);
 
         PanelCariUtama.add(panelGlass11, java.awt.BorderLayout.PAGE_START);
 
