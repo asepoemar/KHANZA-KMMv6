@@ -567,7 +567,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         jLabel9.setBounds(0, 40, 92, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-02-2026" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-04-2026" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -646,6 +646,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         NmPerujuk.setBounds(177, 40, 180, 23);
 
         jLabel5.setText("Informasi Tambahan :");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setName("jLabel5"); // NOI18N
         PanelInput.add(jLabel5);
         jLabel5.setBounds(400, 70, 130, 23);
@@ -671,6 +672,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         DiagnosisKlinis.setBounds(95, 70, 292, 23);
 
         jLabel7.setText("Indikasi/Klinis :");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setName("jLabel7"); // NOI18N
         PanelInput.add(jLabel7);
         jLabel7.setBounds(0, 70, 92, 23);
@@ -916,7 +918,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         jLabel17.setBounds(235, 10, 120, 23);
 
         TanggalPA.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalPA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-02-2026" }));
+        TanggalPA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-04-2026" }));
         TanggalPA.setDisplayFormat("dd-MM-yyyy");
         TanggalPA.setName("TanggalPA"); // NOI18N
         TanggalPA.setOpaque(false);
@@ -959,7 +961,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         DiagnosaPA.setBounds(432, 100, 340, 23);
 
         TanggalBahan.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalBahan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08-02-2026" }));
+        TanggalBahan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-04-2026" }));
         TanggalBahan.setDisplayFormat("dd-MM-yyyy");
         TanggalBahan.setName("TanggalBahan"); // NOI18N
         TanggalBahan.setOpaque(false);
@@ -1570,7 +1572,8 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         if(tabMode2.getRowCount()!=0){
             try {
                 Valid.tabelKosong(tabMode);
-                runBackground(() -> tampil());
+                tampil();
+                ppSemuaActionPerformed(null);
             } catch (java.lang.NullPointerException e) {
             }
         }
@@ -2314,18 +2317,21 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             tbTarifPK.setValueAt(false,i,0);
         }
         Valid.tabelKosong(tabMode);
+        tampiltarif();
         
         jml=tbTarifPA.getRowCount();
         for(i=0;i<jml;i++){ 
             tbTarifPA.setValueAt(false,i,0);
         }
         Valid.tabelKosong(tabMode3);
+        tampiltarif2();
         
         jml3=tbTarifMB.getRowCount();
         for(i=0;i<jml3;i++){ 
             tbTarifMB.setValueAt(false,i,0);
         }
         Valid.tabelKosong(tabModeDetailMB);
+        tampiltarifmb();
     }
     
     private void jam(){
@@ -2679,6 +2685,7 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 }
                 
                 if(sukses==true){
+                    Sequel.mengedittf("reg_periksa","no_rawat=?","stts=?",2,new String[]{"Cek Lab",TNoRw.getText()});
                     isReset();
                     emptTeks();
                     JOptionPane.showMessageDialog(null,"Proses simpan selesai...!");
