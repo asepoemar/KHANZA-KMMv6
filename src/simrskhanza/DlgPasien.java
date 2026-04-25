@@ -462,14 +462,14 @@ public class DlgPasien extends javax.swing.JDialog {
         TNo.setDocument(new batasInput((byte)15).getKata(TNo));
         TNm.setDocument(new batasInput((byte)40).getKata(TNm));
         NmIbu.setDocument(new batasInput((byte)40).getKata(NmIbu));
-        TKtp.setDocument(new batasInput((byte)20).getKata(TKtp));
+        TKtp.setDocument(new batasInput((byte)16).getKata(TKtp)); //NIK ada 16 digit
         Kdpnj.setDocument(new batasInput((byte)3).getKata(Kdpnj));
         TTlp.setDocument(new batasInput((int)40).getKata(TTlp));
-        TTmp.setDocument(new batasInput((byte)15).getKata(TTmp));
+        TTmp.setDocument(new batasInput((byte)30).getKata(TTmp)); //KMM tambah char
         Alamat.setDocument(new batasInput((int)200).getFilter(Alamat));
         AlamatPj.setDocument(new batasInput((int)100).getFilter(AlamatPj));
-        Pekerjaan.setDocument(new batasInput((byte)15).getKata(Pekerjaan));
-        PekerjaanPj.setDocument(new batasInput((byte)15).getKata(PekerjaanPj));
+        Pekerjaan.setDocument(new batasInput((byte)30).getKata(Pekerjaan)); //KMM tambah char
+        PekerjaanPj.setDocument(new batasInput((byte)30).getKata(PekerjaanPj)); //KMM tambah char
         TUmurTh.setDocument(new batasInput((byte)5).getOnlyAngka(TUmurTh));
         Saudara.setDocument(new batasInput((byte)50).getKata(Saudara));
         Kabupaten.setDocument(new batasInput((byte)60).getFilter(Kabupaten));
@@ -852,6 +852,10 @@ public class DlgPasien extends javax.swing.JDialog {
         NIP = new widget.TextBox();
         ChkAlamatPJ = new widget.CekBox();
         CmbKeluarga = new widget.ComboBox();
+        textPerhatian = new javax.swing.JTextField();
+        textIsiPerhatian2 = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textIsiPerhatian1 = new javax.swing.JTextArea();
         internalFrame4 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbPasien = new widget.Table();
@@ -2418,7 +2422,7 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(jLabel13);
         jLabel13.setBounds(4, 102, 95, 23);
 
-        DTPLahir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-02-2026" }));
+        DTPLahir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-04-2026" }));
         DTPLahir.setDisplayFormat("dd-MM-yyyy");
         DTPLahir.setName("DTPLahir"); // NOI18N
         DTPLahir.setOpaque(false);
@@ -2550,7 +2554,7 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(TKtp);
         TKtp.setBounds(743, 132, 130, 23);
 
-        DTPDaftar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-02-2026" }));
+        DTPDaftar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-04-2026" }));
         DTPDaftar.setDisplayFormat("dd-MM-yyyy");
         DTPDaftar.setName("DTPDaftar"); // NOI18N
         DTPDaftar.setOpaque(false);
@@ -3411,6 +3415,41 @@ public class DlgPasien extends javax.swing.JDialog {
         });
         FormInput.add(CmbKeluarga);
         CmbKeluarga.setBounds(102, 192, 290, 23);
+
+        textPerhatian.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        textPerhatian.setText("PERHATIAN :");
+        textPerhatian.setBorder(null);
+        textPerhatian.setName("textPerhatian"); // NOI18N
+        textPerhatian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textPerhatianActionPerformed(evt);
+            }
+        });
+        FormInput.add(textPerhatian);
+        textPerhatian.setBounds(900, 20, 80, 30);
+
+        textIsiPerhatian2.setColumns(20);
+        textIsiPerhatian2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        textIsiPerhatian2.setRows(5);
+        textIsiPerhatian2.setText("-. Data sesuai KTP / KK / BPJS.\n-. SEMUA form terisi dengan huruf kapital, tidak kosong.\n-. NO KTP, BPJS & TLP. WAJIB terisi lengkap dan benar.\n      - jika BAYI baru lahir isi KTP/BPJS dengan \" 001 \".\n-. Format isi alamat = nama jalan/kampung RT. RW.\n         contoh \"KP.OJAR RT. 001 RW. 002\"\n-. Format isi Prop, Kab, Kec dan Kel. JANGAN DIKETIK...!!!\n      - PROPINSI       : klik ▲ keyboard, pilih dan tekan spasi.\n      - KABUPATEN  : klik ▲ keyboard, pilih dan tekan spasi.\n      - KECAMATAN : klik ▲ keyboard, pilih dan tekan spasi.\n      - KELURAHAN  : klik ▲ keyboard, pilih dan tekan spasi.\n         BANTEN, KABUPATEN LEBAK\n         KALANGANYAR, CILANGKAP");
+        textIsiPerhatian2.setBorder(null);
+        textIsiPerhatian2.setName("textIsiPerhatian2"); // NOI18N
+        FormInput.add(textIsiPerhatian2);
+        textIsiPerhatian2.setBounds(925, 125, 380, 230);
+
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        textIsiPerhatian1.setColumns(20);
+        textIsiPerhatian1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        textIsiPerhatian1.setRows(5);
+        textIsiPerhatian1.setText("1. Selalu cek apakah pasien sudah terdaftar.\n2. Klik tombol Baru ϴ, sebelum input pasien baru.\n3. No.RM harus selalu ter-ceklis √\n4. Input data pasien dengan BENAR dan LENGKAP.");
+        textIsiPerhatian1.setBorder(null);
+        textIsiPerhatian1.setName("textIsiPerhatian1"); // NOI18N
+        jScrollPane1.setViewportView(textIsiPerhatian1);
+
+        FormInput.add(jScrollPane1);
+        jScrollPane1.setBounds(920, 50, 320, 100);
 
         Scroll1.setViewportView(FormInput);
 
@@ -8165,7 +8204,7 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
             form.setVisible(true);
             this.setCursor(Cursor.getDefaultCursor());
         }else{
-            JOptionPane.showMessageDialog(null,"Maaf, Nomor kepesertaan kosong...!!!");
+            JOptionPane.showMessageDialog(null,"Maaf, Nomor kepesertaan BPJS tidak boleh kosong...!!!");
         }
     }//GEN-LAST:event_MnCekKepesertaan1ActionPerformed
 
@@ -8179,7 +8218,7 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
             form.setVisible(true);
             this.setCursor(Cursor.getDefaultCursor());
         }else{
-            JOptionPane.showMessageDialog(null,"Maaf, NIK KTP kosong...!!!");
+            JOptionPane.showMessageDialog(null,"Maaf, NIK KTP tidak boleh kosong...!!!");
         }
     }//GEN-LAST:event_MnCekNIK1ActionPerformed
 
@@ -8673,6 +8712,10 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
         } 
     }//GEN-LAST:event_formWindowOpened
 
+    private void textPerhatianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPerhatianActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textPerhatianActionPerformed
+
     /**
      * @data args the command line arguments
      */
@@ -8945,6 +8988,7 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator5;
     private widget.TextBox kdbahasa;
     private widget.TextBox kdcacat;
@@ -8991,6 +9035,9 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private widget.Table tbPasien;
     private widget.Table tbPasien2;
     private widget.Table tbPasien3;
+    private javax.swing.JTextArea textIsiPerhatian1;
+    private javax.swing.JTextArea textIsiPerhatian2;
+    private javax.swing.JTextField textPerhatian;
     // End of variables declaration//GEN-END:variables
     
     private void tampil() {    
@@ -9987,6 +10034,14 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
         ppRiwayat.setEnabled(akses.getresume_pasien());
         ppCatatanPasien.setEnabled(akses.getcatatan_pasien());
         ppPasienCorona.setEnabled(akses.getpasien_corona());
+        BtnPropinsi.setEnabled(akses.getstok_opname_obat());
+        BtnKabupaten.setEnabled(akses.getstok_opname_obat());
+        BtnKecamatan.setEnabled(akses.getstok_opname_obat());
+        BtnKelurahan.setEnabled(akses.getstok_opname_obat());
+        btnPropinsiPj.setEnabled(akses.getstok_opname_obat());
+        BtnKabupatenPj.setEnabled(akses.getstok_opname_obat());
+        BtnKecamatanPj.setEnabled(akses.getstok_opname_obat());
+        BtnKelurahanPj.setEnabled(akses.getstok_opname_obat());
         asalform=akses.getform();
     }
 
@@ -10147,4 +10202,5 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
             } 
         }
     }
+    
 }
