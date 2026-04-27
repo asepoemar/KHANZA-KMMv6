@@ -1113,6 +1113,14 @@ public final class DlgReg extends javax.swing.JDialog {
         tbPetugas = new widget.Table();
         Scroll1 = new widget.ScrollPane();
         tbPetugas2 = new widget.Table();
+        nomor_antrian = new javax.swing.JLabel();
+        jLabel12 = new widget.Label();
+        loket_antrian = new javax.swing.JComboBox<>();
+        jLabel25 = new widget.Label();
+        Ulang = new widget.Button();
+        Panggil = new widget.Button();
+        Sisa = new widget.Button();
+        sisa_antrian = new widget.Label();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
@@ -6602,6 +6610,99 @@ public final class DlgReg extends javax.swing.JDialog {
         });
         FormInput.add(btnCekBridging);
         btnCekBridging.setBounds(852, 102, 28, 23);
+        
+        nomor_antrian.setFont(new java.awt.Font("Liberation Sans", 1, 48)); // NOI18N
+        nomor_antrian.setForeground(new java.awt.Color(204, 0, 0));
+        nomor_antrian.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nomor_antrian.setText("0");
+        nomor_antrian.setToolTipText("Display nomor Antrian");
+        nomor_antrian.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nomor_antrian.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        nomor_antrian.setName("nomor_antrian"); // NOI18N
+        FormInput.add(nomor_antrian);
+        nomor_antrian.setBounds(900, 10, 150, 70);
+
+        jLabel12.setText("Loket :");
+        jLabel12.setName("jLabel12"); // NOI18N
+        FormInput.add(jLabel12);
+        jLabel12.setBounds(900, 130, 40, 23);
+
+        loket_antrian.setFont(new java.awt.Font("Liberation Sans", 1, 13)); // NOI18N
+        loket_antrian.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LOKET 1", "LOKET 2", "KAJIAN" }));
+        loket_antrian.setName("loket_antrian"); // NOI18N
+        FormInput.add(loket_antrian);
+        loket_antrian.setBounds(942, 130, 105, 20);
+
+        jLabel25.setText("SISA ANTRIAN :___");
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel25.setName("jLabel25"); // NOI18N
+        FormInput.add(jLabel25);
+        jLabel25.setBounds(1072, 93, 120, 23);
+
+        Ulang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/refresh.png"))); // NOI18N
+        Ulang.setMnemonic('M');
+        Ulang.setText("RECALL");
+        Ulang.setToolTipText("Alt+Z");
+        Ulang.setGlassColor(new java.awt.Color(153, 255, 204));
+        Ulang.setName("Ulang"); // NOI18N
+        Ulang.setPreferredSize(new java.awt.Dimension(100, 30));
+        Ulang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UlangActionPerformed(evt);
+            }
+        });
+        Ulang.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+//                UlangKeyPressed(evt);
+            }
+        });
+        FormInput.add(Ulang);
+        Ulang.setBounds(1060, 50, 150, 30);
+
+        Panggil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/user.png"))); // NOI18N
+        Panggil.setMnemonic('M');
+        Panggil.setText("NEXT CALL");
+        Panggil.setToolTipText("Alt+P");
+        Panggil.setGlassColor(new java.awt.Color(153, 255, 204));
+        Panggil.setName("Panggil"); // NOI18N
+        Panggil.setPreferredSize(new java.awt.Dimension(100, 30));
+        Panggil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PanggilActionPerformed(evt);
+            }
+        });
+        Panggil.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+//                PanggilKeyPressed(evt);
+            }
+        });
+        FormInput.add(Panggil);
+        Panggil.setBounds(1060, 10, 150, 30);
+
+        sisa_antrian.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        sisa_antrian.setText("0");
+        sisa_antrian.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        sisa_antrian.setName("sisa_antrian"); // NOI18N
+        FormInput.add(sisa_antrian);
+        sisa_antrian.setBounds(1177, 92, 50, 23);
+        
+//        Sisa.setText("Sisa Antrian");
+        Sisa.setToolTipText("Alt+S");
+        Sisa.setGlassColor(new java.awt.Color(255,115,115));
+        Sisa.setName("Sisa Antrian"); // NOI18N
+        Sisa.setPreferredSize(new java.awt.Dimension(100, 30));
+        Sisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SisaActionPerformed(evt);
+            }
+        });
+        Sisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+//                PanggilKeyPressed(evt);
+            }
+        });
+        FormInput.add(Sisa);
+        Sisa.setBounds(1060, 90, 150, 30);
 
         PanelInput.add(FormInput, java.awt.BorderLayout.CENTER);
 
@@ -16338,6 +16439,46 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         }
     }
     
+    private void PanggilActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        if (Sequel.cariIsi("SELECT nomor from antripendaftaran_nomor WHERE status='0' ORDER BY jam ASC LIMIT 1").equals("")) {
+            JOptionPane.showMessageDialog(null, "Antrian sudah habis mbak, jangan di pencet terus");
+        } else {
+            nomor_antrian.setText(Sequel.cariIsi("SELECT nomor from antripendaftaran_nomor WHERE status='0' ORDER BY jam ASC LIMIT 1"));
+            sisa_antrian.setText(Sequel.cariIsi("SELECT (COUNT(nomor)-1), status from antripendaftaran_nomor WHERE status='0' "));
+            Sequel.mengedit("antripendaftaran_nomor", "nomor='" + nomor_antrian.getText() + "'", "status='1', loket='" + loket_antrian.getSelectedItem().toString() + "'");
+        }
+    }
+    
+    private void UlangActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // TODO add your handling code here:
+        Sequel.mengedit("antripendaftaran_nomor", "nomor='" + nomor_antrian.getText() + "'", "status='1', loket='" + loket_antrian.getSelectedItem().toString() + "'");
+    }
+    
+    private void SisaActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // Ambil nomor antrian pertama dengan status=0
+        String nomorPertama = Sequel.cariIsi(
+            "SELECT nomor FROM antripendaftaran_nomor WHERE status='0' ORDER BY jam ASC LIMIT 1"
+        );
+
+        if(nomorPertama == null || nomorPertama.isEmpty()){
+            // Jika tidak ada, ambil nomor terakhir berdasarkan jam
+            nomorPertama = Sequel.cariIsi(
+                "SELECT nomor FROM antripendaftaran_nomor ORDER BY jam DESC LIMIT 1"
+            );
+        }
+        nomor_antrian.setText(nomorPertama);
+
+        // Hitung sisa antrian, pastikan tidak minus
+        String sisa = Sequel.cariIsi(
+            "SELECT COUNT(status) FROM antripendaftaran_nomor WHERE status='0'"
+        );
+
+        if(sisa == null || sisa.isEmpty()){
+            sisa = "0";
+        }
+        sisa_antrian.setText(sisa);
+    }
+    
     /**
     * @param args the command line arguments
     */
@@ -16355,6 +16496,14 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel nomor_antrian;
+    private widget.Button Panggil;
+    private widget.Button Ulang;
+    private widget.Button Sisa;
+    private widget.Label sisa_antrian;
+    private widget.Label jLabel12;
+    private widget.Label jLabel25;
+    private javax.swing.JComboBox<String> loket_antrian;
     private widget.TextBox AsalRujukan;
     private widget.Button BtnAll;
     private widget.Button BtnBatal;
