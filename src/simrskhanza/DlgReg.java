@@ -363,6 +363,7 @@ public final class DlgReg extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         initRegistrasi();
+        
 
         this.setLocation(8,1);
         setSize(885,674);
@@ -1114,6 +1115,10 @@ public final class DlgReg extends javax.swing.JDialog {
         Scroll1 = new widget.ScrollPane();
         tbPetugas2 = new widget.Table();
         nomor_antrian = new javax.swing.JLabel();
+        nomor_antrian2 = new javax.swing.JTextField();
+        nomor_antrian3 = new javax.swing.JTextField();
+        Label_Antri = new widget.Label();
+        Label_Antri2 = new widget.Label();
         jLabel12 = new widget.Label();
         loket_antrian = new javax.swing.JComboBox<>();
         jLabel25 = new widget.Label();
@@ -6645,16 +6650,49 @@ public final class DlgReg extends javax.swing.JDialog {
         FormInput.add(btnCekBridging);
         btnCekBridging.setBounds(852, 102, 28, 23);
         
-        nomor_antrian.setFont(new java.awt.Font("Liberation Sans", 1, 48)); // NOI18N
+        nomor_antrian.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         nomor_antrian.setForeground(new java.awt.Color(204, 0, 0));
         nomor_antrian.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nomor_antrian.setText("0");
-        nomor_antrian.setToolTipText("Display nomor Antrian");
-        nomor_antrian.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nomor_antrian.setToolTipText("Nomor Terkhir Daftar");
         nomor_antrian.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         nomor_antrian.setName("nomor_antrian"); // NOI18N
         FormInput.add(nomor_antrian);
-        nomor_antrian.setBounds(900, 10, 150, 70);
+        nomor_antrian.setBounds(1010, 79, 40, 24);
+        
+        nomor_antrian2.setFont(new java.awt.Font("Liberation Sans", 1, 48)); // NOI18N
+        nomor_antrian2.setForeground(new java.awt.Color(51,51,255));
+        nomor_antrian2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        nomor_antrian2.setText("0");
+        nomor_antrian2.setToolTipText("Display Nomor Antrian");
+        nomor_antrian2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nomor_antrian2.setName("nomor_antrian2"); // NOI18N
+        FormInput.add(nomor_antrian2);
+        nomor_antrian2.setBounds(900, 10, 150, 70);
+        
+        nomor_antrian3.setEditable(false);
+        nomor_antrian3.setBackground(new java.awt.Color(255, 255, 255));
+        nomor_antrian3.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        nomor_antrian3.setForeground(new java.awt.Color(51, 153, 0));
+        nomor_antrian3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        nomor_antrian3.setText("0");
+        nomor_antrian3.setToolTipText("Display Nomor Antrian");
+        nomor_antrian3.setBorder(null);
+        nomor_antrian3.setName("nomor_antrian3"); // NOI18N
+        FormInput.add(nomor_antrian3);
+        nomor_antrian3.setBounds(1010, 100, 40, 24);
+        
+        Label_Antri.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Label_Antri.setText("Nomor Terdaftar :");
+        Label_Antri.setName("Label_Antri"); // NOI18N
+        FormInput.add(Label_Antri);
+        Label_Antri.setBounds(900, 80, 90, 23);
+
+        Label_Antri2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Label_Antri2.setText("Nomor Panggil :");
+        Label_Antri2.setName("Label_Antri2"); // NOI18N
+        FormInput.add(Label_Antri2);
+        Label_Antri2.setBounds(900, 100, 90, 23);
 
         jLabel12.setText("Loket :");
         jLabel12.setName("jLabel12"); // NOI18N
@@ -16509,18 +16547,27 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         if (Sequel.cariIsi("SELECT nomor from antripendaftaran_nomor WHERE status='0' ORDER BY jam ASC LIMIT 1").equals("")) {
             JOptionPane.showMessageDialog(null, "Antrian sudah habis mbak, jangan di pencet terus");
         } else {
-            nomor_antrian.setText(Sequel.cariIsi("SELECT nomor from antripendaftaran_nomor WHERE status='0' ORDER BY jam ASC LIMIT 1"));
+            //nomor_antrian= nomor terkahir terdaftar || nomor_antrian3 = nomor terakhir yang diapnggil
+            nomor_antrian.setText(Sequel.cariIsi("SELECT nomor FROM antripendaftaran_nomor ORDER BY jam DESC LIMIT 1"));
+            nomor_antrian3.setText(Sequel.cariIsi("SELECT nomor FROM antripendaftaran_nomor WHERE status='3' ORDER BY jam DESC LIMIT 1"));
+            
+            nomor_antrian2.setText(Sequel.cariIsi("SELECT nomor from antripendaftaran_nomor WHERE status='0' ORDER BY jam ASC LIMIT 1"));
             sisa_antrian.setText(Sequel.cariIsi("SELECT (COUNT(nomor)-1), status from antripendaftaran_nomor WHERE status='0' "));
-            Sequel.mengedit("antripendaftaran_nomor", "nomor='" + nomor_antrian.getText() + "'", "status='1', loket='" + loket_antrian.getSelectedItem().toString() + "'");
+            Sequel.mengedit("antripendaftaran_nomor", "nomor='" + nomor_antrian2.getText() + "'", "status='1', loket='" + loket_antrian.getSelectedItem().toString() + "'");
         }
     }
     
     private void UlangActionPerformed(java.awt.event.ActionEvent evt) {                                      
         // TODO add your handling code here:
-        Sequel.mengedit("antripendaftaran_nomor", "nomor='" + nomor_antrian.getText() + "'", "status='1', loket='" + loket_antrian.getSelectedItem().toString() + "'");
+        Sequel.mengedit("antripendaftaran_nomor", "nomor='" + nomor_antrian2.getText() + "'", "status='1', loket='" + loket_antrian.getSelectedItem().toString() + "'");
+        nomor_antrian.setText(Sequel.cariIsi("SELECT nomor FROM antripendaftaran_nomor ORDER BY jam DESC LIMIT 1"));
+        nomor_antrian3.setText(Sequel.cariIsi("SELECT nomor FROM antripendaftaran_nomor WHERE status='3' ORDER BY jam DESC LIMIT 1"));
     }
     
-    private void SisaActionPerformed(java.awt.event.ActionEvent evt) {                                      
+    private void SisaActionPerformed(java.awt.event.ActionEvent evt) {
+        //nomor_antrian= nomor terkahir terdaftar || nomor_antrian3 = nomor terakhir yang diapnggil
+        nomor_antrian.setText(Sequel.cariIsi("SELECT nomor FROM antripendaftaran_nomor ORDER BY jam DESC LIMIT 1"));
+        nomor_antrian3.setText(Sequel.cariIsi("SELECT nomor FROM antripendaftaran_nomor WHERE status='3' ORDER BY jam DESC LIMIT 1"));
         // Ambil nomor antrian pertama dengan status=0
         String nomorPertama = Sequel.cariIsi(
             "SELECT nomor FROM antripendaftaran_nomor WHERE status='0' ORDER BY jam ASC LIMIT 1"
@@ -16532,7 +16579,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
                 "SELECT nomor FROM antripendaftaran_nomor ORDER BY jam DESC LIMIT 1"
             );
         }
-        nomor_antrian.setText(nomorPertama);
+        nomor_antrian2.setText(nomorPertama);
 
         // Hitung sisa antrian, pastikan tidak minus
         String sisa = Sequel.cariIsi(
@@ -16563,6 +16610,10 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel nomor_antrian;
+    private javax.swing.JTextField nomor_antrian2;
+    private javax.swing.JTextField nomor_antrian3;
+    private widget.Label Label_Antri;
+    private widget.Label Label_Antri2;
     private widget.Button Panggil;
     private widget.Button Ulang;
     private widget.Button Sisa;
