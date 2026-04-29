@@ -3099,10 +3099,10 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         MnSuratSurat.setPreferredSize(new java.awt.Dimension(240, 26));
 
         MnSuratKontrol.setBackground(new java.awt.Color(255, 255, 254));
-        MnSuratKontrol.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnSuratKontrol.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         MnSuratKontrol.setForeground(new java.awt.Color(50, 50, 50));
         MnSuratKontrol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnSuratKontrol.setText("Surat Kontrol");
+        MnSuratKontrol.setText("Surat Kontrol (Kertas A5)");
         MnSuratKontrol.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         MnSuratKontrol.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnSuratKontrol.setName("MnSuratKontrol"); // NOI18N
@@ -3275,10 +3275,10 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         MnSuratSurat.add(MnCetakSuratSakitPihak2);
 
         MnCetakSuratSakit1.setBackground(new java.awt.Color(255, 255, 254));
-        MnCetakSuratSakit1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnCetakSuratSakit1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         MnCetakSuratSakit1.setForeground(new java.awt.Color(50, 50, 50));
         MnCetakSuratSakit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnCetakSuratSakit1.setText("Surat Keterangan Rawat Inap");
+        MnCetakSuratSakit1.setText("Surat Keterangan Rawat Inap (Krts A5)");
         MnCetakSuratSakit1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         MnCetakSuratSakit1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCetakSuratSakit1.setName("MnCetakSuratSakit1"); // NOI18N
@@ -3307,10 +3307,10 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         MnSuratSurat.add(MnCetakSuratHamil);
 
         MnCetakSuratCutiHamil.setBackground(new java.awt.Color(255, 255, 254));
-        MnCetakSuratCutiHamil.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnCetakSuratCutiHamil.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         MnCetakSuratCutiHamil.setForeground(new java.awt.Color(50, 50, 50));
         MnCetakSuratCutiHamil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnCetakSuratCutiHamil.setText("Surat Cuti Hamil");
+        MnCetakSuratCutiHamil.setText("Surat Cuti Hamil (Krts F4)");
         MnCetakSuratCutiHamil.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         MnCetakSuratCutiHamil.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         MnCetakSuratCutiHamil.setName("MnCetakSuratCutiHamil"); // NOI18N
