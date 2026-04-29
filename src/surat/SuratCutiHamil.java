@@ -368,7 +368,7 @@ public final class SuratCutiHamil extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-04-2026" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-04-2026" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -381,7 +381,7 @@ public final class SuratCutiHamil extends javax.swing.JDialog {
         panelGlass9.add(DTPCari1);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-04-2026" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-04-2026" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -449,10 +449,12 @@ public final class SuratCutiHamil extends javax.swing.JDialog {
         FormInput.setLayout(null);
 
         jLabel3.setText("No. Surat :");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setName("jLabel3"); // NOI18N
         FormInput.add(jLabel3);
         jLabel3.setBounds(0, 40, 70, 23);
 
+        NoSurat.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         NoSurat.setHighlighter(null);
         NoSurat.setName("NoSurat"); // NOI18N
         NoSurat.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -461,7 +463,7 @@ public final class SuratCutiHamil extends javax.swing.JDialog {
             }
         });
         FormInput.add(NoSurat);
-        NoSurat.setBounds(74, 40, 141, 23);
+        NoSurat.setBounds(74, 40, 160, 23);
 
         jLabel4.setText("No.Rawat :");
         jLabel4.setName("jLabel4"); // NOI18N
@@ -503,9 +505,9 @@ public final class SuratCutiHamil extends javax.swing.JDialog {
         jLabel13.setText("Mulai Cuti :");
         jLabel13.setName("jLabel13"); // NOI18N
         FormInput.add(jLabel13);
-        jLabel13.setBounds(330, 40, 65, 23);
+        jLabel13.setBounds(360, 40, 65, 23);
 
-        MulaiCuti.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-04-2026" }));
+        MulaiCuti.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-04-2026" }));
         MulaiCuti.setDisplayFormat("dd-MM-yyyy");
         MulaiCuti.setName("MulaiCuti"); // NOI18N
         MulaiCuti.addActionListener(new java.awt.event.ActionListener() {
@@ -514,24 +516,26 @@ public final class SuratCutiHamil extends javax.swing.JDialog {
             }
         });
         FormInput.add(MulaiCuti);
-        MulaiCuti.setBounds(400, 40, 90, 23);
+        MulaiCuti.setBounds(430, 40, 90, 23);
 
         jLabel15.setText("HPHT : ");
         jLabel15.setName("jLabel15"); // NOI18N
         FormInput.add(jLabel15);
-        jLabel15.setBounds(360, 70, 40, 23);
+        jLabel15.setBounds(390, 70, 40, 23);
 
-        TaksiranLahir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "21-04-2026" }));
+        TaksiranLahir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-04-2026" }));
         TaksiranLahir.setDisplayFormat("dd-MM-yyyy");
         TaksiranLahir.setName("TaksiranLahir"); // NOI18N
         FormInput.add(TaksiranLahir);
-        TaksiranLahir.setBounds(400, 70, 90, 23);
+        TaksiranLahir.setBounds(430, 70, 90, 23);
 
         jLabel5.setText("Keadaan Hamil :");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setName("jLabel5"); // NOI18N
         FormInput.add(jLabel5);
-        jLabel5.setBounds(0, 70, 90, 23);
+        jLabel5.setBounds(0, 70, 105, 23);
 
+        KeadaanPasien.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         KeadaanPasien.setHighlighter(null);
         KeadaanPasien.setName("KeadaanPasien"); // NOI18N
         KeadaanPasien.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -540,14 +544,14 @@ public final class SuratCutiHamil extends javax.swing.JDialog {
             }
         });
         FormInput.add(KeadaanPasien);
-        KeadaanPasien.setBounds(92, 70, 230, 23);
+        KeadaanPasien.setBounds(110, 70, 250, 23);
 
         jLabel16.setText("Selesai Cuti :");
         jLabel16.setName("jLabel16"); // NOI18N
         FormInput.add(jLabel16);
         jLabel16.setBounds(558, 40, 70, 23);
 
-        SelesaiCuti.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "22-04-2026" }));
+        SelesaiCuti.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29-04-2026" }));
         SelesaiCuti.setDisplayFormat("dd-MM-yyyy");
         SelesaiCuti.setName("SelesaiCuti"); // NOI18N
         FormInput.add(SelesaiCuti);
@@ -1034,12 +1038,20 @@ public final class SuratCutiHamil extends javax.swing.JDialog {
         TPasien.setText("");
         NoSurat.setText("");
         MulaiCuti.setDate(new Date());
-        Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(surat_cuti_hamil.no_surat,3),signed)),0) from surat_cuti_hamil inner join reg_periksa on surat_cuti_hamil.no_rawat=reg_periksa.no_rawat where reg_periksa.tgl_registrasi='"+Valid.SetTgl(MulaiCuti.getSelectedItem()+"")+"' ",
-                "SCH"+MulaiCuti.getSelectedItem().toString().substring(6,10)+MulaiCuti.getSelectedItem().toString().substring(3,5)+MulaiCuti.getSelectedItem().toString().substring(0,2),3,NoSurat); 
+        
+        // autonomer surat, Ambil tanggal dari komponen (format dd-MM-yyyy)
+        String tglSurat = MulaiCuti.getSelectedItem().toString();
+        String bulanStr = tglSurat.substring(3,5); // bulan
+        String tahunStr = tglSurat.substring(6,10); // tahun
+        // Konversi bulan ke romawi
+        String[] romawi = {"I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"};
+        String bulanRomawi = romawi[Integer.parseInt(bulanStr)-1];
+        // Susun format nomor surat tanpa padding 3 digit
+        String autoNomer = "20/0000/KMM/" + bulanRomawi + "/" + tahunStr;
+        NoSurat.setText(autoNomer);
         NoSurat.requestFocus();
     }
 
- 
     private void getData() {
         if(tbObat.getSelectedRow()!= -1){
             NoSurat.setText(tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
