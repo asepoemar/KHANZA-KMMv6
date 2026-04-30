@@ -54,6 +54,7 @@ import java.sql.PreparedStatement;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -852,10 +853,10 @@ public class DlgPasien extends javax.swing.JDialog {
         NIP = new widget.TextBox();
         ChkAlamatPJ = new widget.CekBox();
         CmbKeluarga = new widget.ComboBox();
-        textPerhatian = new javax.swing.JTextField();
         textIsiPerhatian2 = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         textIsiPerhatian1 = new javax.swing.JTextArea();
+        textPerhatian = new javax.swing.JTextField();
         internalFrame4 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbPasien = new widget.Table();
@@ -2422,7 +2423,7 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(jLabel13);
         jLabel13.setBounds(4, 102, 95, 23);
 
-        DTPLahir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-04-2026" }));
+        DTPLahir.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-04-2026" }));
         DTPLahir.setDisplayFormat("dd-MM-yyyy");
         DTPLahir.setName("DTPLahir"); // NOI18N
         DTPLahir.setOpaque(false);
@@ -2539,13 +2540,19 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(TNo);
         TNo.setBounds(102, 12, 160, 23);
 
-        jLabel15.setText("No.KTP/SIM :");
+        jLabel15.setText("No.KTP :");
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel15.setName("jLabel15"); // NOI18N
         FormInput.add(jLabel15);
         jLabel15.setBounds(659, 132, 80, 23);
 
         TKtp.setComponentPopupMenu(jPopupMenu2);
         TKtp.setName("TKtp"); // NOI18N
+        TKtp.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TKtpFocusLost(evt);
+            }
+        });
         TKtp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TKtpKeyPressed(evt);
@@ -2554,7 +2561,7 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(TKtp);
         TKtp.setBounds(743, 132, 130, 23);
 
-        DTPDaftar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-04-2026" }));
+        DTPDaftar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30-04-2026" }));
         DTPDaftar.setDisplayFormat("dd-MM-yyyy");
         DTPDaftar.setName("DTPDaftar"); // NOI18N
         DTPDaftar.setOpaque(false);
@@ -2909,7 +2916,8 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(KelurahanPj);
         KelurahanPj.setBounds(496, 282, 152, 23);
 
-        jLabel28.setText("No.Peserta :");
+        jLabel28.setText("No BPJS :");
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setName("jLabel28"); // NOI18N
         FormInput.add(jLabel28);
         jLabel28.setBounds(392, 72, 100, 23);
@@ -2917,6 +2925,11 @@ public class DlgPasien extends javax.swing.JDialog {
         TNoPeserta.setComponentPopupMenu(jPopupMenu2);
         TNoPeserta.setHighlighter(null);
         TNoPeserta.setName("TNoPeserta"); // NOI18N
+        TNoPeserta.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TNoPesertaFocusLost(evt);
+            }
+        });
         TNoPeserta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TNoPesertaKeyPressed(evt);
@@ -3416,22 +3429,10 @@ public class DlgPasien extends javax.swing.JDialog {
         FormInput.add(CmbKeluarga);
         CmbKeluarga.setBounds(102, 192, 290, 23);
 
-        textPerhatian.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        textPerhatian.setText("PERHATIAN :");
-        textPerhatian.setBorder(null);
-        textPerhatian.setName("textPerhatian"); // NOI18N
-        textPerhatian.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textPerhatianActionPerformed(evt);
-            }
-        });
-        FormInput.add(textPerhatian);
-        textPerhatian.setBounds(900, 20, 80, 30);
-
         textIsiPerhatian2.setColumns(20);
         textIsiPerhatian2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         textIsiPerhatian2.setRows(5);
-        textIsiPerhatian2.setText("-. Data sesuai KTP / KK / BPJS.\n-. SEMUA form terisi dengan huruf kapital, tidak kosong.\n-. NO KTP, BPJS & TLP. WAJIB terisi lengkap dan benar.\n      - jika BAYI baru lahir isi KTP/BPJS dengan \" 001 \".\n-. Format isi alamat = nama jalan/kampung RT. RW.\n         contoh \"KP.OJAR RT. 001 RW. 002\"\n-. Format isi Prop, Kab, Kec dan Kel. JANGAN DIKETIK...!!!\n      - PROPINSI       : klik ▲ keyboard, pilih dan tekan spasi.\n      - KABUPATEN  : klik ▲ keyboard, pilih dan tekan spasi.\n      - KECAMATAN : klik ▲ keyboard, pilih dan tekan spasi.\n      - KELURAHAN  : klik ▲ keyboard, pilih dan tekan spasi.\n         BANTEN, KABUPATEN LEBAK\n         KALANGANYAR, CILANGKAP");
+        textIsiPerhatian2.setText("-. Data sesuai KTP / KK / BPJS.\n-. SEMUA form terisi dengan huruf kapital, tidak kosong.\n-. NO KTP, BPJS & TLP. WAJIB terisi lengkap dan benar.\n      - jika BAYI baru lahir isi KTP/BPJS dengan \" 001 \".\n-. Format isi alamat = nama jalan/kampung RT. RW.\n         contoh \"KP.OJAR RT. 001 RW. 002\"\n-. Format isi Prop, Kab, Kec dan Kel. JANGAN DIKETIK...!!!\n      - PROPINSI       : klik ▲ keyboard, pilih dan tekan spasi.\n      - KABUPATEN  : klik ▲ keyboard, pilih dan tekan spasi.\n      - KECAMATAN : klik ▲ keyboard, pilih dan tekan spasi.\n      - KELURAHAN  : klik ▲ keyboard, pilih dan tekan spasi.\n        \n         \"BANTEN\"   \"KABUPATEN LEBAK\"\n         \"KALANGANYAR\"    \"CILANGKAP\"");
         textIsiPerhatian2.setBorder(null);
         textIsiPerhatian2.setName("textIsiPerhatian2"); // NOI18N
         FormInput.add(textIsiPerhatian2);
@@ -3450,6 +3451,18 @@ public class DlgPasien extends javax.swing.JDialog {
 
         FormInput.add(jScrollPane1);
         jScrollPane1.setBounds(920, 50, 320, 100);
+
+        textPerhatian.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        textPerhatian.setText("Perhatian :");
+        textPerhatian.setBorder(null);
+        textPerhatian.setName("textPerhatian"); // NOI18N
+        textPerhatian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textPerhatianActionPerformed(evt);
+            }
+        });
+        FormInput.add(textPerhatian);
+        textPerhatian.setBounds(900, 20, 80, 30);
 
         Scroll1.setViewportView(FormInput);
 
@@ -8712,6 +8725,58 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
         } 
     }//GEN-LAST:event_formWindowOpened
 
+    private void TNoPesertaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TNoPesertaFocusLost
+        String noKtp = TNoPeserta.getText().trim();
+        if(!noKtp.isEmpty()) {
+            // daftar kata yang boleh dilewati tanpa validasi panjang/duplikasi
+            List<String> allowed = Arrays.asList("001","UMUM", "YATIM", "SANTRI", "SANTRI DH");
+            // cek apakah isi TKtp termasuk dalam daftar allowed
+            if(!allowed.contains(noKtp.toUpperCase())) {
+                // validasi panjang wajib 16 karakter
+                if(noKtp.length() != 13) {
+                    JOptionPane.showMessageDialog(this, 
+                        "Format Salah / Nomor BPJS harus 13 digit!");
+                    TNoPeserta.requestFocus();
+                } else {
+                    // cek duplikasi di database
+                    String hasil = Sequel.cariIsi("SELECT COUNT(*) FROM pasien WHERE no_peserta=?", noKtp);
+                    if(!hasil.isEmpty() && Integer.parseInt(hasil) > 0) {
+                        JOptionPane.showMessageDialog(this, 
+                            "Pasien dengan No Peserta BPJS ini sudah terdaftar!");
+                        TNoPeserta.requestFocus();
+                    }
+                }
+            }
+            // kalau isi TKtp ada di daftar allowed, dilewati (tetap boleh)
+        }
+    }//GEN-LAST:event_TNoPesertaFocusLost
+
+    private void TKtpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TKtpFocusLost
+        String noKtp = TKtp.getText().trim();
+        if(!noKtp.isEmpty()) {
+            // daftar kata yang boleh dilewati tanpa validasi panjang/duplikasi
+            List<String> allowed = Arrays.asList("001", "SANTRI", "SANTRI DH");
+            // cek apakah isi TKtp termasuk dalam daftar allowed
+            if(!allowed.contains(noKtp.toUpperCase())) {
+                // validasi panjang wajib 16 karakter
+                if(noKtp.length() != 16) {
+                    JOptionPane.showMessageDialog(this, 
+                        "Format Salah / Nomor KTP harus 16 digit!");
+                    TKtp.requestFocus();
+                } else {
+                    // cek duplikasi di database
+                    String hasil = Sequel.cariIsi("SELECT COUNT(*) FROM pasien WHERE no_ktp=?", noKtp);
+                    if(!hasil.isEmpty() && Integer.parseInt(hasil) > 0) {
+                        JOptionPane.showMessageDialog(this, 
+                            "Pasien dengan No KTP ini sudah terdaftar!");
+                        TKtp.requestFocus();
+                    }
+                }
+            }
+            // kalau isi TKtp ada di daftar allowed, dilewati (tetap boleh)
+        }
+    }//GEN-LAST:event_TKtpFocusLost
+
     private void textPerhatianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPerhatianActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textPerhatianActionPerformed
@@ -9680,7 +9745,7 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
         nmcacat.setText("");
         NIP.setText("");
         EMail.setText("");
-        CmbKeluarga.setSelectedItem("DIRI SENDIRI");
+        CmbKeluarga.setSelectedItem("IBU");
         DTPLahir.setDate(new Date());
         DTPDaftar.setDate(new Date());
         chkPolri.setSelected(false);
