@@ -33,8 +33,9 @@ import inventory.DlgPemberianObat;
 import laporan.DlgDiagnosaPenyakit;
 import keuangan.DlgBilingRalan;
 import fungsi.WarnaTable;
-//import fungsi.WarnaTableKasirRalan;
+//import fungsi.WarnaTableKasirRalan3;
 import fungsi.WarnaTableKasirRalan2;
+import fungsi.WarnaTableKasirRalan3;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
@@ -360,8 +361,11 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         }
         try {
             if(koneksiDB.AKTIFKANWARNARALAN().equals("yes")){
-//                tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan());
-                tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan2());
+                if(akses.getdpjp_ranap()==true){
+                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan3());
+                }else{
+                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan2());
+                }
             }else{
                 tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTable());
             }
