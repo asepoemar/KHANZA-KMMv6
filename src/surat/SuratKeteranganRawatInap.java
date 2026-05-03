@@ -947,6 +947,7 @@ public final class SuratKeteranganRawatInap extends javax.swing.JDialog {
         NoSurat.setText("");
         TanggalAwal.setDate(new Date());
         TanggalAkhir.setDate(new Date());
+        //persiapan buat autonomer SKRI KMM
         Valid.autoNomer3("select ifnull(MAX(CONVERT(RIGHT(surat_keterangan_rawat_inap.no_surat,3),signed)),0) from surat_keterangan_rawat_inap where surat_keterangan_rawat_inap.tanggalawal='"+Valid.SetTgl(TanggalAwal.getSelectedItem()+"")+"' ",
                 "SKR"+TanggalAwal.getSelectedItem().toString().substring(6,10)+TanggalAwal.getSelectedItem().toString().substring(3,5)+TanggalAwal.getSelectedItem().toString().substring(0,2),3,NoSurat); 
         NoSurat.requestFocus();
