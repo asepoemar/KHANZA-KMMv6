@@ -791,7 +791,7 @@ public class PanelDiagnosa extends widget.panelisi {
     public widget.Table tbProsedur;
     public widget.Table tbTindakanPasien;
     // End of variables declaration//GEN-END:variables
-    private void tampil() {
+    public void tampil() {
         Valid.tabelKosong(TabModeDiagnosaPasien);
         try{            
             psdiagnosapasien=koneksi.prepareStatement(

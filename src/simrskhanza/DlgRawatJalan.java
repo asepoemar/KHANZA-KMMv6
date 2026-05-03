@@ -72,6 +72,7 @@ import rekammedis.RMDataResumePasien;
 import permintaan.DlgPermintaanLaboratorium;
 import permintaan.DlgPermintaanPelayananInformasiObat;
 import permintaan.DlgPermintaanRadiologi;
+import rekammedis.DlgOdontogram;
 import rekammedis.MasterCariTemplatePemeriksaan;
 import rekammedis.RMCari5SOAPTerakhir;
 import rekammedis.RMCatatanADIMEGizi;
@@ -1148,6 +1149,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
 
         //Button tambahan KMM
         BtnPanggilPasien = new widget.Button();
+        BtnOdontogram = new widget.Button();
         //ends Button tambahan KMM
         internalFrame1 = new widget.InternalFrame();
         jPanel3 = new javax.swing.JPanel();
@@ -2497,6 +2499,23 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         });
         panelGlass12.add(BtnTemplatePemeriksaan);
         BtnTemplatePemeriksaan.setBounds(405, 40, 28, 23);
+        
+        BtnOdontogram.setForeground(new java.awt.Color(0, 0, 0));
+        BtnOdontogram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/tooth_kmm2.png"))); // NOI18N
+        BtnOdontogram.setMnemonic('4');
+        BtnOdontogram.setText("Odontogram");
+        BtnOdontogram.setToolTipText("");
+        BtnOdontogram.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BtnOdontogram.setGlassColor(new java.awt.Color(51,255,255));
+        BtnOdontogram.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnOdontogram.setName("BtnOdontogram"); // NOI18N
+        BtnOdontogram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnOdontogramActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnOdontogram);
+        BtnOdontogram.setBounds(920, 10, 160, 30);
 
         PanelInput.add(panelGlass12, java.awt.BorderLayout.CENTER);
 
@@ -10315,6 +10334,25 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }
     
+    //kmm
+        private void BtnOdontogramActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        if (TNoRw.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        } else {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            DlgOdontogram odontogram = new DlgOdontogram(null, false);
+            odontogram.isCek();
+            odontogram.emptTeks();
+            odontogram.setSize(internalFrame1.getWidth() - 20, internalFrame1.getHeight() - 20);
+            odontogram.setLocationRelativeTo(internalFrame1);
+            odontogram.setNoRm(TNoRw.getText(), DTPCari2.getDate());
+            odontogram.tampil();
+            odontogram.setVisible(true);
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }
+    
     private void BtnPanggilPasienActionPerformed(java.awt.event.ActionEvent evt) {                                                 
         poli = Sequel.cariIsi("select reg_periksa.kd_poli from reg_periksa where reg_periksa.no_rawat=?", TNoRw.getText());
         if (TNoRw.getText().trim().equals("") || TNoRM.getText().trim().equals("")) {
@@ -10826,6 +10864,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.TextBox TanggalRegistrasi;
     //Button tambahan
     private widget.Button BtnPanggilPasien;
+    private widget.Button BtnOdontogram;
     // End of variables declaration//GEN-END:variables
     private widget.Button BtnSkorBromagePascaAnestesi,BtnPenilaianPreInduksi,BtnHasilPemeriksaanUSGUrologi,BtnHasilPemeriksaanUSGGynecologi,BtnHasilPemeriksaanEKG,BtnPenatalaksanaanTerapiOkupasi,BtnPenilaianPsikolog,
                           BtnHasilPemeriksaanUSGNeonatus,BtnHasilEndoskopiFaringLaring,BtnHasilEndoskopiHidung,BtnHasilEndoskopiTelinga,BtnPenilaianPasienImunitasRendah,BtnCatatanKeseimbanganCairan,BtnCatatanObservasiCHBP,
