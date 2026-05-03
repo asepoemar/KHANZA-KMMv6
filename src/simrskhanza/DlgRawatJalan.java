@@ -237,6 +237,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
     private ResultSet rs,rstindakan;
     private int i=0,jmlparsial=0,jml=0,index=0,tinggi=0;
     private String aktifkanparsial="no",kode_poli="",kd_pj="",TANGGALMUNDUR="yes",pilihiterasi="";
+    private String poli = "";
     private boolean[] pilih; 
     private String[] kode,nama,kategori;
     private double[] totaltnd,bagianrs,bhp,jmdokter,jmperawat,kso,menejemen;
@@ -1145,6 +1146,9 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        //Button tambahan KMM
+        BtnPanggilPasien = new widget.Button();
+        //ends Button tambahan KMM
         internalFrame1 = new widget.InternalFrame();
         jPanel3 = new javax.swing.JPanel();
         panelGlass8 = new widget.panelisi();
@@ -3448,6 +3452,21 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         });
         FormInput.add(ChkJln);
         ChkJln.setBounds(906, 10, 23, 23);
+        
+        BtnPanggilPasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/man1-24.png"))); // NOI18N
+        BtnPanggilPasien.setMnemonic('S');
+        BtnPanggilPasien.setText("Panggil Pasien");
+        BtnPanggilPasien.setToolTipText("Alt+S");
+        BtnPanggilPasien.setGlassColor(new java.awt.Color(51, 204, 255));
+        BtnPanggilPasien.setName("BtnPanggilPasien"); // NOI18N
+        BtnPanggilPasien.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnPanggilPasien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                 BtnPanggilPasienActionPerformed(evt);
+            }
+        });
+        FormInput.add(BtnPanggilPasien);
+        BtnPanggilPasien.setBounds(960, 10, 130, 30);
 
         internalFrame1.add(FormInput, java.awt.BorderLayout.PAGE_START);
 
@@ -10296,6 +10315,16 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }
     
+    private void BtnPanggilPasienActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        poli = Sequel.cariIsi("select reg_periksa.kd_poli from reg_periksa where reg_periksa.no_rawat=?", TNoRw.getText());
+        if (TNoRw.getText().trim().equals("") || TNoRM.getText().trim().equals("")) {
+            Valid.textKosong(TNoRw, "No Rawat dan No RM");
+        } else {
+            Sequel.queryu("delete from antripoli where kd_dokter='" + KdDok.getText() + "' and kd_poli='" + poli + "'");
+            Sequel.queryu("insert into antripoli values('" + KdDok.getText() + "','" + poli + "','1','" + TNoRw.getText() + "')");
+        }
+    }
+    
     private void MnSOAPDokterActionPerformed(java.awt.event.ActionEvent evt) {
         if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
@@ -10795,6 +10824,8 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbTindakan2;
     private widget.Table tbTindakan3;
     private widget.TextBox TanggalRegistrasi;
+    //Button tambahan
+    private widget.Button BtnPanggilPasien;
     // End of variables declaration//GEN-END:variables
     private widget.Button BtnSkorBromagePascaAnestesi,BtnPenilaianPreInduksi,BtnHasilPemeriksaanUSGUrologi,BtnHasilPemeriksaanUSGGynecologi,BtnHasilPemeriksaanEKG,BtnPenatalaksanaanTerapiOkupasi,BtnPenilaianPsikolog,
                           BtnHasilPemeriksaanUSGNeonatus,BtnHasilEndoskopiFaringLaring,BtnHasilEndoskopiHidung,BtnHasilEndoskopiTelinga,BtnPenilaianPasienImunitasRendah,BtnCatatanKeseimbanganCairan,BtnCatatanObservasiCHBP,

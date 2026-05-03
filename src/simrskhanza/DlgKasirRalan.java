@@ -361,7 +361,9 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         }
         try {
             if(koneksiDB.AKTIFKANWARNARALAN().equals("yes")){
-                if(akses.getdpjp_ranap()==true){
+                if(akses.getkode().equals("Admin Utama")){
+                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan2());
+                }else if(akses.getdpjp_ranap()==true){
                     tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan3());
                 }else{
                     tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan2());
