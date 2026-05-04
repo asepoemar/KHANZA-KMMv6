@@ -1150,6 +1150,16 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         //Button tambahan KMM
         BtnPanggilPasien = new widget.Button();
         BtnOdontogram = new widget.Button();
+        BtnInputResepKMM = new widget.Button();
+        BtnPemeriksaanUSG = new widget.Button();
+        BtnPemeriksaanLab = new widget.Button();
+        BtnRiwayatPengobatan = new widget.Button();
+        BtnRiwayatLab = new widget.Button();
+        BtnRiwayatKunjungan = new widget.Button();
+        BtnRiwayatSoap = new widget.Button();
+        BtnRujukInternalKMM = new widget.Button();
+        BtnRujukKeluarKMM = new widget.Button();
+        BtnTemplateResep = new widget.Button();
         //ends Button tambahan KMM
         internalFrame1 = new widget.InternalFrame();
         jPanel3 = new javax.swing.JPanel();
@@ -2500,12 +2510,98 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         panelGlass12.add(BtnTemplatePemeriksaan);
         BtnTemplatePemeriksaan.setBounds(405, 40, 28, 23);
         
+        BtnTemplateResep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Vial-Pills.png"))); // NOI18N
+//        BtnTemplateResep.setMnemonic('4');
+        BtnTemplateResep.setText("Template Resep");
+        BtnTemplateResep.setToolTipText("Lihat Data Template Resep Dokter");
+        BtnTemplateResep.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        BtnTemplateResep.setGlassColor(new java.awt.Color(255, 153, 153));
+        BtnTemplateResep.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnTemplateResep.setName("BtnTemplateResep"); // NOI18N
+        BtnTemplateResep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // BtnTemplateResepActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnTemplateResep);
+        BtnTemplateResep.setBounds(910, 10, 140, 30);
+
+        
+        BtnRiwayatPengobatan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/resep kmm.png"))); // NOI18N
+//        BtnRiwayatPengobatan.setMnemonic('4');
+        BtnRiwayatPengobatan.setText("Riwayat Obat");
+        BtnRiwayatPengobatan.setToolTipText("Lihat riwayat pengobatan pasien");
+        BtnRiwayatPengobatan.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        BtnRiwayatPengobatan.setGlassColor(new java.awt.Color(255, 153, 153));
+        BtnRiwayatPengobatan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnRiwayatPengobatan.setName("BtnRiwayatPengobatan"); // NOI18N
+        BtnRiwayatPengobatan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // BtnRiwayatPengobatanActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnRiwayatPengobatan);
+        BtnRiwayatPengobatan.setBounds(910, 50, 140, 30);
+        
+        BtnRiwayatLab.setForeground(new java.awt.Color(0, 0, 0));
+        BtnRiwayatLab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/hasil_lab_kmm.png"))); // NOI18N
+//        BtnRiwayatLab.setMnemonic('4');
+        BtnRiwayatLab.setText("Riwayat Lab");
+        BtnRiwayatLab.setToolTipText("Lihat riwayat pemeriksaan LAB pasien");
+        BtnRiwayatLab.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        BtnRiwayatLab.setGlassColor(new java.awt.Color(255, 153, 153));
+        BtnRiwayatLab.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnRiwayatLab.setName("BtnRiwayatLab"); // NOI18N
+        BtnRiwayatLab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // BtnRiwayatLabActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnRiwayatLab);
+        BtnRiwayatLab.setBounds(910, 90, 140, 30);
+        
+        //MENU TAMBAHAN KMM SISI KIRI
+        BtnRiwayatSoap.setForeground(new java.awt.Color(0, 0, 0));
+        BtnRiwayatSoap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/medical-record.png"))); // NOI18N
+//        BtnRiwayatSoap.setMnemonic('4');
+        BtnRiwayatSoap.setText("Riwayat SOAP");
+        BtnRiwayatSoap.setToolTipText("Lihat riwayat SOAP pasien");
+        BtnRiwayatSoap.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        BtnRiwayatSoap.setGlassColor(new java.awt.Color(255, 153, 153));
+        BtnRiwayatSoap.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnRiwayatSoap.setName("BtnRiwayatSoap"); // NOI18N
+        BtnRiwayatSoap.setPreferredSize(new java.awt.Dimension(196, 30));
+        BtnRiwayatSoap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                BtnRiwayatSoapActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnRiwayatSoap);
+        BtnRiwayatSoap.setBounds(910, 130, 140, 30);
+        
+        BtnRiwayatKunjungan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/doctor-consultation.png"))); // NOI18N
+//        BtnRiwayatKunjungan.setMnemonic('4');
+        BtnRiwayatKunjungan.setText("Riwayat Kunjung");
+        BtnRiwayatKunjungan.setToolTipText("Lihat riwayat kunjungan pasien");
+        BtnRiwayatKunjungan.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        BtnRiwayatKunjungan.setGlassColor(new java.awt.Color(255, 153, 153));
+        BtnRiwayatKunjungan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnRiwayatKunjungan.setName("BtnRiwayatKunjungan"); // NOI18N
+        BtnRiwayatKunjungan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // BtnRiwayatKunjunganActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnRiwayatKunjungan);
+        BtnRiwayatKunjungan.setBounds(910, 170, 140, 30);
+        
+        //MENU TAMBAHAN KMM SISI KANAN
         BtnOdontogram.setForeground(new java.awt.Color(0, 0, 0));
         BtnOdontogram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/tooth_kmm2.png"))); // NOI18N
-        BtnOdontogram.setMnemonic('4');
+//        BtnOdontogram.setMnemonic('4');
         BtnOdontogram.setText("Odontogram");
-        BtnOdontogram.setToolTipText("");
-        BtnOdontogram.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        BtnOdontogram.setToolTipText("Input Data Odontogram");
+        BtnOdontogram.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         BtnOdontogram.setGlassColor(new java.awt.Color(51,255,255));
         BtnOdontogram.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         BtnOdontogram.setName("BtnOdontogram"); // NOI18N
@@ -2515,7 +2611,91 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
             }
         });
         panelGlass12.add(BtnOdontogram);
-        BtnOdontogram.setBounds(920, 10, 160, 30);
+        BtnOdontogram.setBounds(1060, 10, 140, 30);
+        
+        BtnInputResepKMM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/obat kmm.png"))); // NOI18N
+//        BtnInputResepKMM.setMnemonic('4');
+        BtnInputResepKMM.setText("Input Resep");
+        BtnInputResepKMM.setToolTipText("Input Resep Dokter Rawat Jalan");
+        BtnInputResepKMM.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        BtnInputResepKMM.setGlassColor(new java.awt.Color(51,255,255));
+        BtnInputResepKMM.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnInputResepKMM.setName("BtnInputResepKMM"); // NOI18N
+        BtnInputResepKMM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // BtnInputResepKMMActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnInputResepKMM);
+        BtnInputResepKMM.setBounds(1060, 50, 140, 30);
+        
+        BtnPemeriksaanLab.setForeground(new java.awt.Color(0, 0, 0));
+        BtnPemeriksaanLab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/TestTubes.png"))); // NOI18N
+        // BtnPemeriksaanLab.setMnemonic('4');
+        BtnPemeriksaanLab.setText("Permintaan Lab");
+        BtnPemeriksaanLab.setToolTipText("Input Permintaan Lab");
+        BtnPemeriksaanLab.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        BtnPemeriksaanLab.setGlassColor(new java.awt.Color(51,255,255));
+        BtnPemeriksaanLab.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnPemeriksaanLab.setName("BtnPemeriksaanLab"); // NOI18N
+        BtnPemeriksaanLab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // BtnPemeriksaanLabActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnPemeriksaanLab);
+        BtnPemeriksaanLab.setBounds(1060, 90, 140, 30);
+
+        BtnPemeriksaanUSG.setForeground(new java.awt.Color(0, 0, 0));
+        BtnPemeriksaanUSG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/usg_kmm.png"))); // NOI18N
+//        BtnPemeriksaanUSG.setMnemonic('4');
+        BtnPemeriksaanUSG.setText("Input Data USG");
+        BtnPemeriksaanUSG.setToolTipText("Input Data Pemeriksaan USG");
+        BtnPemeriksaanUSG.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        BtnPemeriksaanUSG.setGlassColor(new java.awt.Color(51,255,255));
+        BtnPemeriksaanUSG.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnPemeriksaanUSG.setName("BtnPemeriksaanUSG"); // NOI18N
+        BtnPemeriksaanUSG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // BtnPemeriksaanUSGActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnPemeriksaanUSG);
+        BtnPemeriksaanUSG.setBounds(1060, 130, 140, 30);
+
+        BtnRujukInternalKMM.setForeground(new java.awt.Color(0, 0, 0));
+        BtnRujukInternalKMM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/rujuk internal.png"))); // NOI18N
+//        BtnRujukInternalKMM.setMnemonic('4');
+        BtnRujukInternalKMM.setText("Rujuk Internal");
+        BtnRujukInternalKMM.setToolTipText("Input Data Rujuk Internal Antar Poli");
+        BtnRujukInternalKMM.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        BtnRujukInternalKMM.setGlassColor(new java.awt.Color(51,255,255));
+        BtnRujukInternalKMM.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnRujukInternalKMM.setName("BtnRujukInternalKMM"); // NOI18N
+        BtnRujukInternalKMM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // BtnRujukInternalKMMActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnRujukInternalKMM);
+        BtnRujukInternalKMM.setBounds(1060, 170, 140, 30);
+
+        BtnRujukKeluarKMM.setForeground(new java.awt.Color(0, 0, 0));
+        BtnRujukKeluarKMM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/ambulance kmm.png"))); // NOI18N
+//        BtnRujukKeluarKMM.setMnemonic('4');
+        BtnRujukKeluarKMM.setText("Rujuk Keluar");
+        BtnRujukKeluarKMM.setToolTipText("Input Data Rujukan Keluar");
+        BtnRujukKeluarKMM.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        BtnRujukKeluarKMM.setGlassColor(new java.awt.Color(51,255,255));
+        BtnRujukKeluarKMM.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        BtnRujukKeluarKMM.setName("BtnRujukKeluarKMM"); // NOI18N
+        BtnRujukKeluarKMM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // BtnRujukKeluarKMMActionPerformed(evt);
+            }
+        });
+        panelGlass12.add(BtnRujukKeluarKMM);
+        BtnRujukKeluarKMM.setBounds(1060, 210, 140, 30);
 
         PanelInput.add(panelGlass12, java.awt.BorderLayout.CENTER);
 
@@ -10865,6 +11045,16 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     //Button tambahan
     private widget.Button BtnPanggilPasien;
     private widget.Button BtnOdontogram;
+    private widget.Button BtnInputResepKMM;
+    private widget.Button BtnPemeriksaanUSG;
+    private widget.Button BtnPemeriksaanLab;
+    private widget.Button BtnRiwayatPengobatan;
+    private widget.Button BtnRiwayatLab;
+    private widget.Button BtnRiwayatKunjungan;
+    private widget.Button BtnRiwayatSoap;
+    private widget.Button BtnRujukInternalKMM;
+    private widget.Button BtnRujukKeluarKMM;
+    private widget.Button BtnTemplateResep;
     // End of variables declaration//GEN-END:variables
     private widget.Button BtnSkorBromagePascaAnestesi,BtnPenilaianPreInduksi,BtnHasilPemeriksaanUSGUrologi,BtnHasilPemeriksaanUSGGynecologi,BtnHasilPemeriksaanEKG,BtnPenatalaksanaanTerapiOkupasi,BtnPenilaianPsikolog,
                           BtnHasilPemeriksaanUSGNeonatus,BtnHasilEndoskopiFaringLaring,BtnHasilEndoskopiHidung,BtnHasilEndoskopiTelinga,BtnPenilaianPasienImunitasRendah,BtnCatatanKeseimbanganCairan,BtnCatatanObservasiCHBP,
