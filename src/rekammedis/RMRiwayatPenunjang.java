@@ -237,17 +237,9 @@ public final class RMRiwayatPenunjang extends javax.swing.JDialog {
         chkHasilPemeriksaanEndoskopiFaringLaring = new widget.CekBox();
         chkHasilPemeriksaanEndoskopiHidung = new widget.CekBox();
         chkHasilPemeriksaanEndoskopiTelinga = new widget.CekBox();
-        chkLayananProgramKFR = new widget.CekBox();
-        chkUjiFungsiKFR = new widget.CekBox();
-        chkRekonsiliasiObat = new widget.CekBox();
-        chkKonselingFarmasi = new widget.CekBox();
-        chkPelayananInformasiObat = new widget.CekBox();
         chkBerkasDigital = new widget.CekBox();
         chkPemeriksaanRadiologi = new widget.CekBox();
         chkPemeriksaanLaborat = new widget.CekBox();
-        chkPemberianObat = new widget.CekBox();
-        chkPenggunaanObatOperasi = new widget.CekBox();
-        chkResepPulang = new widget.CekBox();
         PanelInput = new javax.swing.JPanel();
         ChkInput = new widget.CekBox();
         FormInput = new widget.panelisi();
@@ -402,7 +394,7 @@ public final class RMRiwayatPenunjang extends javax.swing.JDialog {
         WindowPhrase.getContentPane().add(internalFrame8, java.awt.BorderLayout.CENTER);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-05-2026 20:50:50" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-05-2026 21:38:59" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -819,46 +811,6 @@ public final class RMRiwayatPenunjang extends javax.swing.JDialog {
         chkHasilPemeriksaanEndoskopiTelinga.setPreferredSize(new java.awt.Dimension(245, 22));
         FormMenu.add(chkHasilPemeriksaanEndoskopiTelinga);
 
-        chkLayananProgramKFR.setSelected(true);
-        chkLayananProgramKFR.setText("Layanan Program KFR");
-        chkLayananProgramKFR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkLayananProgramKFR.setName("chkLayananProgramKFR"); // NOI18N
-        chkLayananProgramKFR.setOpaque(false);
-        chkLayananProgramKFR.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkLayananProgramKFR);
-
-        chkUjiFungsiKFR.setSelected(true);
-        chkUjiFungsiKFR.setText("Uji Fungsi/Prosedur KFR");
-        chkUjiFungsiKFR.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkUjiFungsiKFR.setName("chkUjiFungsiKFR"); // NOI18N
-        chkUjiFungsiKFR.setOpaque(false);
-        chkUjiFungsiKFR.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkUjiFungsiKFR);
-
-        chkRekonsiliasiObat.setSelected(true);
-        chkRekonsiliasiObat.setText("Rekonsiliasi Obat");
-        chkRekonsiliasiObat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkRekonsiliasiObat.setName("chkRekonsiliasiObat"); // NOI18N
-        chkRekonsiliasiObat.setOpaque(false);
-        chkRekonsiliasiObat.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkRekonsiliasiObat);
-
-        chkKonselingFarmasi.setSelected(true);
-        chkKonselingFarmasi.setText("Konseling Farmasi");
-        chkKonselingFarmasi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkKonselingFarmasi.setName("chkKonselingFarmasi"); // NOI18N
-        chkKonselingFarmasi.setOpaque(false);
-        chkKonselingFarmasi.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkKonselingFarmasi);
-
-        chkPelayananInformasiObat.setSelected(true);
-        chkPelayananInformasiObat.setText("Pelayanan Informasi Obat");
-        chkPelayananInformasiObat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkPelayananInformasiObat.setName("chkPelayananInformasiObat"); // NOI18N
-        chkPelayananInformasiObat.setOpaque(false);
-        chkPelayananInformasiObat.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkPelayananInformasiObat);
-
         chkBerkasDigital.setSelected(true);
         chkBerkasDigital.setText("Berkas Digital Perawatan");
         chkBerkasDigital.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -882,30 +834,6 @@ public final class RMRiwayatPenunjang extends javax.swing.JDialog {
         chkPemeriksaanLaborat.setOpaque(false);
         chkPemeriksaanLaborat.setPreferredSize(new java.awt.Dimension(245, 22));
         FormMenu.add(chkPemeriksaanLaborat);
-
-        chkPemberianObat.setSelected(true);
-        chkPemberianObat.setText("Pemberian Obat/BHP/Alkes");
-        chkPemberianObat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkPemberianObat.setName("chkPemberianObat"); // NOI18N
-        chkPemberianObat.setOpaque(false);
-        chkPemberianObat.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkPemberianObat);
-
-        chkPenggunaanObatOperasi.setSelected(true);
-        chkPenggunaanObatOperasi.setText("Penggunaan Obat/BHP Operasi");
-        chkPenggunaanObatOperasi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkPenggunaanObatOperasi.setName("chkPenggunaanObatOperasi"); // NOI18N
-        chkPenggunaanObatOperasi.setOpaque(false);
-        chkPenggunaanObatOperasi.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkPenggunaanObatOperasi);
-
-        chkResepPulang.setSelected(true);
-        chkResepPulang.setText("Resep Pulang");
-        chkResepPulang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chkResepPulang.setName("chkResepPulang"); // NOI18N
-        chkResepPulang.setOpaque(false);
-        chkResepPulang.setPreferredSize(new java.awt.Dimension(245, 22));
-        FormMenu.add(chkResepPulang);
 
         ScrollMenu.setViewportView(FormMenu);
 
@@ -1766,15 +1694,8 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkProsedurTindakan.setSelected(true);
             chkPemeriksaanRadiologi.setSelected(true);
             chkPemeriksaanLaborat.setSelected(true);
-            chkPemberianObat.setSelected(true);
-            chkPenggunaanObatOperasi.setSelected(true);
-            chkResepPulang.setSelected(true);
             chkBerkasDigital.setSelected(true);
-            chkUjiFungsiKFR.setSelected(true);
             chkHasilPemeriksaanUSG.setSelected(true);
-            chkKonselingFarmasi.setSelected(true);
-            chkPelayananInformasiObat.setSelected(true);
-            chkRekonsiliasiObat.setSelected(true);
             chkHasilPemeriksaanUSGUrologi.setSelected(true);
             chkHasilPemeriksaanUSGGynecologi.setSelected(true);
             chkHasilPemeriksaanEKG.setSelected(true);
@@ -1783,7 +1704,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkHasilPemeriksaanEndoskopiHidung.setSelected(true);
             chkHasilPemeriksaanEndoskopiTelinga.setSelected(true);
             chkHasilPemeriksaanEcho.setSelected(true);
-            chkLayananProgramKFR.setSelected(true);
             chkHasilPemeriksaanSlitLamp.setSelected(true);
             chkHasilPemeriksaanOCT.setSelected(true);
             chkHasilPemeriksaanTreadmill.setSelected(true);
@@ -1793,15 +1713,8 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkProsedurTindakan.setSelected(false);
             chkPemeriksaanRadiologi.setSelected(false);
             chkPemeriksaanLaborat.setSelected(false);
-            chkPemberianObat.setSelected(false);
-            chkPenggunaanObatOperasi.setSelected(false);
-            chkResepPulang.setSelected(false);
             chkBerkasDigital.setSelected(false);
-            chkUjiFungsiKFR.setSelected(false);
             chkHasilPemeriksaanUSG.setSelected(false);
-            chkKonselingFarmasi.setSelected(false);
-            chkPelayananInformasiObat.setSelected(false);
-            chkRekonsiliasiObat.setSelected(false);
             chkHasilPemeriksaanUSGUrologi.setSelected(false);
             chkHasilPemeriksaanUSGGynecologi.setSelected(false);
             chkHasilPemeriksaanEKG.setSelected(false);
@@ -1810,7 +1723,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             chkHasilPemeriksaanEndoskopiHidung.setSelected(false);
             chkHasilPemeriksaanEndoskopiTelinga.setSelected(false);
             chkHasilPemeriksaanEcho.setSelected(false);
-            chkLayananProgramKFR.setSelected(false);
             chkHasilPemeriksaanSlitLamp.setSelected(false);
             chkHasilPemeriksaanOCT.setSelected(false);
             chkHasilPemeriksaanTreadmill.setSelected(false);
@@ -1901,18 +1813,10 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     private widget.CekBox chkHasilPemeriksaanUSGGynecologi;
     private widget.CekBox chkHasilPemeriksaanUSGNeonatus;
     private widget.CekBox chkHasilPemeriksaanUSGUrologi;
-    private widget.CekBox chkKonselingFarmasi;
-    private widget.CekBox chkLayananProgramKFR;
-    private widget.CekBox chkPelayananInformasiObat;
-    private widget.CekBox chkPemberianObat;
     private widget.CekBox chkPemeriksaanLaborat;
     private widget.CekBox chkPemeriksaanRadiologi;
-    private widget.CekBox chkPenggunaanObatOperasi;
     private widget.CekBox chkProsedurTindakan;
-    private widget.CekBox chkRekonsiliasiObat;
-    private widget.CekBox chkResepPulang;
     private widget.CekBox chkSemua;
-    private widget.CekBox chkUjiFungsiKFR;
     private widget.InternalFrame internalFrame1;
     private widget.InternalFrame internalFrame2;
     private widget.InternalFrame internalFrame8;
@@ -2202,8 +2106,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     );                            
                     urut++;
                     
-                    menampilkanLayananProgramKFR(rs.getString("no_rawat"));
-                    menampilkanUjiFungsiKFR(rs.getString("no_rawat"));
                     menampilkanHasilPemeriksaanUSG(rs.getString("no_rawat"));
                     menampilkanHasilPemeriksaanUSGUrologi(rs.getString("no_rawat"));
                     menampilkanHasilPemeriksaanUSGNeonatus(rs.getString("no_rawat"));
@@ -2217,9 +2119,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                     menampilkanHasilEndoskopiFaringLaring(rs.getString("no_rawat"));
                     menampilkanHasilEndoskopiHidung(rs.getString("no_rawat"));
                     menampilkanHasilEndoskopiTelinga(rs.getString("no_rawat"));
-                    menampilkanRekonsiliasiObat(rs.getString("no_rawat"));
-                    menampilkanKonselingFarmasi(rs.getString("no_rawat"));
-                    menampilkanPelayananInformasiObat(rs.getString("no_rawat"));
                     menampilkanDiagnosa(rs.getString("no_rawat"));
                     menampilkanBerkasDigital(rs.getString("no_rawat"));
                     
@@ -2658,203 +2557,6 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                         }
                     }
                     
-                    //menampilkan pemberian obat
-                    if(chkPemberianObat.isSelected()==true){
-                        try{
-                            rs2=koneksi.prepareStatement(
-                                "select detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam,databarang.kode_sat, "+
-                                "detail_pemberian_obat.kode_brng,detail_pemberian_obat.jml,detail_pemberian_obat.total,"+
-                                "databarang.nama_brng from detail_pemberian_obat inner join databarang "+
-                                "on detail_pemberian_obat.kode_brng=databarang.kode_brng  "+
-                                "where detail_pemberian_obat.no_rawat='"+rs.getString("no_rawat")+"' order by detail_pemberian_obat.tgl_perawatan,detail_pemberian_obat.jam").executeQuery();
-                            if(rs2.next()){                                    
-                                htmlContent.append(  
-                                  "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>").append(
-                                    "<tr><td valign='top' colspan='5'>Pemberian Obat/BHP/Alkes</td><td valign='top' colspan='1' align='right'>:</td><td></td></tr>").append(            
-                                    "<tr align='center'>").append(
-                                      "<td valign='top' width='4%' bgcolor='#FFFAF8'>No.</td>").append(
-                                      "<td valign='top' width='15%' bgcolor='#FFFAF8'>Tanggal</td>").append(
-                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Kode</td>").append(
-                                      "<td valign='top' width='35%' bgcolor='#FFFAF8'>Nama Obat/BHP/Alkes</td>").append(
-                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Jumlah</td>").append(
-                                      "<td valign='top' width='16%' bgcolor='#FFFAF8'>Aturan Pakai</td>").append(
-                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Biaya</td>").append(
-                                    "</tr>");
-                                w=1;
-                                do{
-                                    htmlContent.append(
-                                         "<tr>").append(
-                                            "<td valign='top' align='center'>").append(w).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getString("tgl_perawatan")).append(" ").append(rs2.getString("jam")).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getString("kode_brng")).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getString("nama_brng")).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getDouble("jml")).append(" ").append(rs2.getString("kode_sat")).append("</td>").append(
-                                            "<td valign='top'>").append(Sequel.cariIsi("select aturan from aturan_pakai where tgl_perawatan='"+rs2.getString("tgl_perawatan")+"' and jam='"+rs2.getString("jam")+"' and no_rawat='"+rs.getString("no_rawat")+"' and kode_brng='"+rs2.getString("kode_brng")+"'")).append("</td>").append(
-                                            "<td valign='top' align='right'>").append(Valid.SetAngka(rs2.getDouble("total"))).append("</td>").append(
-                                         "</tr>"); 
-                                    w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("total");
-                                }while(rs2.next());
-                                htmlContent.append(
-                                  "</table>");
-                            }                                
-                        } catch (Exception e) {
-                            System.out.println("Notifikasi : "+e);
-                        } finally{
-                            if(rs2!=null){
-                                rs2.close();
-                            }
-                        }
-                        
-                        try{
-                            rs2=koneksi.prepareStatement(
-                                "select databarang.kode_brng,databarang.nama_brng,detreturjual.kode_sat,detreturjual.h_retur, "+
-                             "(detreturjual.jml_retur * -1) as jumlah,(detreturjual.subtotal * -1) as total from detreturjual "+
-                             "inner join databarang on detreturjual.kode_brng=databarang.kode_brng  "+
-                                "inner join returjual on returjual.no_retur_jual=detreturjual.no_retur_jual where returjual.no_retur_jual like '%"+rs.getString("no_rawat")+"%' order by databarang.nama_brng").executeQuery();
-                            if(rs2.next()){                                    
-                                htmlContent.append(  
-                                  "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>").append(
-                                    "<tr><td valign='top' colspan='3'>Retur Obat</td><td valign='top' colspan='1' align='right'>:</td><td></td></tr>").append(            
-                                    "<tr align='center'>").append(
-                                      "<td valign='top' width='4%' bgcolor='#FFFAF8'>No.</td>").append(
-                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Kode</td>").append(
-                                      "<td valign='top' width='66%' bgcolor='#FFFAF8'>Nama Obat/BHP/Alkes</td>").append(
-                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Jumlah</td>").append(
-                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Biaya</td>").append(
-                                    "</tr>");
-                                w=1;
-                                do{
-                                    htmlContent.append(
-                                         "<tr>").append(
-                                            "<td valign='top' align='center'>").append(w).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getString("kode_brng")).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getString("nama_brng")).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getDouble("jumlah")).append(" ").append(rs2.getString("kode_sat")).append("</td>").append(
-                                            "<td valign='top' align='right'>").append(Valid.SetAngka(rs2.getDouble("total"))).append("</td>").append(
-                                         "</tr>"); 
-                                    w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("total");
-                                }while(rs2.next());
-                                htmlContent.append(
-                                  "</table>");
-                            }                                
-                        } catch (Exception e) {
-                            System.out.println("Notifikasi : "+e);
-                        } finally{
-                            if(rs2!=null){
-                                rs2.close();
-                            }
-                        }
-                    }
-                    
-                    //menampilkan penggunaan obat operasi
-                    if(chkPenggunaanObatOperasi.isSelected()==true){
-                        try{
-                            rs2=koneksi.prepareStatement(
-                                "select beri_obat_operasi.tanggal,beri_obat_operasi.kd_obat,beri_obat_operasi.hargasatuan,obatbhp_ok.kode_sat, "+
-                                "beri_obat_operasi.jumlah, obatbhp_ok.nm_obat,(beri_obat_operasi.hargasatuan*beri_obat_operasi.jumlah) as total "+
-                                "from beri_obat_operasi inner join obatbhp_ok  on  beri_obat_operasi.kd_obat=obatbhp_ok.kd_obat  "+
-                                "where beri_obat_operasi.no_rawat='"+rs.getString("no_rawat")+"' order by beri_obat_operasi.tanggal").executeQuery();
-                            if(rs2.next()){                                    
-                                htmlContent.append(  
-                                  "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>").append(
-                                    "<tr><td valign='top' colspan='4'>Penggunaan Obat/BHP Operasi</td><td valign='top' colspan='1' align='right'>:</td><td></td></tr>").append(            
-                                    "<tr align='center'>").append(
-                                      "<td valign='top' width='4%' bgcolor='#FFFAF8'>No.</td>").append(
-                                      "<td valign='top' width='15%' bgcolor='#FFFAF8'>Tanggal</td>").append(
-                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Kode</td>").append(
-                                      "<td valign='top' width='51%' bgcolor='#FFFAF8'>Nama Obat/BHP</td>").append(
-                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Jumlah</td>").append(
-                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Biaya</td>").append(
-                                    "</tr>");
-                                w=1;
-                                do{
-                                    htmlContent.append(
-                                         "<tr>").append(
-                                            "<td valign='top' align='center'>").append(w).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getString("tanggal")).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getString("kd_obat")).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getString("nm_obat")).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getDouble("jumlah")).append(" ").append(rs2.getString("kode_sat")).append("</td>").append(
-                                            "<td valign='top' align='right'>").append(Valid.SetAngka(rs2.getDouble("total"))).append("</td>").append(
-                                         "</tr>"); 
-                                    w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("total");
-                                }while(rs2.next());
-                                htmlContent.append(
-                                  "</table>");
-                            }                                
-                        } catch (Exception e) {
-                            System.out.println("Notifikasi : "+e);
-                        } finally{
-                            if(rs2!=null){
-                                rs2.close();
-                            }
-                        }
-                    }
-                    
-                    //menampilkan resep pulang
-                    if(chkResepPulang.isSelected()==true){
-                        try{
-                            rs2=koneksi.prepareStatement(
-                                "select resep_pulang.kode_brng,databarang.nama_brng,resep_pulang.dosis,resep_pulang.jml_barang, "+
-                                "databarang.kode_sat,resep_pulang.dosis,resep_pulang.total from resep_pulang inner join databarang "+
-                                "on resep_pulang.kode_brng=databarang.kode_brng where "+
-                                "resep_pulang.no_rawat='"+rs.getString("no_rawat")+"' order by databarang.nama_brng").executeQuery();
-                            if(rs2.next()){                                    
-                                htmlContent.append(  
-                                  "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>").append(
-                                    "<tr><td valign='top' colspan='4'>Resep Pulang</td><td valign='top' colspan='1' align='right'>:</td><td></td></tr>").append(            
-                                    "<tr align='center'>").append(
-                                      "<td valign='top' width='4%' bgcolor='#FFFAF8'>No.</td>").append(
-                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Kode</td>").append(
-                                      "<td valign='top' width='50%' bgcolor='#FFFAF8'>Nama Obat/BHP/Alkes</td>").append(
-                                      "<td valign='top' width='16%' bgcolor='#FFFAF8'>Dosis</td>").append(
-                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Jumlah</td>").append(
-                                      "<td valign='top' width='10%' bgcolor='#FFFAF8'>Biaya</td>").append(
-                                    "</tr>");
-                                w=1;
-                                do{
-                                    htmlContent.append(
-                                         "<tr>").append(
-                                            "<td valign='top' align='center'>").append(w).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getString("kode_brng")).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getString("nama_brng")).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getString("dosis")).append("</td>").append(
-                                            "<td valign='top'>").append(rs2.getDouble("jml_barang")).append(" ").append(rs2.getString("kode_sat")).append("</td>").append(
-                                            "<td valign='top' align='right'>").append(Valid.SetAngka(rs2.getDouble("total"))).append("</td>").append(
-                                         "</tr>"); 
-                                    w++;
-                                    biayaperawatan=biayaperawatan+rs2.getDouble("total");
-                                }while(rs2.next());
-                                htmlContent.append(
-                                  "</table>");
-                            }                                
-                        } catch (Exception e) {
-                            System.out.println("Notifikasi : "+e);
-                        } finally{
-                            if(rs2!=null){
-                                rs2.close();
-                            }
-                        }
-                    }
-                    
-                    //ppn obat di billing
-                    double ppnobat=Sequel.cariIsiAngka("select billing.totalbiaya from billing where billing.nm_perawatan='PPN Obat' and billing.status='Obat' and billing.no_rawat=?",rs.getString("no_rawat"));
-                    if(ppnobat>0){
-                        biayaperawatan=biayaperawatan+ppnobat;
-                        htmlContent.append(  
-                                  "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>").append(
-                                      "<tr>").append(
-                                        "<td valign='top' width='89%'>PPN Obat</td>").append(
-                                        "<td valign='top' width='1%' align='right'>:</td>").append(
-                                        "<td valign='top' width='10%' align='right'>").append(Valid.SetAngka(ppnobat)).append("</td>").append(
-                                      "</tr>").append(
-                                  "</table>");
-                    }
-                    
-                    
                     htmlContent.append(
                         "<tr class='isi'><td></td><td colspan='3' align='right'>&nbsp;</tr>"
                     );
@@ -3074,388 +2776,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             System.out.println("Notif Diagnosa : "+e);
         }
     }
-
-    private void menampilkanUjiFungsiKFR(String norawat) {
-        try {
-            if(chkUjiFungsiKFR.isSelected()==true){
-                try {
-                    rs2=koneksi.prepareStatement(
-                            "select uji_fungsi_kfr.tanggal,uji_fungsi_kfr.diagnosis_fungsional,uji_fungsi_kfr.diagnosis_medis,uji_fungsi_kfr.hasil_didapat,"+
-                            "uji_fungsi_kfr.kesimpulan,uji_fungsi_kfr.rekomedasi,uji_fungsi_kfr.kd_dokter,dokter.nm_dokter "+
-                            "from uji_fungsi_kfr inner join dokter on uji_fungsi_kfr.kd_dokter=dokter.kd_dokter where "+
-                            "uji_fungsi_kfr.no_rawat='"+norawat+"'").executeQuery();
-                    if(rs2.next()){
-                        htmlContent.append(
-                          "<tr class='isi'>").append( 
-                            "<td valign='top' width='2%'></td>").append(        
-                            "<td valign='top' width='18%'>Uji Fungsi/Prosedur KFR</td>").append(
-                            "<td valign='top' width='1%' align='center'>:</td>").append(
-                            "<td valign='top' width='79%'>").append(
-                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
-                        );
-                        do{
-                            htmlContent.append(
-                                 "<tr>").append(
-                                    "<td valign='top'>").append(
-                                       "YANG MELAKUKAN PEMERIKSAAN").append(  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
-                                          "<tr>").append(
-                                              "<td width='33%' border='0'>Tanggal : ").append(rs2.getString("tanggal")).append("</td>").append(
-                                              "<td width='66%' border='0'>Dokter : ").append(rs2.getString("kd_dokter")).append(" ").append(rs2.getString("nm_dokter")).append("</td>").append(
-                                          "</tr>").append(
-                                       "</table>").append(
-                                    "</td>").append(
-                                 "</tr>").append(
-                                 "<tr>").append(
-                                    "<td valign='top'>").append(
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
-                                          "<tr>").append(
-                                              "<td width='20%' border='0'>Diagnosa Fungsional</td>").append(
-                                              "<td width='80%' border='0'>: ").append(rs2.getString("diagnosis_fungsional")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td width='20%' border='0'>Diagnosa Medis</td>").append(
-                                              "<td width='80%' border='0'>: ").append(rs2.getString("diagnosis_medis")).append("</td>").append(
-                                          "</tr>").append(
-                                       "</table>").append(
-                                    "</td>").append(
-                                 "</tr>").append(
-                                 "<tr>").append(
-                                    "<td valign='top'>").append(
-                                       "INSTRUMEN UJI FUNGSI/PROSEDUR KFR").append(  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
-                                          "<tr>").append(
-                                               "<td width='100%' border='0'>Hasil yang didapat : ").append(rs2.getString("hasil_didapat")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                               "<td width='100%' border='0'>Kesimpulan : ").append(rs2.getString("kesimpulan")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                               "<td width='100%' border='0'>Rekomendasi : ").append(rs2.getString("rekomedasi")).append("</td>").append(
-                                          "</tr>").append(
-                                       "</table>").append(
-                                    "</td>").append(
-                                 "</tr>"
-                            ); 
-                        }while(rs2.next());
-                        htmlContent.append(
-                              "</table>").append(
-                            "</td>").append(
-                          "</tr>");
-                    }
-                } catch (Exception e) {
-                    System.out.println("Notifikasi : "+e);
-                } finally{
-                    if(rs2!=null){
-                        rs2.close();
-                    }
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Notif Uji Fungsi KFR : "+e);
-        }
-    }
-
-    private void menampilkanRekonsiliasiObat(String norawat) {
-        try {
-            if(chkRekonsiliasiObat.isSelected()==true){
-                try {
-                    rs2=koneksi.prepareStatement(
-                        "select rekonsiliasi_obat.no_rekonsiliasi,rekonsiliasi_obat.tanggal_wawancara,rekonsiliasi_obat.rekonsiliasi_obat_saat,"+
-                        "rekonsiliasi_obat.alergi_obat,rekonsiliasi_obat.manifestasi_alergi,rekonsiliasi_obat.dampak_alergi,rekonsiliasi_obat.nip,"+
-                        "petugas.nama from rekonsiliasi_obat inner join reg_periksa on reg_periksa.no_rawat=rekonsiliasi_obat.no_rawat "+
-                        "inner join petugas on rekonsiliasi_obat.nip=petugas.nip where rekonsiliasi_obat.no_rawat='"+norawat+"' "+
-                        "order by rekonsiliasi_obat.tanggal_wawancara").executeQuery();
-                    if(rs2.next()){
-                        htmlContent.append(
-                          "<tr class='isi'>").append( 
-                            "<td valign='top' width='2%'></td>").append(        
-                            "<td valign='top' width='18%'>Rekonsiliasi Obat</td>").append(
-                            "<td valign='top' width='1%' align='center'>:</td>").append(
-                            "<td valign='top' width='79%'>").append(
-                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
-                        );
-                        do{
-                            htmlContent.append(
-                                 "<tr>").append(
-                                    "<td valign='top'>").append(
-                                       "YANG MELAKUKAN WAWANCARA").append(  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
-                                          "<tr>").append(
-                                              "<td width='100%' colspan='3'>Petugas Wawancara : ").append(rs2.getString("nip")).append(" ").append(rs2.getString("nama")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td width='33%'>No.Rekonsiliasi : ").append(rs2.getString("no_rekonsiliasi")).append("</td>").append(
-                                              "<td width='33%'>Tgl.Wawancara : ").append(rs2.getString("tanggal_wawancara")).append("</td>").append(
-                                              "<td width='33%'>Rekonsiliasi Saat : ").append(rs2.getString("rekonsiliasi_obat_saat")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td width='33%'>Alergi Obat : ").append(rs2.getString("alergi_obat")).append("</td>").append(
-                                              "<td width='33%'>Manifestasi Alergi : ").append(rs2.getString("manifestasi_alergi")).append("</td>").append(
-                                              "<td width='33%'>Dampak Alergi : ").append(rs2.getString("dampak_alergi")).append("</td>").append(
-                                          "</tr>").append(
-                                       "</table>").append(
-                                    "</td>").append(
-                                 "</tr>").append(
-                                 "<tr>").append(
-                                    "<td valign='top'>").append(
-                                       "DAFTAR OBAT REKONSILIASI").append(  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
-                                          "<tr align='center'>").append(
-                                            "<td valign='top' width='4%' bgcolor='#FFFAF8' align='center'>No.</td>").append(
-                                            "<td valign='top' width='22%' bgcolor='#FFFAF8' align='center'>Nama Obat</td>").append(
-                                            "<td valign='top' width='9%' bgcolor='#FFFAF8' align='center'>Dosis Obat</td>").append(
-                                            "<td valign='top' width='9%' bgcolor='#FFFAF8' align='center'>Frekuensi</td>").append(
-                                            "<td valign='top' width='19%' bgcolor='#FFFAF8' align='center'>Cara Pemberian/Aturan Pakai</td>").append(
-                                            "<td valign='top' width='10%' bgcolor='#FFFAF8' align='center'>Pemberian Terakhir</td>").append(
-                                            "<td valign='top' width='8%' bgcolor='#FFFAF8' align='center'>Tindak Lanjut</td>").append(
-                                            "<td valign='top' width='19%' bgcolor='#FFFAF8' align='center'>Perubahan Aturan Pakai</td>").append(
-                                          "</tr>"
-                            );
-                            
-                            try {
-                                w=1;
-                                rs3=koneksi.prepareStatement(
-                                        "select * from rekonsiliasi_obat_detail_obat where rekonsiliasi_obat_detail_obat.no_rekonsiliasi='"+rs2.getString("no_rekonsiliasi")+"'").executeQuery();
-                                while(rs3.next()){
-                                    htmlContent.append(
-                                         "<tr>").append(
-                                            "<td valign='top' align='center'>").append(w).append("</td>").append(
-                                            "<td valign='top'>").append(rs3.getString("nama_obat")).append("</td>").append(
-                                            "<td valign='top'>").append(rs3.getString("dosis_obat")).append("</td>").append(
-                                            "<td valign='top' align='center'>").append(rs3.getString("frekuensi")).append("</td>").append(
-                                            "<td valign='top'>").append(rs3.getString("cara_pemberian")).append("</td>").append(
-                                            "<td valign='top'>").append(rs3.getString("waktu_pemberian_terakhir")).append("</td>").append(
-                                            "<td valign='top' align='center'>").append(rs3.getString("tindak_lanjut")).append("</td>").append(
-                                            "<td valign='top'>").append(rs3.getString("perubahan_aturan_pakai")).append("</td>").append(
-                                         "</tr>"
-                                    ); 
-                                    w++;
-                                }
-                            } catch (Exception e) {
-                                System.out.println("Notifikasi : "+e);
-                            } finally{
-                                if(rs3!=null){
-                                    rs3.close();
-                                }
-                            }
-                            
-                            htmlContent.append(
-                                       "</table>").append(
-                                    "</td>").append(
-                                 "</tr>"
-                            );
-                            
-                            try {
-                                rs3=koneksi.prepareStatement(
-                                        "select rekonsiliasi_obat_konfirmasi.diterima_farmasi,rekonsiliasi_obat_konfirmasi.dikonfirmasi_apoteker,rekonsiliasi_obat_konfirmasi.nip,petugas.nama,"+
-                                        "rekonsiliasi_obat_konfirmasi.diserahkan_pasien from rekonsiliasi_obat_konfirmasi inner join petugas on rekonsiliasi_obat_konfirmasi.nip=petugas.nip "+
-                                        "where rekonsiliasi_obat_konfirmasi.no_rekonsiliasi='"+rs2.getString("no_rekonsiliasi")+"'").executeQuery();
-                                if(rs3.next()){
-                                    htmlContent.append(
-                                         "<tr>").append(
-                                            "<td valign='top'>").append(
-                                               "DIKONFIRMASI FARMASI/APOTEKER").append(  
-                                               "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
-                                                  "<tr>").append(
-                                                      "<td width='33%'>Diterima Farmasi : ").append(rs3.getString("diterima_farmasi")).append("</td>").append(
-                                                      "<td width='33%'>Dikonfirmasi Apoteker : ").append(rs3.getString("dikonfirmasi_apoteker")).append("</td>").append(
-                                                      "<td width='33%'>Diserahkan Pasien : ").append(rs3.getString("diserahkan_pasien")).append("</td>").append(
-                                                  "</tr>").append(
-                                                 "<tr>").append(
-                                                      "<td width='100%' colspan='3'>Petugas Farmasi/Apoteker : ").append(rs3.getString("nip")).append(" ").append(rs3.getString("nama")).append("</td>").append(
-                                                  "</tr>").append(
-                                               "</table>").append(
-                                            "</td>").append(
-                                         "</tr>"
-                                    ); 
-                                }
-                            } catch (Exception e) {
-                                System.out.println("Notifikasi : "+e);
-                            } finally{
-                                if(rs3!=null){
-                                    rs3.close();
-                                }
-                            }
-                        }while(rs2.next());
-                        htmlContent.append(
-                              "</table>").append(
-                            "</td>").append(
-                          "</tr>");
-                    }
-                } catch (Exception e) {
-                    System.out.println("Notifikasi : "+e);
-                } finally{
-                    if(rs2!=null){
-                        rs2.close();
-                    }
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Notif Rekonsiliasi Obat : "+e);
-        }
-    }
-    
-    private void menampilkanKonselingFarmasi(String norawat) {
-        try {
-            if(chkKonselingFarmasi.isSelected()==true){
-                try {
-                    rs2=koneksi.prepareStatement(
-                        "select konseling_farmasi.tanggal,konseling_farmasi.diagnosa,konseling_farmasi.obat_pemakaian,konseling_farmasi.riwayat_alergi,konseling_farmasi.keluhan,"+
-                        "konseling_farmasi.pernah_datang,konseling_farmasi.tindak_lanjut,konseling_farmasi.nip,petugas.nama "+
-                        "from konseling_farmasi inner join petugas on konseling_farmasi.nip=petugas.nip "+
-                        "where konseling_farmasi.no_rawat='"+norawat+"' order by konseling_farmasi.tanggal").executeQuery();
-                    if(rs2.next()){
-                        htmlContent.append(
-                          "<tr class='isi'>").append( 
-                            "<td valign='top' width='2%'></td>").append(        
-                            "<td valign='top' width='18%'>Konseling Farmasi</td>").append(
-                            "<td valign='top' width='1%' align='center'>:</td>").append(
-                            "<td valign='top' width='79%'>").append(
-                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
-                        );
-                        do{
-                            htmlContent.append(
-                                 "<tr>").append(
-                                    "<td valign='top'>").append(
-                                       "YANG MELAKUKAN PENGKAJIAN").append(  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
-                                          "<tr>").append(
-                                              "<td width='30%' border='0'>Tanggal : ").append(rs2.getString("tanggal")).append("</td>").append(
-                                              "<td width='40%' border='0'>Apoteker : ").append(rs2.getString("nip")).append(" ").append(rs2.getString("nama")).append("</td>").append(
-                                              "<td width='30%' border='0'>Tgl.Konseling : ").append(rs2.getString("tanggal")).append("</td>").append(
-                                          "</tr>").append(
-                                       "</table>").append(
-                                    "</td>").append(
-                                 "</tr>").append(
-                                 "<tr>").append(
-                                    "<td valign='top'>").append(
-                                       "KONSELING").append(  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
-                                          "<tr>").append(
-                                              "<td width='34%'>Diagnosa : ").append(rs2.getString("diagnosa")).append(" </td>").append(
-                                              "<td width='33%'>Alergi : ").append(rs2.getString("riwayat_alergi")).append(" </td>").append(
-                                              "<td width='33%'>Pernah Konseling Sebelumnya : ").append(rs2.getString("pernah_datang")).append(" </td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td width='100%' colspan='3'>Nama Obat, Dosis & Cara Pemakaian : ").append(rs2.getString("obat_pemakaian")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td width='100%' colspan='3'>Keluhan : ").append(rs2.getString("keluhan")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td width='100%' colspan='3'>Tindak Lanjut : ").append(rs2.getString("tindak_lanjut")).append("</td>").append(
-                                          "</tr>").append(
-                                       "</table>").append(
-                                    "</td>").append(
-                                 "</tr>"
-                            ); 
-                        }while(rs2.next());
-                        htmlContent.append(
-                              "</table>").append(
-                            "</td>").append(
-                          "</tr>");
-                    }
-                } catch (Exception e) {
-                    System.out.println("Notifikasi : "+e);
-                } finally{
-                    if(rs2!=null){
-                        rs2.close();
-                    }
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Notif Konseling Farmasi : "+e);
-        }
-    }
-    
-    private void menampilkanPelayananInformasiObat(String norawat) {
-        try {
-            if(chkPelayananInformasiObat.isSelected()==true){
-                try {
-                    rs2=koneksi.prepareStatement(
-                        "select pelayanan_informasi_obat.no_permintaan,pelayanan_informasi_obat.tanggal,pelayanan_informasi_obat.metode,pelayanan_informasi_obat.penanya,"+
-                        "pelayanan_informasi_obat.status_penanya,pelayanan_informasi_obat.no_telp_penanya,pelayanan_informasi_obat.jenis_pertanyaan,pelayanan_informasi_obat.keterangan_jenis_pertanyaan,"+
-                        "pelayanan_informasi_obat.uraian_pertanyaan,ifnull(jawaban_pio_apoteker.tanggal_jawab,'') as tanggal_jawab,ifnull(jawaban_pio_apoteker.metode,'') as metodejawab,"+
-                        "ifnull(jawaban_pio_apoteker.penyampaian_jawaban,'') as penyampaian_jawaban,ifnull(jawaban_pio_apoteker.jawaban,'') as jawaban,ifnull(jawaban_pio_apoteker.referensi,'') as referensi,"+
-                        "ifnull(jawaban_pio_apoteker.nip,'') as nip,ifnull(petugas.nama,'') as nama from pelayanan_informasi_obat "+
-                        "left join jawaban_pio_apoteker on jawaban_pio_apoteker.no_permintaan=pelayanan_informasi_obat.no_permintaan left join petugas on jawaban_pio_apoteker.nip=petugas.nip "+
-                        "where pelayanan_informasi_obat.no_rawat='"+norawat+"' order by pelayanan_informasi_obat.tanggal").executeQuery();
-                    if(rs2.next()){
-                        htmlContent.append(
-                          "<tr class='isi'>").append( 
-                            "<td valign='top' width='2%'></td>").append(        
-                            "<td valign='top' width='18%'>Pelayanan Informasi Obat</td>").append(
-                            "<td valign='top' width='1%' align='center'>:</td>").append(
-                            "<td valign='top' width='79%'>").append(
-                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
-                        );
-                        do{
-                            htmlContent.append(
-                                 "<tr>").append(
-                                    "<td valign='top'>").append(
-                                       "PERMINTAAN PELAYANAN INFORMASI OBAT").append(  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
-                                          "<tr>").append(
-                                              "<td width='30%'>Tanggal : ").append(rs2.getString("tanggal")).append("</td>").append(
-                                              "<td width='40%'>Metode : ").append(rs2.getString("metode")).append("</td>").append(
-                                              "<td width='30%'>No. Permintaan : ").append(rs2.getString("no_permintaan")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td width='70%' colspan='2'>Penanya : ").append(rs2.getString("penanya")).append("</td>").append(
-                                              "<td width='30%'>Status Penanya : ").append(rs2.getString("status_penanya")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td width='30%'>No. Telp : ").append(rs2.getString("no_telp_penanya")).append("</td>").append(
-                                              "<td width='70%' colspan='2'>Jenis Pertanyaan : ").append(rs2.getString("jenis_pertanyaan")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td width='100%' colspan='3'>Uraian Pertanyaan : ").append(rs2.getString("uraian_pertanyaan")).append("</td>").append(
-                                          "</tr>").append(
-                                       "</table>").append(
-                                    "</td>").append(
-                                 "</tr>").append(
-                                 "<tr>").append(
-                                    "<td valign='top'>").append(
-                                       "JAWABAN PELAYANAN INFORMASI OBAT").append( 
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
-                                          "<tr>").append(
-                                              "<td width='34%'>Tanggal Jawaban : ").append(rs2.getString("tanggal_jawab")).append(" </td>").append(
-                                              "<td width='33%'>Penyampaian : ").append(rs2.getString("penyampaian_jawaban")).append(" </td>").append(
-                                              "<td width='33%'>Metode Jawab : ").append(rs2.getString("metodejawab")).append(" </td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td width='100%' colspan='3'>Apoteker Yang Menjawab : ").append(rs2.getString("nip")).append(" ").append(rs2.getString("nama")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td width='100%' colspan='3'>Jawaban Apoteker : ").append(rs2.getString("jawaban")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td width='100%' colspan='3'>Referensi Jawaban : ").append(rs2.getString("referensi")).append("</td>").append(
-                                          "</tr>").append(
-                                       "</table>").append(
-                                    "</td>").append(
-                                 "</tr>"
-                            );
-                        }while(rs2.next());
-                        htmlContent.append(
-                              "</table>").append(
-                            "</td>").append(
-                          "</tr>");
-                    }
-                } catch (Exception e) {
-                    System.out.println("Notifikasi : "+e);
-                } finally{
-                    if(rs2!=null){
-                        rs2.close();
-                    }
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Notif Pelayanan Informasi Obat : "+e);
-        }
-    }
-       
+          
     private void menampilkanHasilPemeriksaanUSG(String norawat) {
         try {
             if(chkHasilPemeriksaanUSG.isSelected()==true){
@@ -4550,96 +3871,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             System.out.println("Notif Hasil Pemeriksaan ECHO : "+e);
         }
     }
-    
-    private void menampilkanLayananProgramKFR(String norawat) {
-        try {
-            if(chkLayananProgramKFR.isSelected()==true){
-                try {
-                    rs2=koneksi.prepareStatement(
-                            "select layanan_program_kfr.tanggal,layanan_program_kfr.no_rawat_layanan,layanan_kedokteran_fisik_rehabilitasi.diagnosa_medis,layanan_kedokteran_fisik_rehabilitasi.tatalaksana,layanan_program_kfr.program,"+
-                            "layanan_program_kfr.nip,petugas.nama,layanan_kedokteran_fisik_rehabilitasi.evaluasi,layanan_kedokteran_fisik_rehabilitasi.kd_dokter,dokter.nm_dokter from layanan_program_kfr "+
-                            "inner join reg_periksa on layanan_program_kfr.no_rawat=reg_periksa.no_rawat inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join petugas on layanan_program_kfr.nip=petugas.nip "+
-                            "inner join layanan_kedokteran_fisik_rehabilitasi on layanan_kedokteran_fisik_rehabilitasi.no_rawat=layanan_program_kfr.no_rawat_layanan "+
-                            "inner join dokter on layanan_kedokteran_fisik_rehabilitasi.kd_dokter=dokter.kd_dokter where layanan_program_kfr.no_rawat='"+norawat+"'").executeQuery();
-                    if(rs2.next()){
-                        htmlContent.append(
-                          "<tr class='isi'>").append( 
-                            "<td valign='top' width='2%'></td>").append(        
-                            "<td valign='top' width='18%'>Layanan Program Kedokteran Fisik & Rehabilitasi</td>").append(
-                            "<td valign='top' width='1%' align='center'>:</td>").append(
-                            "<td valign='top' width='79%'>").append(
-                              "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"
-                        );
-                        do{
-                            htmlContent.append(
-                                 "<tr>").append(
-                                    "<td valign='top'>").append(
-                                       "YANG MELAKUKAN PELAYANAN").append(  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
-                                          "<tr>").append(
-                                              "<td width='28%' border='0'>Tanggal : ").append(rs2.getString("tanggal")).append("</td>").append(
-                                              "<td width='36%' border='0'>Terapis : ").append(rs2.getString("nip")).append(" ").append(rs2.getString("nama")).append("</td>").append(
-                                              "<td width='36%' border='0'>Dokter KFR : ").append(rs2.getString("kd_dokter")).append(" ").append(rs2.getString("nm_dokter")).append("</td>").append(
-                                          "</tr>").append(
-                                       "</table>").append(
-                                    "</td>").append(
-                                 "</tr>").append(
-                                 "<tr>").append(
-                                    "<td valign='top'>").append(
-                                       "PERMINTAAN & PELAYANAN").append(  
-                                       "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").append(
-                                          "<tr>").append(
-                                              "<td valign='top' width='25%'>No.Permintaan</td>").append(
-                                              "<td valign='top' width='75%'>: ").append(rs2.getString("no_rawat_layanan")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td valign='top' width='25%'>Diagnosa</td>").append(
-                                              "<td valign='top' width='75%'>: ").append(rs2.getString("diagnosa_medis")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td valign='top' width='25%'>Permintaan Terapi</td>").append(
-                                              "<td valign='top' width='75%'>: ").append(rs2.getString("tatalaksana").replaceAll("\t", "").replaceAll("(\r\n|\r|\n|\n\r)","; ")).append(". ").append(rs2.getString("evaluasi").replaceAll("\t", "").replaceAll("(\r\n|\r|\n|\n\r)","; ")).append("</td>").append(
-                                          "</tr>").append(
-                                          "<tr>").append(
-                                              "<td valign='top' width='25%'>Program</td>").append(
-                                              "<td valign='top' width='75%'>: ").append(rs2.getString("program")).append("</td>").append(
-                                          "</tr>").append(
-                                       "</table>").append(
-                                    "</td>").append(
-                                 "</tr>"
-                            ); 
-                            file=Sequel.cariIsi("select bukti_layanan_program_kfr.photo from bukti_layanan_program_kfr where bukti_layanan_program_kfr.no_rawat='"+norawat+"'");
-                            if(!file.equals("")){
-                                htmlContent.append("<tr>").
-                                                append("<td valign='top'>").
-                                                    append("PHOTO BUKTI PELAYANANAN").
-                                                    append("<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0px' class='tbl_form'>").
-                                                        append("<tr>").
-                                                            append("<td valign='top' border='0' width='100%' align='center'><a href='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/layananprogramkfr/").append(file).append("'><img alt='Gambar EKG' src='http://").append(koneksiDB.HOSTHYBRIDWEB()).append(":").append(koneksiDB.PORTWEB()).append("/").append(koneksiDB.HYBRIDWEB()).append("/layananprogramkfr/").append(file).append("' width='450' height='450'/></a></td>").
-                                                        append("</tr>").
-                                                    append("</table>").
-                                                append("</td>").
-                                            append("</tr>");
-                            }
-                        }while(rs2.next());
-                        htmlContent.append(
-                              "</table>").append(
-                            "</td>").append(
-                          "</tr>");
-                    }
-                } catch (Exception e) {
-                    System.out.println("Notifikasi : "+e);
-                } finally{
-                    if(rs2!=null){
-                        rs2.close();
-                    }
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Notif Skrining Anemia : "+e);
-        }
-    }
-   
+      
     private void menampilkanHasilPemeriksaanSlitLamp(String norawat) {
         try {
             if(chkHasilPemeriksaanSlitLamp.isSelected()==true){
