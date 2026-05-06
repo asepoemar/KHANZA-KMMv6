@@ -29,6 +29,7 @@ import fungsi.tarifralan;
 import inventory.DlgCariObat;
 import inventory.DlgCopyResep;
 import inventory.DlgPeresepanDokter;
+import inventory.DlgTemplateResep;
 import inventory.InventoryResepLuar;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -2524,7 +2525,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         BtnTemplateResep.setName("BtnTemplateResep"); // NOI18N
         BtnTemplateResep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                // BtnTemplateResepActionPerformed(evt);
+                 BtnTemplateResepActionPerformed(evt);
             }
         });
         panelGlass12.add(BtnTemplateResep);
@@ -2679,7 +2680,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         BtnRujukInternalKMM.setText("Rujuk Internal");
         BtnRujukInternalKMM.setToolTipText("Input Data Rujuk Internal Antar Poli");
         BtnRujukInternalKMM.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        BtnRujukInternalKMM.setGlassColor(new java.awt.Color(51,255,255));
+        BtnRujukInternalKMM.setGlassColor(new java.awt.Color(204,204,204));
         BtnRujukInternalKMM.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         BtnRujukInternalKMM.setName("BtnRujukInternalKMM"); // NOI18N
         BtnRujukInternalKMM.addActionListener(new java.awt.event.ActionListener() {
@@ -2690,7 +2691,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
             }
         });
         panelGlass12.add(BtnRujukInternalKMM);
-        BtnRujukInternalKMM.setBounds(1060, 170, 140, 30);
+        BtnRujukInternalKMM.setBounds(1060, 210, 140, 30);
 
         BtnRujukKeluarKMM.setForeground(new java.awt.Color(0, 0, 0));
         BtnRujukKeluarKMM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/ambulance kmm.png"))); // NOI18N
@@ -2698,7 +2699,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         BtnRujukKeluarKMM.setText("Rujuk Keluar");
         BtnRujukKeluarKMM.setToolTipText("Input Data Rujukan Keluar");
         BtnRujukKeluarKMM.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
-        BtnRujukKeluarKMM.setGlassColor(new java.awt.Color(51,255,255));
+        BtnRujukKeluarKMM.setGlassColor(new java.awt.Color(204,204,204));
         BtnRujukKeluarKMM.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         BtnRujukKeluarKMM.setName("BtnRujukKeluarKMM"); // NOI18N
         BtnRujukKeluarKMM.addActionListener(new java.awt.event.ActionListener() {
@@ -2709,7 +2710,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
             }
         });
         panelGlass12.add(BtnRujukKeluarKMM);
-        BtnRujukKeluarKMM.setBounds(1060, 210, 140, 30);
+        BtnRujukKeluarKMM.setBounds(910, 210, 140, 30);
 
         PanelInput.add(panelGlass12, java.awt.BorderLayout.CENTER);
 
@@ -10543,6 +10544,22 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             odontogram.setNoRm(TNoRw.getText(), DTPCari2.getDate());
             odontogram.tampil();
             odontogram.setVisible(true);
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }
+    
+    private void BtnTemplateResepActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        if (TNoRw.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            TCari.requestFocus();
+        } else {
+            DlgTemplateResep template=new DlgTemplateResep(null,false);
+            template.isCek();
+            template.setRM(TNoRw.getText(),TNoRM.getText(),KdDok.getText(),kd_pj,"ralan");
+            template.tampil();
+            template.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
+            template.setLocationRelativeTo(internalFrame1);
+            template.setVisible(true);
             this.setCursor(Cursor.getDefaultCursor());
         }
     }
