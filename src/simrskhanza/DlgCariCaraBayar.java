@@ -609,7 +609,7 @@ public final class DlgCariCaraBayar extends javax.swing.JDialog {
             root = null;
         }
         LCount.setText(""+tabMode.getRowCount());
-    } 
+    }
     
     private void isPhoto(){
         if(ChkAccor.isSelected()==true){
