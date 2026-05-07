@@ -17,6 +17,7 @@ import bridging.AkunRekeningBankJateng;
 import bridging.AkunRekeningBankMandiri;
 import bridging.AkunRekeningBankPapua;
 import rekammedis.RMRiwayatPerawatan;
+import simrskhanza.DlgReg;
 import setting.DlgPenelusuranLogin;
 import inventory.DlgObatPenyakit;
 import setting.DlgRunTeks;
@@ -1215,6 +1216,7 @@ public class frmUtama extends javax.swing.JFrame {
     private final Connection koneksi=koneksiDB.condb();
     private final sekuel Sequel=new sekuel();
     private final validasi Valid=new validasi();
+    private final DlgReg reg=new DlgReg(this,false);
     private final INACBGHybrid inacbgklaim=new INACBGHybrid(this,false);
     private final INACBGCariCoderNIK cariNIK=new INACBGCariCoderNIK(this,false);
     private static frmUtama myInstance;
@@ -8557,13 +8559,12 @@ private void BtnToolKasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
 private void BtnToolRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnToolRegActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         isTutup();
-        DlgReg reg=new DlgReg(this,false);
-        //reg.emptTeks();    
+        reg.emptTeks();    
         reg.isCek();
         reg.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
         reg.setLocationRelativeTo(PanelUtama);
         reg.setVisible(true);
-        this.setCursor(Cursor.getDefaultCursor());   
+        this.setCursor(Cursor.getDefaultCursor());    
 }//GEN-LAST:event_BtnToolRegActionPerformed
 
 private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
@@ -8712,7 +8713,6 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private void btnRegistrasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrasiActionPerformed
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgReg reg=new DlgReg(this,false);
         reg.emptTeks();
         reg.isCek();
         reg.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
