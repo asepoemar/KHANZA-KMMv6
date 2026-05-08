@@ -295,7 +295,7 @@ public class DlgPermintaan extends javax.swing.JDialog {
         BtnCari1.setText("Cari");
         BtnCari1.setToolTipText("Alt+1");
         BtnCari1.setName("BtnCari1"); // NOI18N
-        BtnCari1.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnCari1.setPreferredSize(new java.awt.Dimension(90, 23));
         BtnCari1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCari1ActionPerformed(evt);
@@ -308,7 +308,7 @@ public class DlgPermintaan extends javax.swing.JDialog {
         });
         panelisi1.add(BtnCari1);
 
-        BtnAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
+        BtnAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/42a.png"))); // NOI18N
         BtnAll.setMnemonic('2');
         BtnAll.setText("Refresh");
         BtnAll.setToolTipText("2Alt+2");
@@ -339,12 +339,12 @@ public class DlgPermintaan extends javax.swing.JDialog {
         });
         panelisi1.add(BtnTambah);
 
-        BtnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
+        BtnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search.png"))); // NOI18N
         BtnCari.setMnemonic('C');
         BtnCari.setText("Data Permintaan");
         BtnCari.setToolTipText("Alt+C");
         BtnCari.setName("BtnCari"); // NOI18N
-        BtnCari.setPreferredSize(new java.awt.Dimension(140, 30));
+        BtnCari.setPreferredSize(new java.awt.Dimension(150, 30));
         BtnCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCariActionPerformed(evt);

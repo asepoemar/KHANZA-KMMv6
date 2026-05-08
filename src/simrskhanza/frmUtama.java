@@ -1226,6 +1226,7 @@ public class frmUtama extends javax.swing.JFrame {
     private final Properties prop = new Properties();  
     private int jmlmenu=0,grid=0,tinggi=0,i=0,menuawal=0;
     private String coder_nik="",pilihpage="",judulform="",tampilkantni=Sequel.cariIsi("select set_tni_polri.tampilkan_tni_polri from set_tni_polri"),
+            namapegawai="",
             AKTIFKANTRACKSQL=koneksiDB.AKTIFKANTRACKSQL();
     
     private frmUtama() {
@@ -2070,7 +2071,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11/03/2026" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07/05/2026" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -7400,7 +7401,7 @@ public class frmUtama extends javax.swing.JFrame {
         lblUser.setText("Log Out");
         lblUser.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblUser.setName("lblUser"); // NOI18N
-        lblUser.setPreferredSize(new java.awt.Dimension(170, 23));
+        lblUser.setPreferredSize(new java.awt.Dimension(200, 23));
         internalFrame4.add(lblUser);
 
         jSeparator2.setBackground(new java.awt.Color(0, 158, 96));
@@ -8418,8 +8419,13 @@ public class frmUtama extends javax.swing.JFrame {
                     DlgLogin.dispose();
                     BtnLog.setText("Log Out");
                     MnLogin.setText("Log Out");
-                    lblStts.setText("Admin : ");
-                    lblUser.setText(akses.getkode());
+                    lblStts.setText("Pegawai : ");
+                    
+                    namapegawai=Sequel.cariIsi("SELECT pegawai.nama FROM pegawai WHERE pegawai.nik=?", akses.getkode());
+                    if(!namapegawai.equals("")){
+                        lblUser.setText(namapegawai);       //lblUser.setText(akses.getkode());
+                    }
+                    
                     MnGantiPassword.setEnabled(true);
                     MnPengajuanCutiPegawai.setEnabled(true);
                     BtnToolReg.setEnabled(akses.getregistrasi());
@@ -8578,7 +8584,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));        
     isTutup();
     WindowInputPassword barcode=new WindowInputPassword(this,true);
-    barcode.SetUserPass(lblUser.getText(),edPwd.getText());
+    barcode.SetUserPass(akses.getkode(),edPwd.getText());   // lblUser.getText() diganti dengan akses.getkode()
     barcode.setLocationRelativeTo(PanelUtama);
     barcode.setVisible(true);
     DlgHome.dispose();
