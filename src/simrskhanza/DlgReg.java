@@ -1129,6 +1129,8 @@ public final class DlgReg extends javax.swing.JDialog {
         sisa_antrian = new widget.Label();
         MnDatang = new javax.swing.JMenuItem();
         MnPrioritas = new javax.swing.JMenuItem();
+        MnPrioritasDikaji = new javax.swing.JMenuItem();
+        MnDikaji = new javax.swing.JMenuItem();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
@@ -4961,6 +4963,38 @@ public final class DlgReg extends javax.swing.JDialog {
             }
         });
         MnStatus.add(MnDatang);
+        
+        MnPrioritasDikaji.setBackground(new java.awt.Color(255, 255, 254));
+        MnPrioritasDikaji.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        MnPrioritasDikaji.setForeground(new java.awt.Color(50, 50, 50));
+        MnPrioritasDikaji.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnPrioritasDikaji.setText("Pasien Prioritas, Dikaji");
+        MnPrioritasDikaji.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnPrioritasDikaji.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnPrioritasDikaji.setName("MnPrioritasDikaji"); // NOI18N
+        MnPrioritasDikaji.setPreferredSize(new java.awt.Dimension(180, 26));
+        MnPrioritasDikaji.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnPrioritasDikajiActionPerformed(evt);
+            }
+        });
+        MnStatus.add(MnPrioritasDikaji);
+
+        MnDikaji.setBackground(new java.awt.Color(255, 255, 254));
+        MnDikaji.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        MnDikaji.setForeground(new java.awt.Color(50, 50, 50));
+        MnDikaji.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnDikaji.setText("Pasien Dikaji");
+        MnDikaji.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        MnDikaji.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        MnDikaji.setName("MnDikaji"); // NOI18N
+        MnDikaji.setPreferredSize(new java.awt.Dimension(180, 26));
+        MnDikaji.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnDikajiActionPerformed(evt);
+            }
+        });
+        MnStatus.add(MnDikaji);
 
         MnBatal.setBackground(new java.awt.Color(255, 255, 254));
         MnBatal.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
@@ -10513,6 +10547,36 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
 
         }
     }//GEN-LAST:event_MnDatangActionPerformed
+    
+    private void MnPrioritasDikajiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPrioritasDikajiActionPerformed
+        if(TNoRw.getText().trim().equals("")){
+            Valid.textKosong(TNoRw,"No.Rawat");
+        }else{
+            if(Sequel.cariInteger("select count(kamar_inap.no_rawat) from kamar_inap where kamar_inap.no_rawat=?",TNoRw.getText())>0){
+                JOptionPane.showMessageDialog(null,"Maaf, Pasien sudah masuk Kamar Inap. Gunakan billing Ranap..!!!");
+            }else {
+                Valid.editTable(tabMode,"reg_periksa","no_rawat",TNoRw,"stts='Prioritas Dikaji'");
+                if(tbPetugas.getSelectedRow()>-1){
+                    tabMode.setValueAt("Prioritas Dikaji",tbPetugas.getSelectedRow(),10);
+                }
+            }
+        }
+    }//GEN-LAST:event_MnPrioritasDikajiActionPerformed
+
+    private void MnDikajiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDikajiActionPerformed
+        if(TNoRw.getText().trim().equals("")){
+            Valid.textKosong(TNoRw,"No.Rawat");
+        }else{
+            if(Sequel.cariInteger("select count(kamar_inap.no_rawat) from kamar_inap where kamar_inap.no_rawat=?",TNoRw.getText())>0){
+                JOptionPane.showMessageDialog(null,"Maaf, Pasien sudah masuk Kamar Inap. Gunakan billing Ranap..!!!");
+            }else {
+                Valid.editTable(tabMode,"reg_periksa","no_rawat",TNoRw,"stts='Selesai Dikaji'");
+                if(tbPetugas.getSelectedRow()>-1){
+                    tabMode.setValueAt("Selesai Dikaji",tbPetugas.getSelectedRow(),10);
+                }
+            }
+        }
+    }//GEN-LAST:event_MnDikajiActionPerformed
 
     private void MnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBatalActionPerformed
         if(TNoRw.getText().trim().equals("")){
@@ -16673,6 +16737,8 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
     private javax.swing.JComboBox<String> loket_antrian;
     private javax.swing.JMenuItem MnDatang;
     private javax.swing.JMenuItem MnPrioritas;
+    private javax.swing.JMenuItem MnPrioritasDikaji;
+    private javax.swing.JMenuItem MnDikaji;
     private widget.TextBox AsalRujukan;
     private widget.Button BtnAll;
     private widget.Button BtnBatal;
