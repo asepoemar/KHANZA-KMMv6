@@ -2250,9 +2250,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         BtnRujukKeluarKMM.setName("BtnRujukKeluarKMM"); // NOI18N
         BtnRujukKeluarKMM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                // BtnRujukKeluarKMMActionPerformed(evt);
-                //ambil dari tombol Rujuk Keluar
-                BtnRujukKeluarActionPerformed(evt);
+                 BtnRujukKeluarKMMActionPerformed(evt);
             }
         });
         panelGlass12.add(BtnRujukKeluarKMM);
@@ -7213,7 +7211,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 JOptionPane.showMessageDialog(rootPane,"Data billing sudah terverifikasi ..!!");
             }else{
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                DlgRujuk dlgrjk=new DlgRujuk(null,false);
+                DlgRujukKmm dlgrjk=new DlgRujukKmm(null,false);
                 dlgrjk.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
                 dlgrjk.setLocationRelativeTo(internalFrame1);
                 dlgrjk.emptTeks();

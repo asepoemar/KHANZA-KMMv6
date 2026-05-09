@@ -109,6 +109,7 @@ public final class DlgCariPenyakit extends javax.swing.JDialog {
         label10 = new widget.Label();
         LCount = new widget.Label();
         BtnKeluar = new widget.Button();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -179,9 +180,10 @@ public final class DlgCariPenyakit extends javax.swing.JDialog {
 
         BtnAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
         BtnAll.setMnemonic('2');
+        BtnAll.setText("Semua");
         BtnAll.setToolTipText("2Alt+2");
         BtnAll.setName("BtnAll"); // NOI18N
-        BtnAll.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnAll.setPreferredSize(new java.awt.Dimension(80, 23));
         BtnAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAllActionPerformed(evt);
@@ -228,15 +230,24 @@ public final class DlgCariPenyakit extends javax.swing.JDialog {
 
         BtnKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/exit.png"))); // NOI18N
         BtnKeluar.setMnemonic('4');
+        BtnKeluar.setText("Keluar");
         BtnKeluar.setToolTipText("Alt+4");
         BtnKeluar.setName("BtnKeluar"); // NOI18N
-        BtnKeluar.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnKeluar.setPreferredSize(new java.awt.Dimension(80, 23));
         BtnKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnKeluarActionPerformed(evt);
             }
         });
         panelisi3.add(BtnKeluar);
+
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(153, 0, 51));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setText("Cari Diagnosa atau klik \"Semua\", Lalu pilih dan tekan tombol spasi.");
+        jTextField1.setName("jTextField1"); // NOI18N
+        jTextField1.setPreferredSize(new java.awt.Dimension(500, 22));
+        panelisi3.add(jTextField1);
 
         internalFrame1.add(panelisi3, java.awt.BorderLayout.PAGE_END);
 
@@ -372,6 +383,7 @@ public final class DlgCariPenyakit extends javax.swing.JDialog {
     private widget.ComboBox cmbHlm;
     private widget.InternalFrame internalFrame1;
     private widget.Label jLabel11;
+    private javax.swing.JTextField jTextField1;
     private widget.Label label10;
     private widget.Label label9;
     private widget.panelisi panelisi3;
@@ -489,7 +501,7 @@ public final class DlgCariPenyakit extends javax.swing.JDialog {
     }
     
     public void isCek(){
-        BtnTambah.setEnabled(akses.getpenyakit());
+        BtnTambah.setEnabled(akses.getkode().equals("Admin Utama"));
     }
     
     private void runBackground(Runnable task) {
