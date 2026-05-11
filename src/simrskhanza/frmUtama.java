@@ -17,7 +17,6 @@ import bridging.AkunRekeningBankJateng;
 import bridging.AkunRekeningBankMandiri;
 import bridging.AkunRekeningBankPapua;
 import rekammedis.RMRiwayatPerawatan;
-import simrskhanza.DlgReg;
 import setting.DlgPenelusuranLogin;
 import inventory.DlgObatPenyakit;
 import setting.DlgRunTeks;
@@ -1127,6 +1126,7 @@ import surat.SuratMasuk;
 import surat.SuratPenolakanAnjuranMedis;
 import surat.SuratPermintaanBinrohtal;
 import surat.SuratPermintaanPerlindunganDariKekerasan;
+import surat.SuratPermohonanPrivasi;
 import surat.SuratPernyataanMemilihDPJP;
 import surat.SuratPernyataanPasienUmum;
 import surat.SuratPersetujuanPemeriksaanHIV;
@@ -23450,6 +23450,18 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnSuratPermohonanPrivasiActionPerformed(java.awt.event.ActionEvent evt) {  
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        SuratPermohonanPrivasi aplikasi=new SuratPermohonanPrivasi(this,false);
+        aplikasi.isCek();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
     /**
     * @param args the command line arguments
     */
@@ -24167,7 +24179,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnPCRAICRALokasiKelompokRisiko,btnPCRAICRAKelasRisikoPencegahan,btnPCRAICRATindakanPengendalian,btnPCRAICRAIdentifikasiRisikoInfeksi,btnPCRAICRAIdentifikasiRisikoKeselamatan,
             btnPCRAICRAIdentifikasiRisikoKebakaran,btnPCRAICRAIdentifikasiRisikoUtilitas,btnBPJSResepObatApotek,btnObatApolApotekBPJS,btnPermintaanResepIterasiApotekBPJS,btnPCRAICRAPengkajianRisikoPraKonstruksi,
             btnPCRAICRAPersyaratanHarusDipenuhi,btnKirimQRTelaahFarmasiSatuSehat,btnKirimAllergiSatuSehat,btnKonsultasiPerawat,btnMappingProsedurSmartKlaimBPJS,btnMappingPenyakitSmartKlaimBPJS,btnKirimFHIRSmartKlaimBPJS,
-            btnSuratPermintaanBinrohtal,btnSuratPermintaanPerlindunganDariKekerasan;
+            btnSuratPermintaanBinrohtal,btnSuratPermintaanPerlindunganDariKekerasan,btnSuratPermohonanPrivasi;
     
     public void isWall(){
         try{            
@@ -29767,6 +29779,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getsurat_permintaan_perlindungan_dari_kekerasan()==true){
                 Panelmenu.add(btnSuratPermintaanPerlindunganDariKekerasan);
+                jmlmenu++;
+            }
+            
+            if(akses.getsurat_permohonan_privasi()==true){
+                Panelmenu.add(btnSuratPermohonanPrivasi);
                 jmlmenu++;
             }
         }else if(cmbMenu.getSelectedIndex()==16){ 
@@ -35702,6 +35719,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         
         if(akses.getsurat_permintaan_perlindungan_dari_kekerasan()==true){
             Panelmenu.add(btnSuratPermintaanPerlindunganDariKekerasan);
+            jmlmenu++;
+        }
+
+        if(akses.getsurat_permohonan_privasi()==true){
+            Panelmenu.add(btnSuratPermohonanPrivasi);
             jmlmenu++;
         }
 
@@ -43820,6 +43842,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }
         }
         
+        if(akses.getsurat_permohonan_privasi()==true){
+            if(btnSuratPermohonanPrivasi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnSuratPermohonanPrivasi);                 
+                jmlmenu++;
+            }
+        }
+        
         if(akses.getruang_perpustakaan()==true){
             if(btnRuangPerpustakaan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnRuangPerpustakaan);
@@ -50181,6 +50210,14 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnSuratPermintaanPerlindunganDariKekerasan.setName("btnSuratPermintaanPerlindunganDariKekerasan");
         btnSuratPermintaanPerlindunganDariKekerasan.setPreferredSize(new java.awt.Dimension(200, 90));
         btnSuratPermintaanPerlindunganDariKekerasan.addActionListener(this::btnSuratPermintaanPerlindunganDariKekerasanActionPerformed);
+        
+        btnSuratPermohonanPrivasi = new widget.ButtonBig();
+        btnSuratPermohonanPrivasi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/compliant_4252354.png"))); 
+        btnSuratPermohonanPrivasi.setText("Surat Permohonan Privasi");
+        btnSuratPermohonanPrivasi.setIconTextGap(0);
+        btnSuratPermohonanPrivasi.setName("btnSuratPermohonanPrivasi");
+        btnSuratPermohonanPrivasi.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnSuratPermohonanPrivasi.addActionListener(this::btnSuratPermohonanPrivasiActionPerformed);
         
         btnPCRAICRAJenisAktivitasProyek = new widget.ButtonBig();
         btnPCRAICRAJenisAktivitasProyek.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/construction_12539761.png")));
