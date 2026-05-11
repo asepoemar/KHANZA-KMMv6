@@ -3814,6 +3814,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                 }
             });
         }
+        tampil(); //kmm
     }//GEN-LAST:event_formWindowOpened
 
     /**

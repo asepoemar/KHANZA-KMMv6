@@ -486,6 +486,7 @@ import bridging.SatuSehatKirimDiagnosticReportLabMB;
 import bridging.SatuSehatKirimDiagnosticReportLabPK;
 import bridging.SatuSehatKirimDiagnosticReportRadiologi;
 import bridging.SatuSehatKirimDiet;
+import bridging.SatuSehatKirimEpisodeOfCare;
 import bridging.SatuSehatKirimEncounter;
 import bridging.SatuSehatKirimMedication;
 import bridging.SatuSehatKirimMedicationDispense;
@@ -21808,6 +21809,17 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnKirimEpisodeOfCareSatuSehatActionPerformed(java.awt.event.ActionEvent evt) {  
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        SatuSehatKirimEpisodeOfCare aplikasi=new SatuSehatKirimEpisodeOfCare(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
     private void btnKirimMedicationStatementSatuSehatActionPerformed(java.awt.event.ActionEvent evt) {  
         isTutup();
         DlgHome.dispose();
@@ -24179,6 +24191,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnPCRAICRALokasiKelompokRisiko,btnPCRAICRAKelasRisikoPencegahan,btnPCRAICRATindakanPengendalian,btnPCRAICRAIdentifikasiRisikoInfeksi,btnPCRAICRAIdentifikasiRisikoKeselamatan,
             btnPCRAICRAIdentifikasiRisikoKebakaran,btnPCRAICRAIdentifikasiRisikoUtilitas,btnBPJSResepObatApotek,btnObatApolApotekBPJS,btnPermintaanResepIterasiApotekBPJS,btnPCRAICRAPengkajianRisikoPraKonstruksi,
             btnPCRAICRAPersyaratanHarusDipenuhi,btnKirimQRTelaahFarmasiSatuSehat,btnKirimAllergiSatuSehat,btnKonsultasiPerawat,btnMappingProsedurSmartKlaimBPJS,btnMappingPenyakitSmartKlaimBPJS,btnKirimFHIRSmartKlaimBPJS,
+            btnKirimEpisodeOfCareSatuSehat,
             btnSuratPermintaanBinrohtal,btnSuratPermintaanPerlindunganDariKekerasan,btnSuratPermohonanPrivasi;
     
     public void isWall(){
@@ -27735,6 +27748,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getsatu_sehat_kirim_careplan()==true){
                 Panelmenu.add(btnKirimCarePlanSatuSehat);
+                jmlmenu++;
+            }
+            
+            if(akses.getsatu_sehat_kirim_careplan()==true){
+                Panelmenu.add(btnKirimEpisodeOfCareSatuSehat);
                 jmlmenu++;
             }
             
@@ -40984,6 +41002,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
+        if(akses.getsatu_sehat_kirim_careplan()==true){
+            if(btnKirimEpisodeOfCareSatuSehat.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnKirimEpisodeOfCareSatuSehat);
+                jmlmenu++;
+            }                
+        }
+        
         if(akses.getreferensi_poli_mobilejknfktp()==true){
             if(btnReferensiPoliMobileJKNFKTP.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnReferensiPoliMobileJKNFKTP);
@@ -50362,6 +50387,14 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnKirimAllergiSatuSehat.setName("btnKirimAllergiSatuSehat"); 
         btnKirimAllergiSatuSehat.setPreferredSize(new java.awt.Dimension(200, 90));
         btnKirimAllergiSatuSehat.addActionListener(this::btnKirimAllergiSatuSehatActionPerformed);
+        
+        btnKirimEpisodeOfCareSatuSehat = new widget.ButtonBig();
+        btnKirimEpisodeOfCareSatuSehat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/satusehat.png")));
+        btnKirimEpisodeOfCareSatuSehat.setText("Kirim Episode Of Care Satu Sehat");
+        btnKirimEpisodeOfCareSatuSehat.setIconTextGap(0);
+        btnKirimEpisodeOfCareSatuSehat.setName("btnKirimEpisodeOfCareSatuSehat"); 
+        btnKirimEpisodeOfCareSatuSehat.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnKirimEpisodeOfCareSatuSehat.addActionListener(this::btnKirimEpisodeOfCareSatuSehatActionPerformed);
         
         btnKonsultasiPerawat = new widget.ButtonBig();
         btnKonsultasiPerawat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/discuss_12922995.png"))); 

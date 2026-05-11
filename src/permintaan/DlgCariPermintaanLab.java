@@ -4078,7 +4078,8 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
                     }
                 }
             });
-        } 
+        }
+        tampil(); //kmm
     }//GEN-LAST:event_formWindowOpened
 
     /**
