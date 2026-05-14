@@ -53,6 +53,8 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -6237,17 +6239,49 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         petugas.dispose();
         dokter.dispose();
         pegawai.dispose();
-        try {
-            i=JOptionPane.showConfirmDialog(null, "Mau skalian update status pasien sudah diperiksa ????","Konfirmasi",JOptionPane.YES_NO_OPTION);
-            if(i==JOptionPane.YES_OPTION){
-                if(Sequel.mengedittf("reg_periksa","no_rawat=?","stts=?",2,new String[]{"Sudah",TNoRw.getText()})==true){
-                    Sequel.menyimpan("mutasi_berkas","'"+TNoRw.getText()+"','Sudah Kembali',now(),'0000-00-00 00:00:00',now(),'0000-00-00 00:00:00','0000-00-00 00:00:00'","status='Sudah Kembali',kembali=now()","no_rawat='"+TNoRw.getText()+"'");
+            try {
+            JLabel message = new JLabel(
+                "<html><body style='font-size:14px; font-family:Arial;'>"
+                + "<span style='color:black;'>Apakah pemeriksaan pasien sudah selesai?</span><br>"
+                + "<ol>"
+                + "<li>Pastikan data pemeriksaan sudah benar sebelum konfirmasi.</li>"
+                + "<li>Status pasien akan diubah menjadi <b><span style='color:blue;'>'Sudah'</span></b>.</li>"
+                + "<li>Jika ada permintaan LAB maka status menjadi <b><span style='color:rgb(232,112,42);'>'Cek Lab'</span></b>.</li>"
+                + "<li>Mutasi berkas otomatis tercatat di sistem.</li>"
+                + "</ol><br><br>"
+                + "<span style='font-size:10px; color:gray;'>petugas kajian pilih 'NO'</span>"
+                + "</body></html>"
+            );
+
+            int i = JOptionPane.showConfirmDialog(
+                this, 
+                message, 
+                "Konfirmasi", 
+                JOptionPane.YES_NO_OPTION, 
+                JOptionPane.QUESTION_MESSAGE
+            );
+            
+                if(i == JOptionPane.YES_OPTION){
+                    String statusBaru;
+                    if("Cek Lab".equalsIgnoreCase(Sequel.cariIsi("select reg_periksa.stts from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()))){
+                        statusBaru = "Cek Lab";   // tetap "Cek Lab"
+                    } else {
+                        statusBaru = "Sudah";     // selain itu jadi "Sudah"
+                    }
+                    if(Sequel.mengedittf("reg_periksa","no_rawat=?","stts=?",2,new String[]{statusBaru,TNoRw.getText()})){
+                        Sequel.menyimpan(
+                            "mutasi_berkas",
+                            "'"+TNoRw.getText()+"','Sudah Kembali',now(),'0000-00-00 00:00:00',now(),'0000-00-00 00:00:00','0000-00-00 00:00:00'",
+                            "status='Sudah Kembali',kembali=now()",
+                            "no_rawat='"+TNoRw.getText()+"'"
+                        );
+                    }
                 }
-            }
-        } catch (Exception e) {
+            } catch (Exception e) {
+                // e.printStackTrace();     // sebaiknya log error agar mudah debug
         }
         dispose();
-    }
+    }//GEN-LAST:event_BtnKeluarActionPerformed
 
     private void BtnKeluarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnKeluarKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
