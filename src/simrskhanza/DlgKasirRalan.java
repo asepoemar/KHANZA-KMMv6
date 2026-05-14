@@ -515,7 +515,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
             public void windowDeactivated(WindowEvent e) {}
         }); 
         
-        DlgCatatan.setSize(595,34); 
+        DlgCatatan.setSize(595,204); //resize untuk kmm
         
         try {
             try {
@@ -6218,8 +6218,8 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
 
         internalFrame7.setBorder(null);
         internalFrame7.setName("internalFrame7"); // NOI18N
-        internalFrame7.setWarnaAtas(new java.awt.Color(0,128,128));
-        internalFrame7.setWarnaBawah(new java.awt.Color(0,102,102));
+        internalFrame7.setWarnaAtas(new java.awt.Color(	0, 142, 190));
+        internalFrame7.setWarnaBawah(new java.awt.Color(4, 171, 255));
         internalFrame7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 internalFrame7MouseClicked(evt);
@@ -6228,9 +6228,9 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         internalFrame7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         LabelCatatan.setForeground(new java.awt.Color(0,0,0)); //warna tulisan
-        LabelCatatan.setBackground(new java.awt.Color(178,216,216));  //warna background
+        LabelCatatan.setBackground(new java.awt.Color(	239, 250, 255));  //warna background
         LabelCatatan.setColumns(20);
-        LabelCatatan.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        LabelCatatan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         LabelCatatan.setRows(5);
         LabelCatatan.setEditable(false);
         LabelCatatan.setText("Catatan");
@@ -6836,8 +6836,14 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
                     if(i==3){
                         if(validasicatatan.equals("Yes")){
                             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                            LabelCatatan.setText(Sequel.cariIsi("select catatan_pasien.catatan from catatan_pasien where catatan_pasien.no_rkm_medis=?",TNoRMCari.getText()));
-                            if(!LabelCatatan.getText().equals("")){
+                            // Tampung hasil query ke variabel
+                            String isiCatatan = Sequel.cariIsi(
+                                "select catatan_pasien.catatan from catatan_pasien where catatan_pasien.no_rkm_medis=?",
+                                TNoRMCari.getText()
+                            );
+                            // Tambahkan 2 spasi di depan sebelum ditampilkan
+                            LabelCatatan.setText("  " + isiCatatan);
+                            if(!isiCatatan.equals("")){
                                 DlgCatatan.setLocationRelativeTo(TabRawat);
                                 DlgCatatan.setVisible(true);
                             }else{

@@ -44,6 +44,8 @@ import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
@@ -680,7 +682,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         jLabel8.setBounds(0, 42, 72, 23);
 
         DTPBeri.setForeground(new java.awt.Color(50, 70, 50));
-        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-05-2026" }));
+        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-05-2026" }));
         DTPBeri.setDisplayFormat("dd-MM-yyyy");
         DTPBeri.setName("DTPBeri"); // NOI18N
         DTPBeri.setOpaque(false);
@@ -758,24 +760,26 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         ChkJln.setBounds(363, 42, 23, 23);
 
         jLabel5.setText("Total :");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setName("jLabel5"); // NOI18N
         jLabel5.setPreferredSize(new java.awt.Dimension(45, 23));
         FormInput.add(jLabel5);
         jLabel5.setBounds(385, 42, 45, 23);
 
+        LTotal.setForeground(new java.awt.Color(0, 0, 0));
         LTotal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LTotal.setText("0");
-        LTotal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        LTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         LTotal.setName("LTotal"); // NOI18N
         LTotal.setPreferredSize(new java.awt.Dimension(80, 23));
         FormInput.add(LTotal);
-        LTotal.setBounds(433, 42, 85, 23);
+        LTotal.setBounds(433, 42, 95, 23);
 
         jLabel7.setText("Total+PPN :");
         jLabel7.setName("jLabel7"); // NOI18N
         jLabel7.setPreferredSize(new java.awt.Dimension(65, 23));
         FormInput.add(jLabel7);
-        jLabel7.setBounds(520, 42, 65, 23);
+        jLabel7.setBounds(530, 42, 65, 23);
 
         LTotalTagihan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LTotalTagihan.setText("0");
@@ -783,7 +787,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         LTotalTagihan.setName("LTotalTagihan"); // NOI18N
         LTotalTagihan.setPreferredSize(new java.awt.Dimension(80, 23));
         FormInput.add(LTotalTagihan);
-        LTotalTagihan.setBounds(588, 42, 95, 23);
+        LTotalTagihan.setBounds(598, 42, 95, 23);
 
         lblTemplate.setText("Jadikan Template Resep:");
         lblTemplate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -4319,15 +4323,41 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             }
         }
         
-        if(kodebpjs.getKodeBPJS().equals(KdPj.getText())){    
-            if(status.equals("ralan")){
-                if(NOTIFMAKSIMALNOMINALRESEPRAJAL.equals("yes")){
-                    if((tbResep.getSelectedColumn()!=2)){
-                        if(pesanaktif==true){
-                            if(ttl>MAKSIMALNOMINALRESEPRAJAL){
-                                JOptionPane.showMessageDialog(rootPane,"Maaf nominal obat sudah melebihi batas yang ditentukan..!!");
-                                pesanaktif=false;
-                            }
+        if (kodebpjs.getKodeBPJS().equals(KdPj.getText())) {    
+            // Cek status ralan
+            if ("ralan".equals(status)) {
+                // Cek apakah notifikasi aktif
+                if ("yes".equals(NOTIFMAKSIMALNOMINALRESEPRAJAL)) {
+                    // Pastikan kolom yang dipilih bukan kolom ke-2
+                    if (tbResep.getSelectedColumn() != 2) {
+
+                        // --- Bagian Warna LTotal ---
+                        if (ttl > MAKSIMALNOMINALRESEPRAJAL) {
+                            LTotal.setForeground(new java.awt.Color(204, 0, 0)); // merah
+                        } else {
+                            LTotal.setForeground(new java.awt.Color(0, 0, 0));   // hitam
+                        }
+
+                        // --- Bagian Popup Peringatan ---
+                        if (pesanaktif && ttl > MAKSIMALNOMINALRESEPRAJAL) {
+                            JLabel message = new JLabel(
+                                "<html><body style='color:black; font-size:13px; font-family:Arial;'>"
+                                + "Mohon diperhatikan, nominal obat untuk Pasien BPJS telah melebihi batas yang ditetapkan.<br><br>"
+                                + "Silakan melakukan penyesuaian, atau abaikan apabila penggunaan tetap diperlukan.<br>"
+                                + "</body></html>"
+                            );
+
+                            ImageIcon icon = new ImageIcon(getClass().getResource("/picture/alert.png"));
+
+                            JOptionPane.showMessageDialog(
+                                rootPane,
+                                message,
+                                "PERINGATAN",
+                                JOptionPane.WARNING_MESSAGE,
+                                icon
+                            );
+
+                            pesanaktif = false; // agar popup tidak muncul berulang
                         }
                     }
                 }

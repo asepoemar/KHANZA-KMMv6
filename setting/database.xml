@@ -20,8 +20,8 @@
     <entry key="RESEPRAJALKEPLAN">yes</entry>
     <entry key="FORMALARMAPOTEK">ralan + ranap</entry>
     <entry key="STOKKOSONGRESEP">no</entry>
-    <entry key="NOTIFMAKSIMALNOMINALRESEPRAJAL">no</entry>                          <!-- ===============ini baru====================== -->
-    <entry key="MAKSIMALNOMINALRESEPRAJAL">100000</entry>                           <!-- ===============ini baru====================== -->
+    <entry key="NOTIFMAKSIMALNOMINALRESEPRAJAL">yes</entry>                          <!-- ===============ini baru====================== -->
+    <entry key="MAKSIMALNOMINALRESEPRAJAL">55000</entry>                           <!-- ===============ini baru====================== -->
     <entry key="TAMPILKANCOPYRESEPDOKTERLAIN">no</entry>
     <entry key="HPPFARMASI">dasar</entry>
     <entry key="HPPTOKO">dasar</entry>
