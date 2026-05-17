@@ -374,7 +374,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         WindowCaraBayar.setSize(630,80);
         WindowDiagnosaAkhir.setSize(630,80);
         WindowDiagnosaMasuk.setSize(630,80);
-        WindowRanapGabung.setSize(630,120);
+        WindowRanapGabung.setSize(550,150);
         
                 
         CmbTahun.setSelectedItem(now.substring(0,4));
@@ -4707,6 +4707,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
         BtnCloseGabung.setMnemonic('U');
         BtnCloseGabung.setText("Tutup");
         BtnCloseGabung.setToolTipText("Alt+U");
+        BtnCloseGabung.setGlassColor(new java.awt.Color(255, 153, 153));
         BtnCloseGabung.setName("BtnCloseGabung"); // NOI18N
         BtnCloseGabung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4714,7 +4715,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }
         });
         internalFrame6.add(BtnCloseGabung);
-        BtnCloseGabung.setBounds(510, 70, 100, 30);
+        BtnCloseGabung.setBounds(440, 100, 100, 30);
 
         BtnSimpanGabung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/save-16x16.png"))); // NOI18N
         BtnSimpanGabung.setMnemonic('S');
@@ -4727,7 +4728,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }
         });
         internalFrame6.add(BtnSimpanGabung);
-        BtnSimpanGabung.setBounds(17, 70, 100, 30);
+        BtnSimpanGabung.setBounds(17, 100, 100, 30);
 
         jLabel34.setText("No.R.M.Bayi :");
         jLabel34.setName("jLabel34"); // NOI18N
@@ -4751,7 +4752,9 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         btnPasienRanapGabung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         btnPasienRanapGabung.setMnemonic('7');
+        btnPasienRanapGabung.setText("Data Pasien");
         btnPasienRanapGabung.setToolTipText("ALt+7");
+        btnPasienRanapGabung.setGlassColor(new java.awt.Color(51,255,255));
         btnPasienRanapGabung.setName("btnPasienRanapGabung"); // NOI18N
         btnPasienRanapGabung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4759,7 +4762,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }
         });
         internalFrame6.add(btnPasienRanapGabung);
-        btnPasienRanapGabung.setBounds(546, 30, 28, 23);
+        btnPasienRanapGabung.setBounds(310, 60, 110, 23);
 
         BtnHapusGabung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/stop_f2.png"))); // NOI18N
         BtnHapusGabung.setMnemonic('H');
@@ -4773,7 +4776,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }
         });
         internalFrame6.add(BtnHapusGabung);
-        BtnHapusGabung.setBounds(123, 70, 100, 30);
+        BtnHapusGabung.setBounds(123, 100, 100, 30);
 
         NoRawatGabung.setHighlighter(null);
         NoRawatGabung.setName("NoRawatGabung"); // NOI18N
@@ -4782,7 +4785,9 @@ public class DlgKamarInap extends javax.swing.JDialog {
 
         btnPasienRanapGabung1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         btnPasienRanapGabung1.setMnemonic('7');
+        btnPasienRanapGabung1.setText("Data SKL");
         btnPasienRanapGabung1.setToolTipText("ALt+7");
+        btnPasienRanapGabung1.setGlassColor(new java.awt.Color(51,255,255));
         btnPasienRanapGabung1.setName("btnPasienRanapGabung1"); // NOI18N
         btnPasienRanapGabung1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4790,7 +4795,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }
         });
         internalFrame6.add(btnPasienRanapGabung1);
-        btnPasienRanapGabung1.setBounds(576, 30, 28, 23);
+        btnPasienRanapGabung1.setBounds(430, 60, 110, 23);
 
         WindowRanapGabung.getContentPane().add(internalFrame6, java.awt.BorderLayout.CENTER);
 
