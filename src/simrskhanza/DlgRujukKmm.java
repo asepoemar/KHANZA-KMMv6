@@ -29,6 +29,7 @@ import java.awt.event.WindowListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.Timer;
@@ -202,17 +203,21 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         tbObat = new widget.Table();
         FormInput1 = new widget.PanelBiasa();
         jLabel10 = new widget.Label();
-        Tacc = new widget.TextBox();
         jLabel17 = new widget.Label();
         jLabel18 = new widget.Label();
         jLabel20 = new widget.Label();
         jLabel22 = new widget.Label();
         ktrujuk1 = new widget.ComboBox();
+        scrollPane1 = new widget.ScrollPane();
+        TTime = new widget.TextArea();
+        scrollPane2 = new widget.ScrollPane();
+        TAge = new widget.TextArea();
+        scrollPane3 = new widget.ScrollPane();
+        TComplication = new widget.TextArea();
+        scrollPane4 = new widget.ScrollPane();
+        TComorbidity = new widget.TextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        Tacc1 = new widget.TextBox();
-        Tacc2 = new widget.TextBox();
-        Tacc3 = new widget.TextBox();
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
@@ -391,7 +396,7 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-05-2026" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-05-2026" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -405,7 +410,7 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-05-2026" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-05-2026" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -539,7 +544,7 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         TPasien.setBounds(340, 10, 340, 23);
 
         DTPRujuk.setForeground(new java.awt.Color(50, 70, 50));
-        DTPRujuk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "09-05-2026" }));
+        DTPRujuk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-05-2026" }));
         DTPRujuk.setDisplayFormat("dd-MM-yyyy");
         DTPRujuk.setName("DTPRujuk"); // NOI18N
         DTPRujuk.setOpaque(false);
@@ -724,15 +729,15 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         jTextArea2.setEditable(false);
         jTextArea2.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jTextArea2.setRows(5);
-        jTextArea2.setText("Maaf, pilihan Anda termasuk dalam 144 jenis penyakit yang wajib \ndilayani oleh fasilitas kesehatan tingkat pertama, sesuai dengan \nKeputusan Menteri Kesehatan Nomor HK.01.07/MENKES/1936/2022.\n\nJika memenuhi kriteria TACC, silahkan isi form dibawah.\natau pilih ulang diagnosa.");
         jTextArea2.setBorder(null);
         jTextArea2.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         jTextArea2.setName("jTextArea2"); // NOI18N
         jScrollPane2.setViewportView(jTextArea2);
 
         FormInput.add(jScrollPane2);
-        jScrollPane2.setBounds(720, 10, 470, 140);
+        jScrollPane2.setBounds(720, 10, 410, 150);
 
         PanelInput.add(FormInput, java.awt.BorderLayout.CENTER);
 
@@ -793,16 +798,6 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         FormInput1.add(jLabel10);
         jLabel10.setBounds(0, 40, 72, 23);
 
-        Tacc.setHighlighter(null);
-        Tacc.setName("Tacc"); // NOI18N
-        Tacc.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TaccKeyPressed(evt);
-            }
-        });
-        FormInput1.add(Tacc);
-        Tacc.setBounds(80, 40, 312, 23);
-
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel17.setText("Form Input TACC Diagnosa non Spesialistik :");
         jLabel17.setAutoscrolls(true);
@@ -814,17 +809,17 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         jLabel18.setText("Complication :");
         jLabel18.setName("jLabel18"); // NOI18N
         FormInput1.add(jLabel18);
-        jLabel18.setBounds(0, 100, 72, 23);
+        jLabel18.setBounds(0, 140, 72, 23);
 
         jLabel20.setText("Age :");
         jLabel20.setName("jLabel20"); // NOI18N
         FormInput1.add(jLabel20);
-        jLabel20.setBounds(0, 70, 72, 23);
+        jLabel20.setBounds(0, 90, 72, 23);
 
         jLabel22.setText("Comorbidity :");
         jLabel22.setName("jLabel22"); // NOI18N
         FormInput1.add(jLabel22);
-        jLabel22.setBounds(0, 130, 72, 23);
+        jLabel22.setBounds(0, 190, 72, 23);
 
         ktrujuk1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "Bedah", "Non Bedah", "Kebidanan", "Anak" }));
         ktrujuk1.setName("ktrujuk1"); // NOI18N
@@ -836,6 +831,74 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         FormInput1.add(ktrujuk1);
         ktrujuk1.setBounds(510, 100, 170, 23);
 
+        scrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane1.setName("scrollPane1"); // NOI18N
+
+        TTime.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        TTime.setColumns(20);
+        TTime.setRows(5);
+        TTime.setName("TTime"); // NOI18N
+        TTime.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TTimeKeyPressed(evt);
+            }
+        });
+        scrollPane1.setViewportView(TTime);
+
+        FormInput1.add(scrollPane1);
+        scrollPane1.setBounds(80, 40, 360, 38);
+
+        scrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane2.setName("scrollPane2"); // NOI18N
+
+        TAge.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        TAge.setColumns(20);
+        TAge.setRows(5);
+        TAge.setName("TAge"); // NOI18N
+        TAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TAgeKeyPressed(evt);
+            }
+        });
+        scrollPane2.setViewportView(TAge);
+
+        FormInput1.add(scrollPane2);
+        scrollPane2.setBounds(80, 90, 360, 38);
+
+        scrollPane3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane3.setName("scrollPane3"); // NOI18N
+
+        TComplication.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        TComplication.setColumns(20);
+        TComplication.setRows(5);
+        TComplication.setName("TComplication"); // NOI18N
+        TComplication.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TComplicationKeyPressed(evt);
+            }
+        });
+        scrollPane3.setViewportView(TComplication);
+
+        FormInput1.add(scrollPane3);
+        scrollPane3.setBounds(80, 140, 360, 38);
+
+        scrollPane4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        scrollPane4.setName("scrollPane4"); // NOI18N
+
+        TComorbidity.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        TComorbidity.setColumns(20);
+        TComorbidity.setRows(5);
+        TComorbidity.setName("TComorbidity"); // NOI18N
+        TComorbidity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TComorbidityKeyPressed(evt);
+            }
+        });
+        scrollPane4.setViewportView(TComorbidity);
+
+        FormInput1.add(scrollPane4);
+        scrollPane4.setBounds(80, 190, 360, 38);
+
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
         jTextArea1.setColumns(20);
@@ -846,52 +909,7 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTextArea1);
 
         FormInput1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 210, 510, 130);
-
-        Tacc1.setHighlighter(null);
-        Tacc1.setName("Tacc1"); // NOI18N
-        Tacc1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Tacc1ActionPerformed(evt);
-            }
-        });
-        Tacc1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                Tacc1KeyPressed(evt);
-            }
-        });
-        FormInput1.add(Tacc1);
-        Tacc1.setBounds(80, 70, 312, 23);
-
-        Tacc2.setHighlighter(null);
-        Tacc2.setName("Tacc2"); // NOI18N
-        Tacc2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Tacc2ActionPerformed(evt);
-            }
-        });
-        Tacc2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                Tacc2KeyPressed(evt);
-            }
-        });
-        FormInput1.add(Tacc2);
-        Tacc2.setBounds(80, 100, 312, 23);
-
-        Tacc3.setHighlighter(null);
-        Tacc3.setName("Tacc3"); // NOI18N
-        Tacc3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Tacc3ActionPerformed(evt);
-            }
-        });
-        Tacc3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                Tacc3KeyPressed(evt);
-            }
-        });
-        FormInput1.add(Tacc3);
-        Tacc3.setBounds(80, 130, 312, 23);
+        jScrollPane1.setBounds(20, 270, 500, 130);
 
         jSplitPane1.setRightComponent(FormInput1);
 
@@ -932,21 +950,50 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
             Valid.textKosong(TNoRj,"No.Rujuk");
         }else if(TTmpRujuk.getText().trim().equals("")){
             Valid.textKosong(TTmpRujuk,"tempat rujuk");
+        }else if(TDiagnosa.getText().trim().equals("")){
+            Valid.textKosong(TDiagnosa,"Diagnosa");
         }else if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"pasien");
         }else if(NmDokter.getText().trim().equals("")){
             Valid.textKosong(KdDokter,"dokter yang bertugas");
         }else{
-            if(Sequel.menyimpantf("rujuk","'"+TNoRj.getText()+"','"+TNoRw.getText()+"','"+TTmpRujuk.getText()+"','"+Valid.SetTgl(DTPRujuk.getSelectedItem()+"")+"',"+
-                    "'"+TDiagnosa.getText()+"','"+KdDokter.getText()+"','"+ktrujuk.getSelectedItem()+"','"+ambulance.getSelectedItem()+ "','"+ket.getText()+"',"+
-                    "'"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"'","No.Rujuk")==true){
-                tabMode.addRow(new Object[]{
-                    TNoRj.getText(),TNoRw.getText(),TNoRM.getText(),TPasien.getText(),TTmpRujuk.getText(),Valid.SetTgl(DTPRujuk.getSelectedItem()+""),
-                    CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem(),TDiagnosa.getText(),KdDokter.getText(),
-                    NmDokter.getText(),ktrujuk.getSelectedItem().toString(),ambulance.getSelectedItem().toString(),ket.getText()
-                });
-                LCount.setText(""+tabMode.getRowCount());
-                emptTeks();
+            // cek apakah jTextArea2 kosong atau tidak
+            if(!jTextArea2.getText().trim().equals("")){
+                // validasi tambahan untuk form TACC
+                if(TTime.getText().trim().equals("")){
+                    Valid.textKosong(TTime,"FORM TACC");
+                }else if(TAge.getText().trim().equals("")){
+                    Valid.textKosong(TAge,"faktor Age");
+                }else if(TComplication.getText().trim().equals("")){
+                    Valid.textKosong(TComplication,"faktor Komplikasi");
+                }else if(TComorbidity.getText().trim().equals("")){
+                    Valid.textKosong(TComorbidity,"faktor komorbid");
+                }else{
+                    // insert ke tabel rujuk
+                    if(Sequel.menyimpantf("rujuk","'"+TNoRj.getText()+"','"+TNoRw.getText()+"','"+TTmpRujuk.getText()+"','"+Valid.SetTgl(DTPRujuk.getSelectedItem()+"")+"',"+
+                            "'"+TDiagnosa.getText()+"','"+KdDokter.getText()+"','"+ktrujuk.getSelectedItem()+"','"+ambulance.getSelectedItem()+ "','"+ket.getText()+"',"+
+                            "'"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"'","No.Rujuk")==true){
+                        //menampilkan table
+                        tabMode.addRow(new Object[]{
+                            TNoRj.getText(),TNoRw.getText(),TNoRM.getText(),TPasien.getText(),TTmpRujuk.getText(),Valid.SetTgl(DTPRujuk.getSelectedItem()+""),
+                            CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem(),TDiagnosa.getText(),KdDokter.getText(),
+                            NmDokter.getText(),ktrujuk.getSelectedItem().toString(),ambulance.getSelectedItem().toString(),ket.getText()
+                        });
+                        LCount.setText(""+tabMode.getRowCount());
+                        // insert ke tabel rujuk_tacc
+                        Sequel.menyimpantf("rujuk_tacc",
+                            "'"+TNoRj.getText()+"','"+TNoRw.getText()+"','"+TTime.getText()+"','"+TAge.getText()+"','"+TComplication.getText()+"','"+TComorbidity.getText()+"'",
+                            "No.Rujuk TACC");
+                        emptTeks();
+                    }
+                }
+            }else{
+                // jika jTextArea2 kosong → hanya insert ke tabel rujuk
+                if(Sequel.menyimpantf("rujuk","'"+TNoRj.getText()+"','"+TNoRw.getText()+"','"+TTmpRujuk.getText()+"','"+Valid.SetTgl(DTPRujuk.getSelectedItem()+"")+"',"+
+                        "'"+TDiagnosa.getText()+"','"+KdDokter.getText()+"','"+ktrujuk.getSelectedItem()+"','"+ambulance.getSelectedItem()+ "','"+ket.getText()+"',"+
+                        "'"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"'","No.Rujuk")==true){
+                    emptTeks();
+                }
             }
         }
 }//GEN-LAST:event_BtnSimpanActionPerformed
@@ -1325,26 +1372,29 @@ private void NmDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         TDiagnosa.setText(kode + " - " + nama);
 
                         // Tambahan: cek keterangan dari database
-                        try (Connection conn = koneksiDB.condb();
-                             PreparedStatement ps = conn.prepareStatement(
-                                 "SELECT keterangan FROM penyakit WHERE kd_penyakit=?"
-                             )) {
+                        Connection conn = koneksiDB.condb(); // buka sekali
+                        try (PreparedStatement ps = conn.prepareStatement(
+                                "SELECT keterangan FROM penyakit WHERE kd_penyakit=?")) {
                             ps.setString(1, kode);
                             try (ResultSet rs = ps.executeQuery()) {
                                 if (rs.next()) {
                                     String ket = rs.getString("keterangan");
                                     if ("Non Spesialis".equalsIgnoreCase(ket)) {
                                         jScrollPane2.setVisible(true);
+                                        jTextArea2.setText("Maaf, pilihan Anda termasuk dalam 144 jenis penyakit\nyang wajib dilayani oleh faskes tingkat pertama,\nsesuai Keputusan Menteri Kesehatan Nomor \nHK.01.07/MENKES/1936/2022.\n\nJika akan dirujuk dan memenuhi kriteria TACC,\nsilakan isi formulir di bawah.\nJika tidak, Anda dapat memilih ulang diagnosa.");
                                         FormInput1.setEnabled(true);
                                     } else {
                                         jScrollPane2.setVisible(false);
+                                        jTextArea2.setText("");
                                         FormInput1.setEnabled(false);
                                     }
                                 }
                             }
-                        } catch (Exception ex) {
+                        } catch (SQLException ex) {
                             ex.printStackTrace();
                         }
+                        // conn jangan ditutup di sini kalau masih dipakai untuk simpan
+
                     }
                     TDiagnosa.requestFocus();
                 }
@@ -1391,33 +1441,21 @@ private void NmDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         // TODO add your handling code here:
     }//GEN-LAST:event_ktrujuk1KeyPressed
 
-    private void TaccKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TaccKeyPressed
+    private void TComorbidityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TComorbidityKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TaccKeyPressed
+    }//GEN-LAST:event_TComorbidityKeyPressed
 
-    private void Tacc1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Tacc1KeyPressed
+    private void TTimeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TTimeKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Tacc1KeyPressed
+    }//GEN-LAST:event_TTimeKeyPressed
 
-    private void Tacc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tacc1ActionPerformed
+    private void TAgeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TAgeKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Tacc1ActionPerformed
+    }//GEN-LAST:event_TAgeKeyPressed
 
-    private void Tacc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tacc2ActionPerformed
+    private void TComplicationKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TComplicationKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Tacc2ActionPerformed
-
-    private void Tacc2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Tacc2KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Tacc2KeyPressed
-
-    private void Tacc3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tacc3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Tacc3ActionPerformed
-
-    private void Tacc3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Tacc3KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Tacc3KeyPressed
+    }//GEN-LAST:event_TComplicationKeyPressed
 
     /**
     * @param args the command line arguments
@@ -1461,17 +1499,17 @@ private void NmDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.TextBox NmDokter;
     private javax.swing.JPanel PanelInput;
     private widget.ScrollPane Scroll;
+    private widget.TextArea TAge;
     private widget.TextBox TCari;
+    private widget.TextArea TComorbidity;
+    private widget.TextArea TComplication;
     private widget.TextBox TDiagnosa;
     private widget.TextBox TNoRM;
     private widget.TextBox TNoRj;
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
+    private widget.TextArea TTime;
     private widget.TextBox TTmpRujuk;
-    private widget.TextBox Tacc;
-    private widget.TextBox Tacc1;
-    private widget.TextBox Tacc2;
-    private widget.TextBox Tacc3;
     private widget.ComboBox ambulance;
     private widget.Button btnDiagnosa;
     private widget.InternalFrame internalFrame1;
@@ -1506,6 +1544,10 @@ private void NmDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.ComboBox ktrujuk1;
     private widget.panelisi panelGlass8;
     private widget.panelisi panelGlass9;
+    private widget.ScrollPane scrollPane1;
+    private widget.ScrollPane scrollPane2;
+    private widget.ScrollPane scrollPane3;
+    private widget.ScrollPane scrollPane4;
     private widget.Table tbObat;
     // End of variables declaration//GEN-END:variables
 
@@ -1559,14 +1601,18 @@ private void NmDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         KdDokter.setText("");
         NmDokter.setText("");
         TDiagnosa.setText("");
-        jScrollPane2.setVisible(false);
-        FormInput1.setEnabled(false);
         DTPRujuk.setDate(new Date());
         Valid.autoNomer("rujuk","R",9,TNoRj);
         TNoRj.requestFocus();
         ktrujuk.setSelectedIndex(0);
         ambulance.setSelectedIndex(0);
         ket.setText("");
+        jScrollPane2.setVisible(false);
+        FormInput1.setEnabled(false);
+        TTime.setText("");
+        TAge.setText("");
+        TComplication.setText("");
+        TComorbidity.setText("");
     }
 
     public void load(String param) {
