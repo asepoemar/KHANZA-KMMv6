@@ -1019,11 +1019,19 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnBatalKeyPressed
 
     private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnHapusActionPerformed
-        if(Valid.hapusTabletf(tabMode,TNoRj,"rujuk","no_rujuk")==true){
-            if(tbObat.getSelectedRow()!= -1){
-                tabMode.removeRow(tbObat.getSelectedRow());
-                LCount.setText(""+tabMode.getRowCount());
-                emptTeks();
+        if(TNoRj.getText().trim().equals("")){
+            Valid.textKosong(TNoRj,"No.Rujuk");
+        }else{
+            // 🔥 Hapus dulu data di rujuk_tacc (jika ada)
+            Sequel.queryu("DELETE FROM rujuk_tacc WHERE no_rujuk='"+TNoRj.getText()+"'");
+
+            // 🔥 Hapus data di rujuk
+            if(Valid.hapusTabletf(tabMode,TNoRj,"rujuk","no_rujuk")==true){
+                if(tbObat.getSelectedRow()!= -1){
+                    tabMode.removeRow(tbObat.getSelectedRow());
+                    LCount.setText(""+tabMode.getRowCount());
+                    emptTeks();
+                }
             }
         }
 }//GEN-LAST:event_BtnHapusActionPerformed
