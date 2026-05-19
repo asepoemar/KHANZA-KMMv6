@@ -10609,6 +10609,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                 JOptionPane.showMessageDialog(rootPane,"Data billing sudah terverifikasi ..!!");
             }else{
                 this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                Valid.editTable("reg_periksa","no_rawat",TNoRw,"stts='Dirujuk'");
                 DlgRujukKmm dlgrjk=new DlgRujukKmm(null,false);
                 dlgrjk.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
                 dlgrjk.setLocationRelativeTo(internalFrame1);

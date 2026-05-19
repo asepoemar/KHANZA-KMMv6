@@ -406,7 +406,7 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-05-2026" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-05-2026" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -420,7 +420,7 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-05-2026" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-05-2026" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -554,7 +554,7 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         TPasien.setBounds(340, 10, 340, 23);
 
         DTPRujuk.setForeground(new java.awt.Color(50, 70, 50));
-        DTPRujuk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18-05-2026" }));
+        DTPRujuk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "19-05-2026" }));
         DTPRujuk.setDisplayFormat("dd-MM-yyyy");
         DTPRujuk.setName("DTPRujuk"); // NOI18N
         DTPRujuk.setOpaque(false);
@@ -814,9 +814,10 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         labelTacc1.setForeground(new java.awt.Color(204, 0, 0));
         labelTacc1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelTacc1.setText("Wajib isi salah satu");
+        labelTacc1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         labelTacc1.setName("labelTacc1"); // NOI18N
         FormInput1.add(labelTacc1);
-        labelTacc1.setBounds(10, 30, 100, 23);
+        labelTacc1.setBounds(10, 30, 130, 23);
 
         labelTime.setText("Time :");
         labelTime.setName("labelTime"); // NOI18N
@@ -838,7 +839,7 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
         FormInput1.add(labelComorbidity);
         labelComorbidity.setBounds(10, 210, 72, 23);
 
-        ktrujuk1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-", "Bedah", "Non Bedah", "Kebidanan", "Anak" }));
+        ktrujuk1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Time", "Age", "Complication", "Comorbidity" }));
         ktrujuk1.setName("ktrujuk1"); // NOI18N
         ktrujuk1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -997,11 +998,11 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
                 "'"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"'","No.Rujuk")==true){
 
                 // jika jTextArea2 tidak kosong dan validasi TACC lolos → insert ke rujuk_tacc
-                if(!jTextArea2.getText().trim().equals("")){
+//                if(!jTextArea2.getText().trim().equals("")){
                     Sequel.menyimpantf("rujuk_tacc",
                         "'"+TNoRj.getText()+"','"+TNoRw.getText()+"','"+TTime.getText()+"','"+TAge.getText()+"','"+TComplication.getText()+"','"+TComorbidity.getText()+"'",
                         "No.Rujuk TACC");
-                }
+//                }
 
                 // update tabel tampilan (selalu)
                 tabMode.addRow(new Object[]{
@@ -1066,33 +1067,54 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnHapusKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
+        // Validasi input utama
         if(TNoRj.getText().trim().equals("")){
             Valid.textKosong(TNoRj,"No.Rujuk");
         }else if(TTmpRujuk.getText().trim().equals("")){
             Valid.textKosong(TTmpRujuk,"tempat rujuk");
-        }else if(TNoRw.getText().trim().equals("")||TPasien.getText().trim().equals("")){
+        }else if(TNoRw.getText().trim().equals("") || TPasien.getText().trim().equals("")){
             Valid.textKosong(TNoRw,"pasien");
         }else if(NmDokter.getText().trim().equals("")){
             Valid.textKosong(KdDokter,"dokter yang bertugas");
-        }else{         
+        }else{
+            // cek apakah jTextArea2 kosong atau tidak
+            if(!jTextArea2.getText().trim().equals("")){
+                // validasi TACC dulu
+                boolean allEmpty = TTime.getText().trim().equals("") &&
+                                   TAge.getText().trim().equals("") &&
+                                   TComplication.getText().trim().equals("") &&
+                                   TComorbidity.getText().trim().equals("");
+
+                if(allEmpty){
+                    JOptionPane.showMessageDialog(null,
+                        "Form TACC wajib diisi minimal salah satu faktor (Time/Age/Complication/Comorbidity).",
+                        "Validasi TACC", JOptionPane.WARNING_MESSAGE);
+                    return; // hentikan proses, jangan insert ke rujuk
+                }
+            }
+            // Update data rujuk
             if(Valid.editTabletf(tabMode,"rujuk","no_rujuk",TNoRj,
                 "no_rawat='"+TNoRw.getText()+"',rujuk_ke='"+TTmpRujuk.getText()+"',tgl_rujuk='"+Valid.SetTgl(DTPRujuk.getSelectedItem()+"")+"',"+
                 "jam='"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"',keterangan_diagnosa='"+TDiagnosa.getText()+"',kd_dokter='"+KdDokter.getText()+"',"+
                 "kat_rujuk='"+ktrujuk.getSelectedItem().toString()+"',ambulance='"+ambulance.getSelectedItem().toString()+"',keterangan='"+ket.getText()+"'")==true){
 
-                // cek apakah data rujuk_tacc sudah ada
-                if(Sequel.cariInteger("select count(*) from rujuk_tacc where no_rujuk='"+TNoRj.getText()+"'")>0){
-                    // update jika ada
-                    Valid.editTabletf(tabMode,"rujuk_tacc","no_rujuk",TNoRj,
-                        "time='"+TTime.getText()+"',age='"+TAge.getText()+"',complication='"+TComplication.getText()+"',comorbidity='"+TComorbidity.getText()+"'");
+                // Insert/Update TACC
+                if(!jTextArea2.getText().trim().equals("")){
+                    int countTacc = Sequel.cariInteger("select count(*) from rujuk_tacc where no_rujuk='"+TNoRj.getText()+"'");
+                    if(countTacc > 0){
+                        Valid.editTabletf(tabMode,"rujuk_tacc","no_rujuk",TNoRj,
+                            "time='"+TTime.getText()+"',age='"+TAge.getText()+"',complication='"+TComplication.getText()+"',comorbidity='"+TComorbidity.getText()+"'");
+                    } else {
+                        Sequel.menyimpantf("rujuk_tacc",
+                            "'"+TNoRj.getText()+"','"+TNoRw.getText()+"','"+TTime.getText()+"','"+TAge.getText()+"','"+TComplication.getText()+"','"+TComorbidity.getText()+"'",
+                            "No.Rujuk TACC");
+                    }
                 } else {
-                    // insert baru jika belum ada
-                    Sequel.menyimpantf("rujuk_tacc",
-                        "'"+TNoRj.getText()+"','"+TNoRw.getText()+"','"+TTime.getText()+"','"+TAge.getText()+"','"+TComplication.getText()+"','"+TComorbidity.getText()+"'",
-                        "No.Rujuk TACC");
+                    Valid.editTabletf(tabMode,"rujuk_tacc","no_rujuk",TNoRj,
+                        "time='',age='',complication='',comorbidity=''");
                 }
 
-                // update tampilan tabel
+                // Update tampilan tabel UI
                 if(tbObat.getSelectedRow()!= -1){
                     tbObat.setValueAt(TNoRj.getText(),tbObat.getSelectedRow(),0);
                     tbObat.setValueAt(TNoRw.getText(),tbObat.getSelectedRow(),1);
@@ -1107,8 +1129,6 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
                     tbObat.setValueAt(ktrujuk.getSelectedItem().toString(),tbObat.getSelectedRow(),10);
                     tbObat.setValueAt(ambulance.getSelectedItem().toString(),tbObat.getSelectedRow(),11);
                     tbObat.setValueAt(ket.getText(),tbObat.getSelectedRow(),12);
-
-                    // Tambahan update tampilan kolom rujuk_tacc
                     tbObat.setValueAt(TTime.getText(),tbObat.getSelectedRow(),13);
                     tbObat.setValueAt(TAge.getText(),tbObat.getSelectedRow(),14);
                     tbObat.setValueAt(TComplication.getText(),tbObat.getSelectedRow(),15);
@@ -1229,20 +1249,11 @@ public final class DlgRujukKmm extends javax.swing.JDialog {
     private void tbObatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbObatMouseClicked
         if(tabMode.getRowCount()!=0){
             try {
-                getData();
-            } catch (java.lang.NullPointerException e) {
+                getData();     // isi form
+                getDataIsi();  // cek kolom 13–16
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }
-        
-        boolean allEmpty = TTime.getText().trim().equals("") &&
-                    TAge.getText().trim().equals("") &&
-                    TComplication.getText().trim().equals("") &&
-                    TComorbidity.getText().trim().equals("");
-
-        if(allEmpty){
-            inputTacc2();
-        } else {
-            inputTacc1();
         }
 }//GEN-LAST:event_tbObatMouseClicked
 
@@ -1693,6 +1704,7 @@ private void NmDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         
         //untuk diagnosa tacc
         jScrollPane2.setVisible(false);
+        labelTacc1.setVisible(false);
         TTime.setText("");
         TAge.setText("");
         TComplication.setText("");
@@ -1701,7 +1713,7 @@ private void NmDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     
     public void inputTacc1(){
         jScrollPane2.setVisible(true);
-        jTextArea2.setText("Maaf, pilihan Anda termasuk dalam 144 jenis penyakit\nyang wajib dilayani oleh faskes tingkat pertama,\nsesuai Keputusan Menteri Kesehatan Nomor \nHK.01.07/MENKES/1936/2022.\n\nJika akan dirujuk dan memenuhi kriteria TACC,\nsilakan isi formulir di bawah.\nJika tidak, Anda dapat memilih ulang diagnosa.");
+        jTextArea2.setText("Maaf, pilihan Anda termasuk dalam 144 jenis penyakit\nyang wajib dilayani oleh faskes tingkat pertama,\nsesuai KEPMENKES HK.01.07/MENKES/1936/2022.\n\nJika tetap akan dirujuk dan memenuhi kriteria TACC\nserta masih memenuhi kuota RRNS < 2%,\nsilakan isi formulir di bawah & hubungi PIC BPJS KMM.\nJika tidak, Anda dapat memilih ulang diagnosa.");
         labelTacc.setVisible(true);
         labelTacc1.setVisible(true);
         labelTime.setVisible(true);
@@ -1729,6 +1741,27 @@ private void NmDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
         scrollPane3.setVisible(false);
         scrollPane4.setVisible(false);
         jScrollPane1.setVisible(false);
+    }
+    
+    private void getDataIsi() {
+        int row = tbObat.getSelectedRow();
+        if(row != -1){
+            Object col13 = tbObat.getValueAt(row, 13);
+            Object col14 = tbObat.getValueAt(row, 14);
+            Object col15 = tbObat.getValueAt(row, 15);
+            Object col16 = tbObat.getValueAt(row, 16);
+
+            boolean kosong13 = (col13 == null || col13.toString().trim().isEmpty());
+            boolean kosong14 = (col14 == null || col14.toString().trim().isEmpty());
+            boolean kosong15 = (col15 == null || col15.toString().trim().isEmpty());
+            boolean kosong16 = (col16 == null || col16.toString().trim().isEmpty());
+
+            if(kosong13 && kosong14 && kosong15 && kosong16){
+                inputTacc2();
+            } else {
+                inputTacc1();
+            }
+        }
     }
 
     public void load(String param) {
@@ -1761,10 +1794,19 @@ private void NmDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
             ktrujuk.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),10).toString());
             ambulance.setSelectedItem(tbObat.getValueAt(tbObat.getSelectedRow(),11).toString());
             ket.setText(tbObat.getValueAt(tbObat.getSelectedRow(),12).toString());
-            TTime.setText(tbObat.getValueAt(tbObat.getSelectedRow(),13).toString());
-            TAge.setText(tbObat.getValueAt(tbObat.getSelectedRow(),14).toString());
-            TComplication.setText(tbObat.getValueAt(tbObat.getSelectedRow(),15).toString());
-            TComorbidity.setText(tbObat.getValueAt(tbObat.getSelectedRow(),16).toString());
+
+            // Bagian yang dikoreksi
+            Object val13 = tbObat.getValueAt(tbObat.getSelectedRow(),13);
+            TTime.setText(val13 == null ? "" : val13.toString());
+
+            Object val14 = tbObat.getValueAt(tbObat.getSelectedRow(),14);
+            TAge.setText(val14 == null ? "" : val14.toString());
+
+            Object val15 = tbObat.getValueAt(tbObat.getSelectedRow(),15);
+            TComplication.setText(val15 == null ? "" : val15.toString());
+
+            Object val16 = tbObat.getValueAt(tbObat.getSelectedRow(),16);
+            TComorbidity.setText(val16 == null ? "" : val16.toString());
         }
     }
 
