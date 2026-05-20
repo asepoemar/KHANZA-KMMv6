@@ -373,6 +373,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         lblTemplate = new widget.Label();
         ChkTemplate = new widget.CekBox();
         NamaTemplate = new widget.TextBox();
+        ranapKmmText = new javax.swing.JTextArea();
         TabRawat = new javax.swing.JTabbedPane();
         Scroll = new widget.ScrollPane();
         tbResep = new widget.Table();
@@ -639,7 +640,9 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         FormInput.add(jLabel3);
         jLabel3.setBounds(0, 12, 72, 23);
 
+        jLabel13.setForeground(new java.awt.Color(204, 0, 51));
         jLabel13.setText("Peresep :");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setName("jLabel13"); // NOI18N
         FormInput.add(jLabel13);
         jLabel13.setBounds(0, 72, 72, 23);
@@ -682,7 +685,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         jLabel8.setBounds(0, 42, 72, 23);
 
         DTPBeri.setForeground(new java.awt.Color(50, 70, 50));
-        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-05-2026" }));
+        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-05-2026" }));
         DTPBeri.setDisplayFormat("dd-MM-yyyy");
         DTPBeri.setName("DTPBeri"); // NOI18N
         DTPBeri.setOpaque(false);
@@ -817,6 +820,17 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         });
         FormInput.add(NamaTemplate);
         NamaTemplate.setBounds(180, 100, 500, 23);
+
+        ranapKmmText.setEditable(false);
+        ranapKmmText.setBackground(new java.awt.Color(255, 255, 255));
+        ranapKmmText.setColumns(20);
+        ranapKmmText.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        ranapKmmText.setForeground(new java.awt.Color(204, 0, 51));
+        ranapKmmText.setRows(5);
+        ranapKmmText.setToolTipText("");
+        ranapKmmText.setName("ranapKmmText"); // NOI18N
+        FormInput.add(ranapKmmText);
+        ranapKmmText.setBounds(700, 0, 400, 70);
 
         internalFrame1.add(FormInput, java.awt.BorderLayout.PAGE_START);
 
@@ -1716,6 +1730,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private widget.panelisi panelisi3;
     private javax.swing.JMenuItem ppBersihkan;
     private javax.swing.JMenuItem ppStok1;
+    private javax.swing.JTextArea ranapKmmText;
     private widget.Table tbDetailResepObatRacikan;
     private widget.Table tbObatResepRacikan;
     private widget.Table tbResep;
@@ -2194,6 +2209,26 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     }
     
     public void setNoRm(String norwt,Date tanggal, String jam,String menit,String detik,String KodeDokter,String NamaDokter,String status) {        
+        TNoRw.setText(norwt);
+        Sequel.cariIsi("select concat(pasien.no_rkm_medis,' ',pasien.nm_pasien,' (',pasien.umur,')') from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis where no_rawat=? ",TPasien,TNoRw.getText());
+        
+        DTPBeri.setDate(tanggal);
+        cmbJam.setSelectedItem(jam);
+        cmbMnt.setSelectedItem(menit);
+        cmbDtk.setSelectedItem(detik); 
+        KdDokter.setText(KodeDokter);
+        NmDokter.setText(NamaDokter);
+        KdPj.setText(Sequel.cariIsi("select reg_periksa.kd_pj from reg_periksa where reg_periksa.no_rawat=?",norwt));
+        //kode kmm
+        ranapKmmText.setText("Jika menu ini digunakan untuk pasien rawat inap,\nharap mengganti Dokter Peresep.");
+        TCari.requestFocus();
+        this.status=status;
+        SetHarga();
+        ubah=false;
+        copy=false;
+    }
+    
+    public void setNoRmKmm(String norwt,Date tanggal, String jam,String menit,String detik,String KodeDokter,String NamaDokter,String status) {        
         TNoRw.setText(norwt);
         Sequel.cariIsi("select concat(pasien.no_rkm_medis,' ',pasien.nm_pasien,' (',pasien.umur,')') from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis where no_rawat=? ",TPasien,TNoRw.getText());
         
