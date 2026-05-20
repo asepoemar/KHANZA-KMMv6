@@ -343,6 +343,32 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="860" y="10" width="310" height="370"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="jTextArea1">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Apa arti parameter valid code, accpdx, asterisk, dan IM&#xa;pada code system INA-CBG dan iDRG?&#xa;&#xa;VC (Validcode)&#xa;0 = tidak bisa digunakan untuk coding, seperti header&#xa;1 = bisa digunakan untuk coding&#xa;&#xa;AP (Accpdx)&#xa;Y = bisa jadi diagnosa primer&#xa;N = tidak bisa jadi diagnosa primer&#xa;&#xa;Ast (Asterisk)&#xa;0 = bukan kode asterisk&#xa;1 = kode asterisk, biasanya ada tanda (*)&#xa;&#xa;kode asterisk tidak bisa digunakan&#xa;sebagai diagnosa primer&#xa;&#xa;IM (Indonesian Modification)&#xa;0 = bukan kode IM&#xa;&#xa;https://faq.kemkes.go.id/"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
               </SubComponents>
             </Container>
           </SubComponents>

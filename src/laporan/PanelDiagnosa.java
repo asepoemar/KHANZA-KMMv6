@@ -330,6 +330,8 @@ public class PanelDiagnosa extends widget.panelisi {
         BtnCariProsedur = new widget.Button();
         Scroll2 = new widget.ScrollPane();
         tbProsedur = new widget.Table();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         internalFrame2 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbDiagnosaPasien = new widget.Table();
@@ -502,6 +504,16 @@ public class PanelDiagnosa extends widget.panelisi {
 
         FormData.add(Scroll2);
         Scroll2.setBounds(11, 237, 810, 165);
+
+        jScrollPane2.setBorder(null);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Apa arti parameter valid code, accpdx, asterisk, dan IM\npada code system INA-CBG dan iDRG?\n\nVC (Validcode)\n0 = tidak bisa digunakan untuk coding, seperti header\n1 = bisa digunakan untuk coding\n\nAP (Accpdx)\nY = bisa jadi diagnosa primer\nN = tidak bisa jadi diagnosa primer\n\nAst (Asterisk)\n0 = bukan kode asterisk\n1 = kode asterisk, biasanya ada tanda (*)\n\nkode asterisk tidak bisa digunakan\nsebagai diagnosa primer\n\nIM (Indonesian Modification)\n0 = bukan kode IM\n\nhttps://faq.kemkes.go.id/");
+        jScrollPane2.setViewportView(jTextArea1);
+
+        FormData.add(jScrollPane2);
+        jScrollPane2.setBounds(860, 10, 310, 370);
 
         ScrollInput.setViewportView(FormData);
 
@@ -786,6 +798,8 @@ public class PanelDiagnosa extends widget.panelisi {
     private widget.Label jLabel13;
     private widget.Label jLabel15;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     public widget.Table tbDiagnosa;
     public widget.Table tbDiagnosaPasien;
     public widget.Table tbProsedur;
