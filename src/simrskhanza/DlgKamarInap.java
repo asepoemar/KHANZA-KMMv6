@@ -404,6 +404,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BtnUpdateHari = new widget.Button();
         WindowInputKamar = new javax.swing.JDialog();
         internalFrame2 = new widget.InternalFrame();
         norawat = new widget.TextBox();
@@ -5372,6 +5373,20 @@ public class DlgKamarInap extends javax.swing.JDialog {
         cmbStatusBayar.setName("cmbStatusBayar"); // NOI18N
         cmbStatusBayar.setPreferredSize(new java.awt.Dimension(120, 23));
         panelGlass9.add(cmbStatusBayar);
+        
+        BtnUpdateHari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/refresh.png"))); // NOI18N
+        BtnUpdateHari.setMnemonic('S');
+        BtnUpdateHari.setText("Update Hari Perawatan");
+        BtnUpdateHari.setToolTipText("Alt+S");
+        BtnUpdateHari.setGlassColor(new java.awt.Color(51, 204, 255));
+        BtnUpdateHari.setName("BtnUpdateHari"); // NOI18N
+        BtnUpdateHari.setPreferredSize(new java.awt.Dimension(180, 30));
+        BtnUpdateHari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnUpdateHariActionPerformed(evt);
+            }
+        });
+        panelGlass9.add(BtnUpdateHari);
 
         internalFrame1.add(panelGlass9, java.awt.BorderLayout.PAGE_START);
 
@@ -18927,6 +18942,17 @@ public class DlgKamarInap extends javax.swing.JDialog {
         }
     }
     
+    private void BtnUpdateHariActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        if(tabMode.getRowCount()==0){
+            JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
+            TCari.requestFocus();
+        }else if(R1.isSelected()==false){
+            JOptionPane.showMessageDialog(rootPane,"Tampilkan data yang belum pulang terlebih dahulu");
+        }else{
+            updateHari();
+        }
+    }
+    
     private void MnSuratPermohonanPrivasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPersetujuanUmumActionPerformed
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, table masih kosong...!!!!");
@@ -19018,6 +19044,7 @@ public class DlgKamarInap extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private widget.Button BtnUpdateHari;
     private widget.TextBox BangsalCari;
     private widget.Button BtnAll;
     private widget.Button BtnBatal;
