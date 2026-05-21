@@ -3309,11 +3309,14 @@ private void KapasitasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
         BtnHapus.setEnabled(akses.getobat());
         BtnEdit.setEnabled(akses.getobat());
         BtnPrint.setEnabled(akses.getobat());
-        if(akses.getkode().equals("Admin Utama")){
-            MnRestore.setEnabled(true);
-        }else{
-            MnRestore.setEnabled(false);
-        } 
+        //kode bawaan khanza
+//        if(akses.getkode().equals("Admin Utama")){
+//            MnRestore.setEnabled(true);
+//        }else{
+//            MnRestore.setEnabled(false);
+//        } 
+        //kode kmm
+        MnRestore.setEnabled(akses.getobat());
     }
     
     public void isBatch(){

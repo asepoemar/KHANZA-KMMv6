@@ -1171,6 +1171,8 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         BtnRujukInternalKMM = new widget.Button();
         BtnRujukKeluarKMM = new widget.Button();
         BtnTemplateResep = new widget.Button();
+        labelPanggil = new widget.Label();
+        hitungPanggil = new widget.Label();
         //ends Button tambahan KMM
         internalFrame1 = new widget.InternalFrame();
         jPanel3 = new javax.swing.JPanel();
@@ -3678,7 +3680,21 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
             }
         });
         FormInput.add(BtnPanggilPasien);
-        BtnPanggilPasien.setBounds(960, 10, 130, 30);
+        BtnPanggilPasien.setBounds(960, 5, 130, 30);
+        
+        labelPanggil.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelPanggil.setText("Panggilan ke: ");
+        labelPanggil.setName("labelPanggil"); // NOI18N
+        labelPanggil.setFont(new java.awt.Font("Tahoma", 1, 11));
+        FormInput.add(labelPanggil);
+        labelPanggil.setBounds(1100, 10, 80, 23);
+        
+//        hitungPanggil.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        hitungPanggil.setText("0");
+        hitungPanggil.setName("hitungPanggil"); // NOI18N
+        hitungPanggil.setFont(new java.awt.Font("Tahoma", 1, 11));
+        FormInput.add(hitungPanggil);
+        hitungPanggil.setBounds(1165, 10, 20, 23);
 
         internalFrame1.add(FormInput, java.awt.BorderLayout.PAGE_START);
 
@@ -11248,6 +11264,8 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbTindakan3;
     private widget.TextBox TanggalRegistrasi;
     //Button tambahan
+    private widget.Label labelPanggil;
+    private widget.Label hitungPanggil;
     private widget.Button BtnPanggilPasien;
     private widget.Button BtnOdontogram;
     private widget.Button BtnInputResepKMM;
