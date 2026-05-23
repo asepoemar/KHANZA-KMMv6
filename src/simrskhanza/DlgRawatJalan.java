@@ -3690,7 +3690,6 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         labelPanggil.setBounds(1100, 10, 80, 23);
         
 //        hitungPanggil.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        hitungPanggil.setText("0");
         hitungPanggil.setName("hitungPanggil"); // NOI18N
         hitungPanggil.setFont(new java.awt.Font("Tahoma", 1, 11));
         FormInput.add(hitungPanggil);
@@ -5345,7 +5344,8 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
                     }
                 }
             });
-        } 
+        }
+        HitungPanggil();
     }
     
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
@@ -6254,6 +6254,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
                 + "<span style='color:black;'>Apakah pemeriksaan pasien sudah selesai?</span><br>"
                 + "<ol>"
                 + "<li>Pastikan data pemeriksaan sudah benar sebelum konfirmasi.</li>"
+                + "<li>Diagnosa(ICD10) & prosedur (ICD9) <b><span style='color:red;'>'WAJIB DIISI'</span></b>.</li>"
                 + "<li>Status pasien akan diubah menjadi <b><span style='color:blue;'>'Sudah'</span></b>.</li>"
                 + "<li>Jika ada permintaan LAB maka status menjadi <b><span style='color:rgb(232,112,42);'>'Cek Lab'</span></b>.</li>"
                 + "<li>Mutasi berkas otomatis tercatat di sistem.</li>"
@@ -6265,7 +6266,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
             int i = JOptionPane.showConfirmDialog(
                 this, 
                 message, 
-                "Konfirmasi", 
+                "PERHATIAN", 
                 JOptionPane.YES_NO_OPTION, 
                 JOptionPane.QUESTION_MESSAGE
             );
@@ -10761,6 +10762,17 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         } else {
             Sequel.queryu("delete from antripoli where kd_dokter='" + KdDok.getText() + "' and kd_poli='" + poli + "'");
             Sequel.queryu("insert into antripoli values('" + KdDok.getText() + "','" + poli + "','1','" + TNoRw.getText() + "')");
+            Sequel.queryu("insert into hitung_panggil (no_rawat, kategori) values('" + TNoRw.getText() + "','poli')");
+        }
+        HitungPanggil();
+    }
+    
+    private void HitungPanggil() {                                                 
+        poli = Sequel.cariIsi("SELECT COUNT(*) FROM hitung_panggil where hitung_panggil.no_rawat=?", TNoRw.getText());
+        if (! poli.equals("")) {
+            hitungPanggil.setText(poli); 
+        } else {
+            hitungPanggil.setText("0");
         }
     }
     
