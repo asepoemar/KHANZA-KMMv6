@@ -1128,7 +1128,7 @@ public final class RMHasilPemeriksaanUSGKMM extends javax.swing.JDialog {
 
         btnUploud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/2276087_document_extension_format_jpg_paper_icon.png"))); // NOI18N
         btnUploud.setMnemonic('T');
-        btnUploud.setText("Uploud Photo");
+        btnUploud.setText("Upload Photo");
         btnUploud.setToolTipText("Alt+T");
         btnUploud.setName("btnUploud"); // NOI18N
         btnUploud.setPreferredSize(new java.awt.Dimension(127, 30));
