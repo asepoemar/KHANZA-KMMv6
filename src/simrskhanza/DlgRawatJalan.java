@@ -1159,6 +1159,8 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
     private void initComponents() {
 
         //Button tambahan KMM
+        lblHitungKunjungan = new widget.Label();
+        lblHitungKunjungan1 = new widget.Label();
         BtnPanggilPasien = new widget.Button();
         BtnOdontogram = new widget.Button();
         BtnInputResepKMM = new widget.Button();
@@ -3690,10 +3692,24 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         labelPanggil.setBounds(1100, 10, 80, 23);
         
 //        hitungPanggil.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        hitungPanggil.setForeground(new java.awt.Color(204, 0, 51));
         hitungPanggil.setName("hitungPanggil"); // NOI18N
-        hitungPanggil.setFont(new java.awt.Font("Tahoma", 1, 11));
+        hitungPanggil.setFont(new java.awt.Font("Tahoma", 1, 18));
         FormInput.add(hitungPanggil);
-        hitungPanggil.setBounds(1165, 10, 20, 23);
+        hitungPanggil.setBounds(1170, 10, 20, 23);
+        
+        lblHitungKunjungan.setText("Kunjungan 30 hr terkahir :");
+        lblHitungKunjungan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblHitungKunjungan.setName("lblHitungKunjungan"); // NOI18N
+        FormInput.add(lblHitungKunjungan);
+        lblHitungKunjungan.setBounds(1200, 10, 170, 23);
+
+        lblHitungKunjungan1.setForeground(new java.awt.Color(204, 0, 51));
+//        lblHitungKunjungan1.setText("0");
+        lblHitungKunjungan1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblHitungKunjungan1.setName("lblHitungKunjungan1"); // NOI18N
+        FormInput.add(lblHitungKunjungan1);
+        lblHitungKunjungan1.setBounds(1365, 10, 20, 23);
 
         internalFrame1.add(FormInput, java.awt.BorderLayout.PAGE_START);
 
@@ -5346,6 +5362,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
             });
         }
         HitungPanggil();
+        HitungKunjungan();
     }
     
     private void BtnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSimpanActionPerformed
@@ -10776,6 +10793,15 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
     }
     
+    private void HitungKunjungan() {                                                 
+        poli = Sequel.cariIsi("SELECT COUNT(*) FROM reg_periksa WHERE no_rkm_medis =? AND stts = 'Sudah' AND tgl_registrasi >= CURDATE() - INTERVAL 30 DAY ORDER BY tgl_registrasi DESC, jam_reg DESC;", TNoRM.getText());
+        if (! poli.equals("")) {
+            lblHitungKunjungan1.setText(poli); 
+        } else {
+            lblHitungKunjungan1.setText("0");
+        }
+    }
+    
     private void MnSOAPDokterActionPerformed(java.awt.event.ActionEvent evt) {
         if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
@@ -11276,6 +11302,8 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Table tbTindakan3;
     private widget.TextBox TanggalRegistrasi;
     //Button tambahan
+    private widget.Label lblHitungKunjungan;
+    private widget.Label lblHitungKunjungan1;
     private widget.Label labelPanggil;
     private widget.Label hitungPanggil;
     private widget.Button BtnPanggilPasien;
