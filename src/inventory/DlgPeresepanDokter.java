@@ -374,6 +374,9 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         ChkTemplate = new widget.CekBox();
         NamaTemplate = new widget.TextBox();
         ranapKmmText = new javax.swing.JTextArea();
+        lblRacikAktif = new widget.Label();
+        lblRacikAktif2 = new widget.Label();
+        lblRacikAktif3 = new widget.Label();
         TabRawat = new javax.swing.JTabbedPane();
         Scroll = new widget.ScrollPane();
         tbResep = new widget.Table();
@@ -467,9 +470,10 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
 
         BtnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari.setMnemonic('1');
+        BtnCari.setText("Cari");
         BtnCari.setToolTipText("Alt+1");
         BtnCari.setName("BtnCari"); // NOI18N
-        BtnCari.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnCari.setPreferredSize(new java.awt.Dimension(80, 23));
         BtnCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCariActionPerformed(evt);
@@ -484,9 +488,10 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
 
         BtnAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
         BtnAll.setMnemonic('2');
+        BtnAll.setText("Data");
         BtnAll.setToolTipText("Alt+2");
         BtnAll.setName("BtnAll"); // NOI18N
-        BtnAll.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnAll.setPreferredSize(new java.awt.Dimension(70, 23));
         BtnAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAllActionPerformed(evt);
@@ -550,9 +555,10 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
 
         BtnSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/save-16x16.png"))); // NOI18N
         BtnSimpan.setMnemonic('S');
+        BtnSimpan.setText("Simpan");
         BtnSimpan.setToolTipText("Alt+S");
         BtnSimpan.setName("BtnSimpan"); // NOI18N
-        BtnSimpan.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnSimpan.setPreferredSize(new java.awt.Dimension(90, 23));
         BtnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSimpanActionPerformed(evt);
@@ -562,9 +568,10 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
 
         BtnTambah1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         BtnTambah1.setMnemonic('3');
+        BtnTambah1.setText("Racik");
         BtnTambah1.setToolTipText("Alt+3");
         BtnTambah1.setName("BtnTambah1"); // NOI18N
-        BtnTambah1.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnTambah1.setPreferredSize(new java.awt.Dimension(80, 23));
         BtnTambah1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTambah1ActionPerformed(evt);
@@ -574,9 +581,10 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
 
         BtnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/stop_f2.png"))); // NOI18N
         BtnHapus.setMnemonic('H');
+        BtnHapus.setText("Hapus");
         BtnHapus.setToolTipText("Alt+H");
         BtnHapus.setName("BtnHapus"); // NOI18N
-        BtnHapus.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnHapus.setPreferredSize(new java.awt.Dimension(80, 23));
         BtnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnHapusActionPerformed(evt);
@@ -586,9 +594,10 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
 
         BtnKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/exit.png"))); // NOI18N
         BtnKeluar.setMnemonic('5');
+        BtnKeluar.setText("Keluar");
         BtnKeluar.setToolTipText("Alt+5");
         BtnKeluar.setName("BtnKeluar"); // NOI18N
-        BtnKeluar.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnKeluar.setPreferredSize(new java.awt.Dimension(80, 23));
         BtnKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnKeluarActionPerformed(evt);
@@ -685,7 +694,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         jLabel8.setBounds(0, 42, 72, 23);
 
         DTPBeri.setForeground(new java.awt.Color(50, 70, 50));
-        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "20-05-2026" }));
+        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-05-2026" }));
         DTPBeri.setDisplayFormat("dd-MM-yyyy");
         DTPBeri.setName("DTPBeri"); // NOI18N
         DTPBeri.setOpaque(false);
@@ -832,6 +841,28 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         FormInput.add(ranapKmmText);
         ranapKmmText.setBounds(700, 0, 400, 70);
 
+        lblRacikAktif.setForeground(new java.awt.Color(204, 0, 51));
+        lblRacikAktif.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRacikAktif.setText("0");
+        lblRacikAktif.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblRacikAktif.setName("lblRacikAktif"); // NOI18N
+        FormInput.add(lblRacikAktif);
+        lblRacikAktif.setBounds(740, 100, 25, 23);
+
+        lblRacikAktif2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblRacikAktif2.setText("Racik      aktif");
+        lblRacikAktif2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblRacikAktif2.setName("lblRacikAktif2"); // NOI18N
+        FormInput.add(lblRacikAktif2);
+        lblRacikAktif2.setBounds(710, 100, 90, 23);
+
+        lblRacikAktif3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblRacikAktif3.setText(", lengkapi kolom data racikan.");
+        lblRacikAktif3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblRacikAktif3.setName("lblRacikAktif3"); // NOI18N
+        FormInput.add(lblRacikAktif3);
+        lblRacikAktif3.setBounds(792, 100, 200, 23);
+
         internalFrame1.add(FormInput, java.awt.BorderLayout.PAGE_START);
 
         TabRawat.setBackground(new java.awt.Color(255, 255, 253));
@@ -882,6 +913,11 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         Scroll1.setPreferredSize(new java.awt.Dimension(454, 90));
 
         tbObatResepRacikan.setName("tbObatResepRacikan"); // NOI18N
+        tbObatResepRacikan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbObatResepRacikanMouseClicked(evt);
+            }
+        });
         tbObatResepRacikan.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tbObatResepRacikanKeyPressed(evt);
@@ -950,7 +986,8 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                             tbObatResepRacikan.getValueAt(tbObatResepRacikan.getSelectedRow(),6).toString().equals("")){
                         JOptionPane.showMessageDialog(null,"Silahkan lengkapi data racikan..!!");
                     }else{
-                        runBackground(() -> tampildetailracikanresep());
+//                        runBackground(() -> tampildetailracikanresep());
+                        tampildetailracikanresep();
                     }
                 }else{
                     JOptionPane.showMessageDialog(null,"Silahkan pilih racikan..!!");
@@ -1420,10 +1457,15 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private void TabRawatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabRawatMouseClicked
         if(TabRawat.getSelectedIndex()==0){
             BtnTambah1.setVisible(false);
+            lblRacikAktif.setVisible(false);
+            lblRacikAktif2.setVisible(false);
+            lblRacikAktif3.setVisible(false);
             BtnHapus.setVisible(false);
             TCari.setPreferredSize(new Dimension(245, 23));
         }else if(TabRawat.getSelectedIndex()==1){
             BtnTambah1.setVisible(true);
+            lblRacikAktif.setVisible(true);
+            lblRacikAktif2.setVisible(true);
             BtnHapus.setVisible(true);
             TCari.setPreferredSize(new Dimension(181, 23));
         }
@@ -1513,7 +1555,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     }
                 }else if(evt.getKeyCode()==KeyEvent.VK_ENTER){
                     if(i==6){
-                        runBackground(() -> tampildetailracikanresep());
+//                        runBackground(() -> tampildetailracikanresep());
+                        lblRacikAktif3.setText(", Silakan gunakan pencarian.");
+                        tampildetailracikanresep();
                     }
                 }
             } catch (Exception e) {
@@ -1664,6 +1708,20 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         // TODO add your handling code here:
     }//GEN-LAST:event_NamaTemplateKeyPressed
 
+    private void tbObatResepRacikanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbObatResepRacikanMouseClicked
+        if(tbObatResepRacikan.getRowCount()!=0){
+            int baris = tbObatResepRacikan.getSelectedRow();
+            if(baris != -1){
+                int barisAktif = baris + 1; // ubah ke 1-based index
+                System.out.println("Baris aktif: " + barisAktif);
+                lblRacikAktif.setText(String.valueOf(barisAktif));
+                lblRacikAktif3.setVisible(true);
+            }
+        }else{
+            lblRacikAktif3.setVisible(false);
+        }
+    }//GEN-LAST:event_tbObatResepRacikanMouseClicked
+
     /**
     * @param args the command line arguments
     */
@@ -1726,6 +1784,9 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private javax.swing.JPanel jPanel3;
     private widget.Label label12;
     private widget.Label label9;
+    private widget.Label lblRacikAktif;
+    private widget.Label lblRacikAktif2;
+    private widget.Label lblRacikAktif3;
     private widget.Label lblTemplate;
     private widget.panelisi panelisi3;
     private javax.swing.JMenuItem ppBersihkan;

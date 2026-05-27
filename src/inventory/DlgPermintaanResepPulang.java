@@ -196,6 +196,7 @@ public class DlgPermintaanResepPulang extends javax.swing.JDialog {
         LTotal = new widget.Label();
         jLabel7 = new widget.Label();
         LTotalTagihan = new widget.Label();
+        jLabel14 = new widget.Label();
 
         Kd2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Kd2.setName("Kd2"); // NOI18N
@@ -422,13 +423,13 @@ public class DlgPermintaanResepPulang extends javax.swing.JDialog {
             }
         });
         FormInput.add(KdDokter);
-        KdDokter.setBounds(75, 42, 119, 23);
+        KdDokter.setBounds(350, 40, 119, 23);
 
         NmDokter.setEditable(false);
         NmDokter.setHighlighter(null);
         NmDokter.setName("NmDokter"); // NOI18N
         FormInput.add(NmDokter);
-        NmDokter.setBounds(196, 42, 240, 23);
+        NmDokter.setBounds(470, 40, 240, 23);
 
         jLabel3.setText("No.Rawat :");
         jLabel3.setName("jLabel3"); // NOI18N
@@ -436,9 +437,10 @@ public class DlgPermintaanResepPulang extends javax.swing.JDialog {
         jLabel3.setBounds(0, 12, 72, 23);
 
         jLabel13.setText("Dokter :");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setName("jLabel13"); // NOI18N
         FormInput.add(jLabel13);
-        jLabel13.setBounds(0, 42, 72, 23);
+        jLabel13.setBounds(270, 40, 72, 23);
 
         BtnDokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         BtnDokter.setMnemonic('3');
@@ -455,12 +457,12 @@ public class DlgPermintaanResepPulang extends javax.swing.JDialog {
             }
         });
         FormInput.add(BtnDokter);
-        BtnDokter.setBounds(438, 42, 28, 23);
+        BtnDokter.setBounds(710, 40, 28, 23);
 
         jLabel11.setText("No.Permintaan :");
         jLabel11.setName("jLabel11"); // NOI18N
         FormInput.add(jLabel11);
-        jLabel11.setBounds(485, 42, 90, 23);
+        jLabel11.setBounds(0, 40, 90, 23);
 
         NoResep.setHighlighter(null);
         NoResep.setName("NoResep"); // NOI18N
@@ -470,7 +472,7 @@ public class DlgPermintaanResepPulang extends javax.swing.JDialog {
             }
         });
         FormInput.add(NoResep);
-        NoResep.setBounds(578, 42, 130, 23);
+        NoResep.setBounds(90, 40, 130, 23);
 
         jLabel8.setText("Tanggal :");
         jLabel8.setName("jLabel8"); // NOI18N
@@ -538,7 +540,7 @@ public class DlgPermintaanResepPulang extends javax.swing.JDialog {
             }
         });
         FormInput.add(ChkRM);
-        ChkRM.setBounds(710, 42, 23, 23);
+        ChkRM.setBounds(220, 40, 23, 23);
 
         ChkJln.setBorder(null);
         ChkJln.setSelected(true);
@@ -582,6 +584,13 @@ public class DlgPermintaanResepPulang extends javax.swing.JDialog {
         LTotalTagihan.setPreferredSize(new java.awt.Dimension(80, 23));
         FormInput.add(LTotalTagihan);
         LTotalTagihan.setBounds(608, 72, 100, 23);
+
+        jLabel14.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel14.setText("<< Sesuaikan dokter pembuat resep sebelum input obat");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setName("jLabel14"); // NOI18N
+        FormInput.add(jLabel14);
+        jLabel14.setBounds(740, 40, 360, 23);
 
         internalFrame1.add(FormInput, java.awt.BorderLayout.PAGE_START);
 
@@ -1006,6 +1015,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     private widget.InternalFrame internalFrame1;
     private widget.Label jLabel11;
     private widget.Label jLabel13;
+    private widget.Label jLabel14;
     private widget.Label jLabel3;
     private widget.Label jLabel5;
     private widget.Label jLabel7;
