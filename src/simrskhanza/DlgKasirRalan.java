@@ -33,7 +33,9 @@ import inventory.DlgPemberianObat;
 import laporan.DlgDiagnosaPenyakit;
 import keuangan.DlgBilingRalan;
 import fungsi.WarnaTable;
+import fungsi.WarnaTableKasirRalan;
 import fungsi.WarnaTableKasirRalan2;
+import fungsi.WarnaTableKasirRalan21;
 import fungsi.WarnaTableKasirRalan3;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
@@ -367,14 +369,38 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
                 column.setPreferredWidth(95);
             }
         }
+//        try {
+//            if(koneksiDB.AKTIFKANWARNARALAN().equals("yes")){
+//                if(akses.getkode().equals("Admin Utama")){
+//                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan2());
+////                }else if(CrPtg.getText().startsWith("dr.")){
+//                }else if(CrPtg.getText().trim().startsWith("dr.")){
+//                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan21());
+//                }
+////                else{
+////                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan2());
+////                }
+//            }else{
+//                tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTable());
+//            }
+//        } catch (Exception e) {
+//            tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTable());
+//        }
         try {
-            if(koneksiDB.AKTIFKANWARNARALAN().equals("yes")){
-                if(akses.getkode().equals("Admin Utama")){
-                tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan2());
-                }else if(akses.getdpjp_ranap()==true){
+            String status = koneksiDB.AKTIFKANWARNARALAN();
+            System.out.println("Status warna: " + status);
+
+            boolean hasilUsg = akses.gethasil_pemeriksaan_usg();
+            System.out.println("Hasil USG: " + hasilUsg);
+            
+            if("yes".equalsIgnoreCase(status)){
+                if(hasilUsg){
+                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan21());
+                    System.out.println("Masuk kondisi kesatu");
+                }
+                else{
                     tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan3());
-            }else{
-                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan2());
+                    System.out.println("Masuk kondisi Kedua");
                 }
             }else{
                 tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTable());
@@ -1009,6 +1035,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         DTPCari2 = new widget.Tanggal();
         jLabel12 = new widget.Label();
         cmbStatus = new widget.ComboBox();
+        jLabelStatus = new javax.swing.JLabel();
         jLabel20 = new widget.Label();
         cmbStatusBayar = new widget.ComboBox();
         TabRawat = new javax.swing.JTabbedPane();
@@ -6440,9 +6467,10 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
 
         BtnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari.setMnemonic('6');
+        BtnCari.setText("Cari");
         BtnCari.setToolTipText("Alt+6");
         BtnCari.setName("BtnCari"); // NOI18N
-        BtnCari.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnCari.setPreferredSize(new java.awt.Dimension(70, 23));
         BtnCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCariActionPerformed(evt);
@@ -6457,9 +6485,10 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
 
         BtnAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
         BtnAll.setMnemonic('M');
+        BtnAll.setText("Semua Data");
         BtnAll.setToolTipText("Alt+M");
         BtnAll.setName("BtnAll"); // NOI18N
-        BtnAll.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnAll.setPreferredSize(new java.awt.Dimension(110, 23));
         BtnAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAllActionPerformed(evt);
@@ -6600,6 +6629,16 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         DTPCari2.setPreferredSize(new java.awt.Dimension(90, 23));
         panelGlass8.add(DTPCari2);
 
+        jLabel20.setText("Status Bayar :");
+        jLabel20.setName("jLabel20"); // NOI18N
+        jLabel20.setPreferredSize(new java.awt.Dimension(120, 23));
+        panelGlass8.add(jLabel20);
+
+        cmbStatusBayar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Semua", "Sudah Bayar", "Belum Bayar" }));
+        cmbStatusBayar.setName("cmbStatusBayar"); // NOI18N
+        cmbStatusBayar.setPreferredSize(new java.awt.Dimension(150, 23));
+        panelGlass8.add(cmbStatusBayar);
+
         jLabel12.setText("Status Periksa :");
         jLabel12.setName("jLabel12"); // NOI18N
         jLabel12.setPreferredSize(new java.awt.Dimension(120, 23));
@@ -6614,16 +6653,15 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         cmbStatus.setName("cmbStatus"); // NOI18N
         cmbStatus.setPreferredSize(new java.awt.Dimension(150, 23));
         panelGlass8.add(cmbStatus);
-
-        jLabel20.setText("Status Bayar :");
-        jLabel20.setName("jLabel20"); // NOI18N
-        jLabel20.setPreferredSize(new java.awt.Dimension(120, 23));
-        panelGlass8.add(jLabel20);
-
-        cmbStatusBayar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Semua", "Sudah Bayar", "Belum Bayar" }));
-        cmbStatusBayar.setName("cmbStatusBayar"); // NOI18N
-        cmbStatusBayar.setPreferredSize(new java.awt.Dimension(150, 23));
-        panelGlass8.add(cmbStatusBayar);
+        
+        jLabelStatus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelStatus.setForeground(new java.awt.Color(153, 0, 51));
+        jLabelStatus.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelStatus.setText("Pilih status periksa untuk memfilter data pasien, lalu klik '✔Cari'");
+        jLabelStatus.setMaximumSize(new java.awt.Dimension(350, 16));
+        jLabelStatus.setName("jLabelStatus"); // NOI18N
+        jLabelStatus.setPreferredSize(new java.awt.Dimension(440, 20));
+        panelGlass8.add(jLabelStatus);
 
         jPanel2.add(panelGlass8, java.awt.BorderLayout.PAGE_START);
 
@@ -15999,6 +16037,7 @@ private void MnDataPemberianObatActionPerformed(java.awt.event.ActionEvent evt) 
     private javax.swing.JMenuItem MnCekLab;
     private javax.swing.JMenuItem MnPrioritasDikaji;
     private javax.swing.JMenuItem MnDikaji;
+    private javax.swing.JLabel jLabelStatus;
     private widget.Button BtnAll;
     private widget.Button BtnBatal;
     private widget.Button BtnCari;
