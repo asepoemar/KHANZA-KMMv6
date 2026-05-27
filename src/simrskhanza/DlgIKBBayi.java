@@ -885,7 +885,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         Popup.add(MnSKL2);
 
         MenuSKLKMM.setBackground(new java.awt.Color(255, 255, 254));
-        MenuSKLKMM.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MenuSKLKMM.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         MenuSKLKMM.setForeground(new java.awt.Color(50, 50, 50));
         MenuSKLKMM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         MenuSKLKMM.setText("Surat Keterangan Lahir KMM");
