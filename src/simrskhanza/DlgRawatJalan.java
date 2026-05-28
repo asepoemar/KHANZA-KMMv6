@@ -2656,6 +2656,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         BtnPemeriksaanLab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                  BtnPemeriksaanLabActionPerformed(evt);
+//                 BtnPermintaanLabActionPerformed(evt);
             }
         });
         panelGlass12.add(BtnPemeriksaanLab);
@@ -6271,9 +6272,9 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
                 + "<span style='color:black;'>Apakah pemeriksaan pasien sudah selesai?</span><br>"
                 + "<ol>"
                 + "<li>Pastikan data pemeriksaan sudah benar sebelum konfirmasi.</li>"
-                + "<li>Diagnosa(ICD10) & prosedur (ICD9) <b><span style='color:red;'>'WAJIB DIISI'</span></b>.</li>"
+                + "<li>Diagnosa (ICD10) & prosedur (ICD9) <b><span style='color:red;'>WAJIB DIISI</span></b>.</li>"
                 + "<li>Status pasien akan diubah menjadi <b><span style='color:blue;'>'Sudah'</span></b>.</li>"
-                + "<li>Jika ada permintaan LAB maka status menjadi <b><span style='color:rgb(232,112,42);'>'Cek Lab'</span></b>.</li>"
+                + "<li>Jika ada permintaan LAB silahkan pilih <b>'NO'</b>,<br>maka status menjadi <b><span style='color:rgb(232,112,42);'>'Cek Lab'</span></b>.</li>"
                 + "<li>Mutasi berkas otomatis tercatat di sistem.</li>"
                 + "</ol><br><br>"
                 + "<span style='font-size:10px; color:gray;'>petugas kajian pilih 'NO'</span>"
@@ -6283,18 +6284,29 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
             int i = JOptionPane.showConfirmDialog(
                 this, 
                 message, 
-                "PERHATIAN", 
+                "KONFIRMASI", 
                 JOptionPane.YES_NO_OPTION, 
                 JOptionPane.QUESTION_MESSAGE
             );
             
                 if(i == JOptionPane.YES_OPTION){
                     String statusBaru;
-                    if("Cek Lab".equalsIgnoreCase(Sequel.cariIsi("select reg_periksa.stts from reg_periksa where reg_periksa.no_rawat=?",TNoRw.getText()))){
+                    // Ambil status lama dari reg_periksa
+                    String statusLama = Sequel.cariIsi(
+                        "select reg_periksa.stts from reg_periksa where reg_periksa.no_rawat=?",
+                        TNoRw.getText()
+                    );
+                    // Ambil jam_hasil dari permintaan_lab
+                    String jamHasil = Sequel.cariIsi(
+                        "select jam_hasil from permintaan_lab where no_rawat=?",
+                        TNoRw.getText()
+                    );
+                    if("Cek Lab".equalsIgnoreCase(statusLama) && "00:00:00".equals(jamHasil)){
                         statusBaru = "Cek Lab";   // tetap "Cek Lab"
                     } else {
-                        statusBaru = "Sudah";     // selain itu jadi "Sudah"
+                        statusBaru = "Sudah";     // default selain itu
                     }
+                    
                     if(Sequel.mengedittf("reg_periksa","no_rawat=?","stts=?",2,new String[]{statusBaru,TNoRw.getText()})){
                         Sequel.menyimpan(
                             "mutasi_berkas",
@@ -10644,16 +10656,20 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         if(TPasien.getText().trim().equals("")||TNoRw.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
             TCari.requestFocus();
-        }else{
-            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            DlgPermintaanLaboratorium dlgro=new DlgPermintaanLaboratorium(null,false);
-            dlgro.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
-            dlgro.setLocationRelativeTo(internalFrame1);
-            dlgro.emptTeks();
-            dlgro.isCek();
-            dlgro.setNoRm(TNoRw.getText(),"Ranap");
-            dlgro.setVisible(true);
-            this.setCursor(Cursor.getDefaultCursor());
+        }else{      
+            if(Sequel.cariInteger("select count(kamar_inap.no_rawat) from kamar_inap where kamar_inap.no_rawat=?",TNoRw.getText())>0){
+                JOptionPane.showMessageDialog(null,"Maaf, Pasien sudah masuk Kamar Inap. Gunakan billing Ranap..!!!");
+            }else {
+                this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+                DlgPermintaanLaboratorium dlgro=new DlgPermintaanLaboratorium(null,false);
+                dlgro.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
+                dlgro.setLocationRelativeTo(internalFrame1);
+                dlgro.emptTeks();
+                dlgro.isCek();
+                dlgro.setNoRm(TNoRw.getText(),"Ralan");
+                dlgro.setVisible(true);
+                this.setCursor(Cursor.getDefaultCursor());  
+            }          
         }
     }//GEN-LAST:event_BtnPemeriksaanLabActionPerformed
 
