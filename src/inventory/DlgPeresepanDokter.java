@@ -694,7 +694,7 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         jLabel8.setBounds(0, 42, 72, 23);
 
         DTPBeri.setForeground(new java.awt.Color(50, 70, 50));
-        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-05-2026" }));
+        DTPBeri.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "27-05-2026" }));
         DTPBeri.setDisplayFormat("dd-MM-yyyy");
         DTPBeri.setName("DTPBeri"); // NOI18N
         DTPBeri.setOpaque(false);
@@ -850,18 +850,19 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
         lblRacikAktif.setBounds(740, 100, 25, 23);
 
         lblRacikAktif2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblRacikAktif2.setText("Racik      aktif");
+        lblRacikAktif2.setText("Racik      aktif,");
         lblRacikAktif2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblRacikAktif2.setName("lblRacikAktif2"); // NOI18N
         FormInput.add(lblRacikAktif2);
         lblRacikAktif2.setBounds(710, 100, 90, 23);
 
+        lblRacikAktif3.setForeground(new java.awt.Color(153, 0, 0));
         lblRacikAktif3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblRacikAktif3.setText(", lengkapi kolom data racikan.");
+        lblRacikAktif3.setText(" lengkapi kolom data racikan.");
         lblRacikAktif3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblRacikAktif3.setName("lblRacikAktif3"); // NOI18N
         FormInput.add(lblRacikAktif3);
-        lblRacikAktif3.setBounds(792, 100, 200, 23);
+        lblRacikAktif3.setBounds(798, 100, 200, 23);
 
         internalFrame1.add(FormInput, java.awt.BorderLayout.PAGE_START);
 
@@ -985,11 +986,14 @@ public final class DlgPeresepanDokter extends javax.swing.JDialog {
                             tbObatResepRacikan.getValueAt(tbObatResepRacikan.getSelectedRow(),5).toString().equals("")||
                             tbObatResepRacikan.getValueAt(tbObatResepRacikan.getSelectedRow(),6).toString().equals("")){
                         JOptionPane.showMessageDialog(null,"Silahkan lengkapi data racikan..!!");
+                        lblRacikAktif3.setForeground(new java.awt.Color(153, 0, 0));
+                        lblRacikAktif3.setText(" lengkapi kolom data racikan.");
                     }else{
 //                        runBackground(() -> tampildetailracikanresep());
                         tampildetailracikanresep();
                     }
                 }else{
+                    lblRacikAktif.setText("0");
                     JOptionPane.showMessageDialog(null,"Silahkan pilih racikan..!!");
                 }
             }else{
@@ -1556,7 +1560,8 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                 }else if(evt.getKeyCode()==KeyEvent.VK_ENTER){
                     if(i==6){
 //                        runBackground(() -> tampildetailracikanresep());
-                        lblRacikAktif3.setText(", Silakan gunakan pencarian.");
+                        lblRacikAktif3.setForeground(new java.awt.Color(51, 51, 255));
+                        lblRacikAktif3.setText(" Silakan gunakan pencarian.");
                         tampildetailracikanresep();
                     }
                 }
@@ -1713,9 +1718,22 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             int baris = tbObatResepRacikan.getSelectedRow();
             if(baris != -1){
                 int barisAktif = baris + 1; // ubah ke 1-based index
-                System.out.println("Baris aktif: " + barisAktif);
+                System.out.println("Racik aktif: " + barisAktif);
                 lblRacikAktif.setText(String.valueOf(barisAktif));
                 lblRacikAktif3.setVisible(true);
+                if(tbObatResepRacikan.getValueAt(tbObatResepRacikan.getSelectedRow(),0).toString().equals("")||
+                    tbObatResepRacikan.getValueAt(tbObatResepRacikan.getSelectedRow(),1).toString().equals("")||
+                    tbObatResepRacikan.getValueAt(tbObatResepRacikan.getSelectedRow(),2).toString().equals("")||
+                    tbObatResepRacikan.getValueAt(tbObatResepRacikan.getSelectedRow(),3).toString().equals("")||
+                    tbObatResepRacikan.getValueAt(tbObatResepRacikan.getSelectedRow(),4).toString().equals("")||
+                    tbObatResepRacikan.getValueAt(tbObatResepRacikan.getSelectedRow(),5).toString().equals("")||
+                    tbObatResepRacikan.getValueAt(tbObatResepRacikan.getSelectedRow(),6).toString().equals("")){
+                        lblRacikAktif3.setForeground(new java.awt.Color(153, 0, 0));
+                        lblRacikAktif3.setText(" lengkapi kolom data racikan.");
+                } else{
+                    lblRacikAktif3.setForeground(new java.awt.Color(51, 51, 255));
+                    lblRacikAktif3.setText(" Silakan gunakan pencarian.");
+                }
             }
         }else{
             lblRacikAktif3.setVisible(false);

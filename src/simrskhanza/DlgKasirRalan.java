@@ -33,9 +33,7 @@ import inventory.DlgPemberianObat;
 import laporan.DlgDiagnosaPenyakit;
 import keuangan.DlgBilingRalan;
 import fungsi.WarnaTable;
-import fungsi.WarnaTableKasirRalan;
 import fungsi.WarnaTableKasirRalan2;
-import fungsi.WarnaTableKasirRalan21;
 import fungsi.WarnaTableKasirRalan3;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
@@ -369,39 +367,13 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
                 column.setPreferredWidth(95);
             }
         }
-//        try {
-//            if(koneksiDB.AKTIFKANWARNARALAN().equals("yes")){
-//                if(akses.getkode().equals("Admin Utama")){
-//                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan2());
-////                }else if(CrPtg.getText().startsWith("dr.")){
-//                }else if(CrPtg.getText().trim().startsWith("dr.")){
-//                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan21());
-//                }
-////                else{
-////                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan2());
-////                }
-//            }else{
-//                tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTable());
-//            }
-//        } catch (Exception e) {
-//            tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTable());
-//        }
-        try {
-            String status = koneksiDB.AKTIFKANWARNARALAN();
-            System.out.println("Status warna: " + status);
 
-            boolean hasilUsg = akses.gethasil_pemeriksaan_usg();
-            System.out.println("Hasil USG: " + hasilUsg);
-            
-            if("yes".equalsIgnoreCase(status)){
-                if(hasilUsg){
-                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan21());
-                    System.out.println("Masuk kondisi kesatu");
-                }
-                else{
-                    tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan3());
-                    System.out.println("Masuk kondisi Kedua");
-                }
+        try {
+            if(koneksiDB.AKTIFKANWARNARALAN().equals("yes")){
+                tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan2());
+                System.out.println("Warna List Ralan Semua");
+//                tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan3());
+//                System.out.println("Warna List Ralan Dokter");
             }else{
                 tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTable());
             }
@@ -6657,7 +6629,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         jLabelStatus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelStatus.setForeground(new java.awt.Color(153, 0, 51));
         jLabelStatus.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelStatus.setText("Pilih status periksa untuk memfilter data pasien, lalu klik '✔Cari'");
+        jLabelStatus.setText("Pilih status periksa untuk memfilter data pasien, lalu klik '√Cari'");
         jLabelStatus.setMaximumSize(new java.awt.Dimension(350, 16));
         jLabelStatus.setName("jLabelStatus"); // NOI18N
         jLabelStatus.setPreferredSize(new java.awt.Dimension(440, 20));
