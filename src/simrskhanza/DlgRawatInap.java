@@ -6821,7 +6821,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             dlgro.setLocationRelativeTo(internalFrame1);
             dlgro.emptTeks();
             dlgro.isCek();
-            dlgro.setNoRm(TNoRw.getText(),"Ranap");
+            dlgro.setNoRmKmmRanap(TNoRw.getText(),"Ranap");
             dlgro.setVisible(true);
             this.setCursor(Cursor.getDefaultCursor());
         }
@@ -7196,7 +7196,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
             dlgro.setLocationRelativeTo(internalFrame1);
             dlgro.emptTeks();
             dlgro.isCek();
-            dlgro.setNoRm(TNoRw.getText(),"Ranap");
+            dlgro.setNoRmKmmRanap(TNoRw.getText(),"Ranap");
             dlgro.setVisible(true);
             this.setCursor(Cursor.getDefaultCursor());
         }

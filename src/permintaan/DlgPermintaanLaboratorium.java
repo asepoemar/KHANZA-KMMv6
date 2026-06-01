@@ -338,6 +338,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         InformasiTambahan = new widget.TextBox();
         DiagnosisKlinis = new widget.TextBox();
         jLabel7 = new widget.Label();
+        ranapKmmText = new javax.swing.JTextArea();
         TabRawat = new javax.swing.JTabbedPane();
         PanelCariUtama = new javax.swing.JPanel();
         panelGlass11 = new widget.panelisi();
@@ -562,9 +563,10 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         TPasien.setBounds(332, 10, 440, 23);
 
         jLabel9.setText("Dokter Perujuk :");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setName("jLabel9"); // NOI18N
         PanelInput.add(jLabel9);
-        jLabel9.setBounds(0, 40, 92, 23);
+        jLabel9.setBounds(410, 40, 92, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
         Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "24-04-2026" }));
@@ -582,22 +584,22 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
             }
         });
         PanelInput.add(Tanggal);
-        Tanggal.setBounds(460, 40, 90, 23);
+        Tanggal.setBounds(70, 40, 90, 23);
 
         CmbJam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
         CmbJam.setName("CmbJam"); // NOI18N
         PanelInput.add(CmbJam);
-        CmbJam.setBounds(554, 40, 62, 23);
+        CmbJam.setBounds(160, 40, 62, 23);
 
         CmbMenit.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
         CmbMenit.setName("CmbMenit"); // NOI18N
         PanelInput.add(CmbMenit);
-        CmbMenit.setBounds(619, 40, 62, 23);
+        CmbMenit.setBounds(220, 40, 62, 23);
 
         CmbDetik.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
         CmbDetik.setName("CmbDetik"); // NOI18N
         PanelInput.add(CmbDetik);
-        CmbDetik.setBounds(684, 40, 62, 23);
+        CmbDetik.setBounds(280, 40, 62, 23);
 
         ChkJln.setBorder(null);
         ChkJln.setSelected(true);
@@ -611,7 +613,7 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
             }
         });
         PanelInput.add(ChkJln);
-        ChkJln.setBounds(749, 40, 23, 23);
+        ChkJln.setBounds(350, 40, 23, 23);
 
         btnDokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         btnDokter.setMnemonic('4');
@@ -623,12 +625,12 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
             }
         });
         PanelInput.add(btnDokter);
-        btnDokter.setBounds(359, 40, 28, 23);
+        btnDokter.setBounds(770, 40, 28, 23);
 
         jLabel15.setText("Tanggal :");
         jLabel15.setName("jLabel15"); // NOI18N
         PanelInput.add(jLabel15);
-        jLabel15.setBounds(390, 40, 67, 23);
+        jLabel15.setBounds(0, 40, 67, 23);
 
         KodePerujuk.setName("KodePerujuk"); // NOI18N
         KodePerujuk.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -637,13 +639,13 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
             }
         });
         PanelInput.add(KodePerujuk);
-        KodePerujuk.setBounds(95, 40, 80, 23);
+        KodePerujuk.setBounds(510, 40, 80, 23);
 
         NmPerujuk.setEditable(false);
         NmPerujuk.setHighlighter(null);
         NmPerujuk.setName("NmPerujuk"); // NOI18N
         PanelInput.add(NmPerujuk);
-        NmPerujuk.setBounds(177, 40, 180, 23);
+        NmPerujuk.setBounds(590, 40, 180, 23);
 
         jLabel5.setText("Informasi Tambahan :");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -676,6 +678,17 @@ public final class DlgPermintaanLaboratorium extends javax.swing.JDialog {
         jLabel7.setName("jLabel7"); // NOI18N
         PanelInput.add(jLabel7);
         jLabel7.setBounds(0, 70, 92, 23);
+
+        ranapKmmText.setEditable(false);
+        ranapKmmText.setBackground(new java.awt.Color(255, 255, 255));
+        ranapKmmText.setColumns(20);
+        ranapKmmText.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        ranapKmmText.setForeground(new java.awt.Color(204, 0, 51));
+        ranapKmmText.setRows(5);
+        ranapKmmText.setToolTipText("");
+        ranapKmmText.setName("ranapKmmText"); // NOI18N
+        PanelInput.add(ranapKmmText);
+        ranapKmmText.setBounds(810, 10, 400, 70);
 
         FormInput.add(PanelInput, java.awt.BorderLayout.CENTER);
 
@@ -2043,6 +2056,7 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JMenuItem ppBersihkan1;
     private javax.swing.JMenuItem ppSemua;
     private javax.swing.JMenuItem ppSemua1;
+    private javax.swing.JTextArea ranapKmmText;
     private widget.Table tbDetailMB;
     private widget.Table tbDetailPK;
     private widget.Table tbTarifMB;
@@ -2410,6 +2424,15 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         isReset();
         KodePerujuk.setText(kddokter);
         NmPerujuk.setText(nmdokter);
+    }
+    
+    public void setNoRmKmmRanap(String norwt,String posisi) {
+        TNoRw.setText(norwt);
+        ranapKmmText.setText("Jika menu ini digunakan untuk pasien rawat inap,\nharap mengganti Dokter Perujuk.");
+        this.status=posisi;
+        isRawat();
+        isPsien();
+        isReset();
     }
     
     public void isCek(){
