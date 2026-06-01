@@ -1163,7 +1163,9 @@ public final class DlgStokOpname extends javax.swing.JDialog {
         KdGudang.setText("");
         NmGudang.setText("");
         order="order by opname.tanggal";
-        runBackground(() ->tampil());
+//        runBackground(() ->tampil());
+        tampil();
+
     }//GEN-LAST:event_BtnAllActionPerformed
 
 private void KeteranganKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_KeteranganKeyPressed
