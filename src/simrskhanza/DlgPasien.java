@@ -692,6 +692,7 @@ public class DlgPasien extends javax.swing.JDialog {
         MnViaDukcapilNikDKI = new javax.swing.JMenuItem();
         MnViaDukcapilNikAceh = new javax.swing.JMenuItem();
         MnViaSatuSehatNik = new javax.swing.JMenuItem();
+        MnKYCSatuSehat = new javax.swing.JMenuItem();
         WindowGabungRM = new javax.swing.JDialog();
         internalFrame8 = new widget.InternalFrame();
         BtnCloseIn6 = new widget.Button();
@@ -1956,6 +1957,20 @@ public class DlgPasien extends javax.swing.JDialog {
             }
         });
         jPopupMenu2.add(MnViaSatuSehatNik);
+
+        MnKYCSatuSehat.setBackground(new java.awt.Color(255, 255, 254));
+        MnKYCSatuSehat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnKYCSatuSehat.setForeground(new java.awt.Color(50, 50, 50));
+        MnKYCSatuSehat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        MnKYCSatuSehat.setText("Verifikasi KYC Satu Sehat");
+        MnKYCSatuSehat.setName("MnKYCSatuSehat"); // NOI18N
+        MnKYCSatuSehat.setPreferredSize(new java.awt.Dimension(290, 26));
+        MnKYCSatuSehat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnKYCSatuSehatActionPerformed(evt);
+            }
+        });
+        jPopupMenu2.add(MnKYCSatuSehat);
 
         WindowGabungRM.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         WindowGabungRM.setModal(true);
@@ -8781,6 +8796,18 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
         // TODO add your handling code here:
     }//GEN-LAST:event_textPerhatianActionPerformed
 
+    private void MnKYCSatuSehatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnKYCSatuSehatActionPerformed
+//        if(TKtp.getText().trim().isEmpty()){
+//            javax.swing.JOptionPane.showMessageDialog(this, "Maaf, Silahkan isi NIK Pasien",
+//                    "Perhatian", javax.swing.JOptionPane.WARNING_MESSAGE);
+//            TKtp.requestFocus();
+//            return;
+//        }
+//        bridging.DlgVerifikasiProfilKYC dlg = new bridging.DlgVerifikasiProfilKYC(
+//                null, true
+//        );
+    }//GEN-LAST:event_MnKYCSatuSehatActionPerformed
+
     /**
      * @data args the command line arguments
      */
@@ -8936,6 +8963,7 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     private javax.swing.JMenuItem MnIdentitas2;
     private javax.swing.JMenuItem MnIdentitas3;
     private javax.swing.JMenuItem MnIdentitas4;
+    private javax.swing.JMenuItem MnKYCSatuSehat;
     private javax.swing.JMenuItem MnKartu1;
     private javax.swing.JMenuItem MnKartu2;
     private javax.swing.JMenuItem MnKartu3;
