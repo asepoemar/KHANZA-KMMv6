@@ -98,7 +98,7 @@
     <entry key="SECRETKEYSATUSEHAT">cJJfWXHDkkMIrKQNSILLWwzfWh0OPuCfeiEDRIa95tyISgUu0FPytgaISoBBwzOsEystJ8VE03BbAFtI4p0dZUcIJRE5Exvs9J1RPJ0gLdA=</entry>
     <entry key="URLAUTHSATUSEHAT">https://api-satusehat.kemkes.go.id/oauth2/v1</entry> 
     <entry key="URLFHIRSATUSEHAT">https://api-satusehat.kemkes.go.id/fhir-r4/v1</entry>
-    <entry key="URLKYCPHP">http://localhost/kyc-library-php/kyc_api.php</entry>         <!-- ===============tambahan kmm=================== -->
+    <entry key="URLKYCPHP">http://192.168.100.2/kyc-library-php/kyc_api.php</entry>         <!-- ===============tambahan kmm=================== -->
     <entry key="IDSATUSEHAT">Y1Chl96ttYDJCbBd28koXQ==</entry>
     <entry key="KELURAHANSATUSEHAT">3602242003</entry>
     <entry key="KECAMATANSATUSEHAT">360224</entry>

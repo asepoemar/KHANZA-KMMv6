@@ -18,6 +18,8 @@ public final class DlgVerifikasiProfilKYC extends javax.swing.JDialog {
 
     private final SatuSehatKYC kyc = new SatuSehatKYC();
     private String nikPetugas = "";
+    private String namapegawai = "";
+
 
     public DlgVerifikasiProfilKYC(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -36,12 +38,14 @@ public final class DlgVerifikasiProfilKYC extends javax.swing.JDialog {
 
     /** Ambil nama dan no_ktp petugas login dari tabel pegawai. */
     private void loadPetugas() {
-        tNamaPetugas.setText(akses.getnamauser());
         try (PreparedStatement ps = koneksiDB.condb().prepareStatement(
-                     "SELECT no_ktp FROM pegawai WHERE nik = ?")) {
+            "SELECT nama, no_ktp FROM pegawai WHERE nik = ?")) {
             ps.setString(1, akses.getkode());
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
+                    // isi nama petugas ke textbox
+                    tNamaPetugas.setText(rs.getString("nama"));
+                    // isi NIK petugas untuk generate URL
                     nikPetugas = rs.getString("no_ktp");
                     if (nikPetugas == null) nikPetugas = "";
                 }
@@ -217,7 +221,7 @@ public final class DlgVerifikasiProfilKYC extends javax.swing.JDialog {
             this.setCursor(Cursor.getDefaultCursor());
         }
     }
-
+    
     private void bukaUrlVerifikasi() {
         if (nikPetugas.isEmpty()) {
             JOptionPane.showMessageDialog(this,
@@ -234,14 +238,23 @@ public final class DlgVerifikasiProfilKYC extends javax.swing.JDialog {
             if (ok) {
                 setStatus("URL verifikasi berhasil dibuat. Membuka browser...");
                 try {
-                    new ProcessBuilder("xdg-open", kyc.generateUrl).start();
+                    // Gunakan Desktop API agar cross-platform
+                    if (java.awt.Desktop.isDesktopSupported()) {
+                        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+                        desktop.browse(new java.net.URI(kyc.generateUrl));
+                    } else {
+                        // fallback jika Desktop tidak tersedia
+                        Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + kyc.generateUrl);
+                    }
                     dispose();
                 } catch (Exception ex) {
                     setStatus("Gagal membuka browser. URL: " + kyc.generateUrl);
                 }
             } else {
                 setStatus("Gagal: " + kyc.errorMessage);
-                JOptionPane.showMessageDialog(this, "Gagal membuat URL verifikasi.\n" + kyc.errorMessage, "Gagal", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this,
+                        "Gagal membuat URL verifikasi.\n" + kyc.errorMessage,
+                        "Gagal", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e) {
             setStatus("Error: " + e.getMessage());

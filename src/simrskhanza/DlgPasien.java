@@ -8797,15 +8797,18 @@ private void KabupatenMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:eve
     }//GEN-LAST:event_textPerhatianActionPerformed
 
     private void MnKYCSatuSehatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnKYCSatuSehatActionPerformed
-//        if(TKtp.getText().trim().isEmpty()){
-//            javax.swing.JOptionPane.showMessageDialog(this, "Maaf, Silahkan isi NIK Pasien",
-//                    "Perhatian", javax.swing.JOptionPane.WARNING_MESSAGE);
-//            TKtp.requestFocus();
-//            return;
-//        }
-//        bridging.DlgVerifikasiProfilKYC dlg = new bridging.DlgVerifikasiProfilKYC(
-//                null, true
-//        );
+        if (TKtp.getText().trim().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Maaf, silahkan isi No.KTP/NIK pasien terlebih dahulu.",
+                    "Perhatian", javax.swing.JOptionPane.WARNING_MESSAGE);
+            TKtp.requestFocus();
+            return;
+        }
+        bridging.DlgVerifikasiProfilKYC dlg = new bridging.DlgVerifikasiProfilKYC(
+                null, true,
+                TKtp.getText().trim(),
+                TNm.getText().trim());
+        dlg.setVisible(true);
     }//GEN-LAST:event_MnKYCSatuSehatActionPerformed
 
     /**

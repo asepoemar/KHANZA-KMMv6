@@ -4,10 +4,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fungsi.koneksiDB;
+import java.util.Collections;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.web.client.HttpStatusCodeException;
+import org.springframework.web.client.RestClientResponseException;
 
 /**
  * Modul Verifikasi Profil KYC (Know Your Customer) SATUSEHAT
@@ -83,29 +86,58 @@ public class SatuSehatKYC {
                 errorMessage = err.isEmpty() ? "Gagal membuat URL verifikasi" : err;
                 return false;
             }
+
+        // ⬇️ Tambahkan blok ini sebelum catch(Exception e)
+        } catch (HttpStatusCodeException e) {
+            System.out.println("Status: " + e.getStatusCode());
+            System.out.println("Response body: " + e.getResponseBodyAsString());
+            errorMessage = "HTTP Error " + e.getStatusCode() + ": " + e.getResponseBodyAsString();
+            return false;
+
         } catch (Exception e) {
             errorMessage = e.getMessage();
             System.out.println("SatuSehatKYC generateValidationUrl: " + e);
             return false;
         }
     }
+    
 
     /**
      * POST JSON ke kyc_api.php, kembalikan response body sebagai String.
      * URL diambil dari database.xml key URLKYCPHP.
      */
+    
     private String callKycApi(ObjectNode body) throws Exception {
         String url = koneksiDB.URLKYCPHP();
         System.out.println("KYC API URL: " + url);
 
+        // Buat payload JSON
+        String payload = mapper.writeValueAsString(body);
+        System.out.println("Request JSON: " + payload);
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<String> request = new HttpEntity<>(mapper.writeValueAsString(body), headers);
-        String response = api.getRest()
-                .exchange(url, HttpMethod.POST, request, String.class)
-                .getBody();
-        System.out.println("KYC API raw response: " + response);
-        return response;
+        // Tambahkan Accept header
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+
+        // Log header
+        System.out.println("Headers: " + headers.toString());
+
+        HttpEntity<String> request = new HttpEntity<>(payload, headers);
+
+        try {
+            String response = api.getRest()
+                    .exchange(url, HttpMethod.POST, request, String.class)
+                    .getBody();
+            System.out.println("KYC API raw response: " + response);
+            return response;
+        } catch (RestClientResponseException e) {
+            // Tangkap error HTTP (misalnya 500)
+            System.out.println("Status: " + e.getRawStatusCode());
+            System.out.println("Response body: " + e.getResponseBodyAsString());
+            throw e; // lempar lagi supaya bisa ditangani di generateValidationUrl
+        }
     }
+
 }
