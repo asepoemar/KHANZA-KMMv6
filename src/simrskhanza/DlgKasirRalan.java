@@ -372,7 +372,7 @@ public final class DlgKasirRalan extends javax.swing.JDialog {
         try {
             if(koneksiDB.AKTIFKANWARNARALAN().equals("yes")){
                 tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan2());
-                System.out.println("Warna List Ralan Semua");
+                System.out.println("Warna List Ralan Semua Unit");
 //                tbKasirRalan.setDefaultRenderer(Object.class, new WarnaTableKasirRalan3());
 //                System.out.println("Warna List Ralan Dokter");
             }else{
