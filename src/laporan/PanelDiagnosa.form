@@ -66,7 +66,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-47,0,0,3,-55"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-47,0,0,4,-19"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout">
@@ -149,13 +149,16 @@
                 <Component class="javax.swing.JTextArea" name="jTextArea1">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="12" style="1"/>
+                    </Property>
                     <Property name="rows" type="int" value="5"/>
                     <Property name="text" type="java.lang.String" value="Apa arti parameter valid code, accpdx, asterisk, dan IM&#xa;pada code system INA-CBG dan iDRG?&#xa;&#xa;VC (Validcode)&#xa;0 = tidak bisa digunakan untuk coding, seperti header&#xa;1 = bisa digunakan untuk coding&#xa;&#xa;AP (Accpdx)&#xa;Y = bisa jadi diagnosa primer&#xa;N = tidak bisa jadi diagnosa primer&#xa;&#xa;Ast (Asterisk)&#xa;0 = bukan kode asterisk&#xa;1 = kode asterisk, biasanya ada tanda (*)&#xa;&#xa;kode asterisk tidak bisa digunakan&#xa;sebagai diagnosa primer&#xa;&#xa;IM (Indonesian Modification)&#xa;0 = bukan kode IM&#xa;&#xa;https://faq.kemkes.go.id/"/>
                     <Property name="autoscrolls" type="boolean" value="false"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="860" y="10" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="840" y="10" width="330" height="380"/>
                     </Constraint>
                   </Constraints>
                 </Component>

@@ -387,11 +387,12 @@ public class PanelDiagnosa extends widget.panelisi {
         FormData.setLayout(null);
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jTextArea1.setRows(5);
         jTextArea1.setText("Apa arti parameter valid code, accpdx, asterisk, dan IM\npada code system INA-CBG dan iDRG?\n\nVC (Validcode)\n0 = tidak bisa digunakan untuk coding, seperti header\n1 = bisa digunakan untuk coding\n\nAP (Accpdx)\nY = bisa jadi diagnosa primer\nN = tidak bisa jadi diagnosa primer\n\nAst (Asterisk)\n0 = bukan kode asterisk\n1 = kode asterisk, biasanya ada tanda (*)\n\nkode asterisk tidak bisa digunakan\nsebagai diagnosa primer\n\nIM (Indonesian Modification)\n0 = bukan kode IM\n\nhttps://faq.kemkes.go.id/");
         jTextArea1.setAutoscrolls(false);
         FormData.add(jTextArea1);
-        jTextArea1.setBounds(860, 10, 300, 356);
+        jTextArea1.setBounds(840, 10, 330, 380);
 
         jLabel13.setText("Diagnosa :");
         FormData.add(jLabel13);

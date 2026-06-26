@@ -832,41 +832,37 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
     // End of variables declaration//GEN-END:variables
 
     private void tampil(String order) {
-        String sql="";
-        if(TCari.getText().equals("")){
-            sql="select poliklinik.kd_poli,poliklinik.nm_poli,poliklinik.registrasi,poliklinik.registrasilama "+
-                "from poliklinik where poliklinik.status='1' "+order;
-        }else if(!TCari.getText().equals("")){
-            sql="select poliklinik.kd_poli,poliklinik.nm_poli,poliklinik.registrasi,poliklinik.registrasilama "+
-                "from poliklinik where poliklinik.status='1' and poliklinik.kd_poli like '%"+TCari.getText().trim()+"%' or "+
-                "poliklinik.status='1' and poliklinik.nm_poli like '%"+TCari.getText().trim()+"%' "+order;
-        } 
-        prosesCari(sql);
-    }
-
-    private void prosesCari(String sql) {
         Valid.tabelKosong(tabMode);
         try {
-            stat=koneksi.prepareStatement(sql);
-            try{
-                rs=stat.executeQuery();
-                while(rs.next()){
-                    tabMode.addRow(new Object[]{false,rs.getString(1),
-                                   rs.getString(2),
-                                   rs.getDouble(3),
-                                   rs.getDouble(4)});
+            String sql="";
+            if(TCari.getText().equals("")){
+                sql="select poliklinik.kd_poli,poliklinik.nm_poli,poliklinik.registrasi,poliklinik.registrasilama "+
+                    "from poliklinik where poliklinik.status='1' "+order;
+            }else if(!TCari.getText().equals("")){
+                sql="select poliklinik.kd_poli,poliklinik.nm_poli,poliklinik.registrasi,poliklinik.registrasilama "+
+                    "from poliklinik where poliklinik.status='1' and poliklinik.kd_poli like '%"+TCari.getText().trim()+"%' or "+
+                    "poliklinik.status='1' and poliklinik.nm_poli like '%"+TCari.getText().trim()+"%' "+order;
+            } 
+                stat=koneksi.prepareStatement(sql);
+                try{
+                    rs=stat.executeQuery();
+                    while(rs.next()){
+                        tabMode.addRow(new Object[]{false,rs.getString(1),
+                                       rs.getString(2),
+                                       rs.getDouble(3),
+                                       rs.getDouble(4)});
+                    }
+                }catch(SQLException e){
+                    System.out.println("Notifikasi : "+e);
+                }finally{
+                    if( rs != null){
+                        rs.close();
+                    }
+
+                    if( stat != null){
+                        stat.close();
+                    }
                 }
-            }catch(SQLException e){
-                System.out.println("Notifikasi : "+e);
-            }finally{
-                if( rs != null){
-                    rs.close();
-                }
-                
-                if( stat != null){
-                    stat.close();
-                }
-            }
         } catch (Exception e) {
             System.out.println("Notifikasi : "+e);
         }
